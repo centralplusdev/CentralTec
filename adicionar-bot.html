@@ -1,17 +1,333 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Adicionar Bot - Central+</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Adicionar um Bot - Central+</title>
 
     <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* ÁREA DO TUTORIAL */
+
+        .tutorial-container {
+
+            max-width: 900px;
+
+            margin: 50px auto;
+
+            padding: 0 20px;
+
+        }
+
+
+        .video-box {
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            background: #080b12;
+
+            border: 1px solid #252d3b;
+
+            border-radius: 18px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.25);
+
+        }
+
+
+        .video-placeholder {
+
+            text-align: center;
+
+            color: #8f99aa;
+
+        }
+
+
+        .play {
+
+            width: 70px;
+
+            height: 70px;
+
+            margin: auto auto 15px;
+
+            border-radius: 50%;
+
+            background: #4da3ff;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 28px;
+
+        }
+
+
+        .etapa {
+
+            display: none;
+
+            margin-top: 35px;
+
+            animation: aparecer .35s ease;
+
+        }
+
+
+        .etapa.ativa {
+
+            display: block;
+
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(15px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .numero-etapa {
+
+            color: #4da3ff;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .etapa h2 {
+
+            font-size: 28px;
+
+            margin: 0 0 12px;
+
+        }
+
+
+        .etapa p {
+
+            color: #9aa4b5;
+
+            line-height: 1.7;
+
+        }
+
+
+        .imagem-etapa {
+
+            width: 100%;
+
+            min-height: 220px;
+
+            margin-top: 25px;
+
+            border-radius: 15px;
+
+            border: 1px solid #252d3b;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101622,
+                    #080b12
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: #697386;
+
+            padding: 30px;
+
+        }
+
+
+        .controles {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 30px;
+
+            gap: 15px;
+
+        }
+
+
+        .controle {
+
+            padding: 13px 22px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background: #151b27;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .controle:hover {
+
+            background: #202938;
+
+        }
+
+
+        .controle.proximo {
+
+            background: #4da3ff;
+
+        }
+
+
+        .controle:disabled {
+
+            opacity: .35;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .progresso {
+
+            height: 5px;
+
+            background: #151b27;
+
+            border-radius: 20px;
+
+            margin-top: 25px;
+
+            overflow: hidden;
+
+        }
+
+
+        .barra {
+
+            width: 20%;
+
+            height: 100%;
+
+            background: #4da3ff;
+
+            transition: width .3s ease;
+
+        }
+
+
+        .dica {
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            border-left: 3px solid #4da3ff;
+
+            background: rgba(77,163,255,.06);
+
+            border-radius: 8px;
+
+            color: #aeb7c6;
+
+        }
+
+
+        .conclusao {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+            padding: 30px;
+
+            border: 1px solid #252d3b;
+
+            border-radius: 15px;
+
+            background: #0b1019;
+
+        }
+
+
+        .conclusao h2 {
+
+            margin-top: 0;
+
+        }
+
+    </style>
+
 </head>
 
+
 <body>
+
 
 <header class="topo">
 
@@ -19,99 +335,363 @@
         Central<span>+</span>
     </div>
 
+
     <nav>
-        <a href="index.html">Início</a>
-        <a href="discord.html">Discord</a>
-        <a href="bots.html">Bots</a>
+
+        <a href="index.html">
+            Início
+        </a>
+
+        <a href="discord.html">
+            Discord
+        </a>
+
+        <a href="bots.html">
+            Bots
+        </a>
+
     </nav>
 
 </header>
 
 
+
 <main>
+
 
 <section class="sobre">
 
-    <p class="tag">DISCORD • BOTS</p>
-
-    <h1>Adicionar um Bot</h1>
-
-    <p>
-        Aprenda como adicionar um bot ao seu servidor
-        de forma simples e segura.
+    <p class="tag">
+        DISCORD • BOTS
     </p>
 
-    <a href="bots.html" class="botao">
+
+    <h1>
+        Como adicionar um Bot
+    </h1>
+
+
+    <p>
+        Aprenda passo a passo como adicionar
+        um bot ao seu servidor do Discord.
+    </p>
+
+
+    <a
+        href="bots.html"
+        class="botao"
+    >
         ← Voltar para Bots
     </a>
 
 </section>
 
 
-<section class="tutoriais">
 
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="icone">1️⃣</div>
-
-            <h3>Escolha o bot</h3>
-
-            <p>
-                Escolha um bot confiável que tenha
-                as funções que seu servidor precisa.
-            </p>
-
-        </div>
+<section class="tutorial-container">
 
 
-        <div class="card">
+    <!-- VÍDEO -->
 
-            <div class="icone">2️⃣</div>
+    <div class="video-box">
 
-            <h3>Abra a página do bot</h3>
+        <div class="video-placeholder">
+
+            <div class="play">
+                ▶
+            </div>
+
+            <strong>
+                Vídeo tutorial
+            </strong>
 
             <p>
-                Entre na página oficial do bot e
-                procure a opção para adicioná-lo.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icone">3️⃣</div>
-
-            <h3>Selecione o servidor</h3>
-
-            <p>
-                Escolha o servidor onde deseja
-                instalar o bot.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icone">4️⃣</div>
-
-            <h3>Revise as permissões</h3>
-
-            <p>
-                Confira cuidadosamente as permissões
-                solicitadas antes de autorizar.
+                O vídeo será adicionado aqui.
             </p>
 
         </div>
 
     </div>
 
+
+
+    <!-- PROGRESSO -->
+
+    <div class="progresso">
+
+        <div
+            class="barra"
+            id="barra"
+        ></div>
+
+    </div>
+
+
+
+    <!-- ETAPA 1 -->
+
+    <div class="etapa ativa">
+
+        <div class="numero-etapa">
+            ETAPA 1 DE 5
+        </div>
+
+
+        <h2>
+            Escolha um Bot
+        </h2>
+
+
+        <p>
+            Primeiro, escolha um bot confiável que
+            tenha as funções que você deseja utilizar
+            no seu servidor.
+        </p>
+
+
+        <div class="imagem-etapa">
+
+            🖼️
+
+            <br>
+
+            Aqui ficará a imagem mostrando
+            onde escolher o bot.
+
+        </div>
+
+
+        <div class="dica">
+
+            💡 <strong>Dica:</strong>
+            Antes de adicionar qualquer bot,
+            confira se ele é confiável e se
+            realmente precisa das permissões
+            solicitadas.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ETAPA 2 -->
+
+    <div class="etapa">
+
+        <div class="numero-etapa">
+            ETAPA 2 DE 5
+        </div>
+
+
+        <h2>
+            Abra a página do Bot
+        </h2>
+
+
+        <p>
+            Entre na página oficial do bot e procure
+            a opção utilizada para adicioná-lo ao
+            Discord.
+        </p>
+
+
+        <div class="imagem-etapa">
+
+            🖼️
+
+            <br>
+
+            Aqui ficará a imagem mostrando
+            o botão de adicionar.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ETAPA 3 -->
+
+    <div class="etapa">
+
+        <div class="numero-etapa">
+            ETAPA 3 DE 5
+        </div>
+
+
+        <h2>
+            Escolha o servidor
+        </h2>
+
+
+        <p>
+            Depois de iniciar o processo de autorização,
+            selecione o servidor no qual deseja instalar
+            o bot.
+        </p>
+
+
+        <div class="imagem-etapa">
+
+            🖼️
+
+            <br>
+
+            Aqui ficará a imagem mostrando
+            a seleção do servidor.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ETAPA 4 -->
+
+    <div class="etapa">
+
+        <div class="numero-etapa">
+            ETAPA 4 DE 5
+        </div>
+
+
+        <h2>
+            Confira as permissões
+        </h2>
+
+
+        <p>
+            Antes de confirmar, confira cuidadosamente
+            as permissões solicitadas pelo bot.
+        </p>
+
+
+        <div class="imagem-etapa">
+
+            🖼️
+
+            <br>
+
+            Aqui ficará a imagem mostrando
+            as permissões.
+
+        </div>
+
+
+        <div class="dica">
+
+            ⚠️ <strong>Atenção:</strong>
+            evite conceder permissões desnecessárias.
+            Quanto menores os privilégios, melhor.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ETAPA 5 -->
+
+    <div class="etapa">
+
+        <div class="numero-etapa">
+            ETAPA 5 DE 5
+        </div>
+
+
+        <h2>
+            Autorize o Bot
+        </h2>
+
+
+        <p>
+            Depois de conferir tudo, confirme a
+            autorização. O bot será adicionado ao
+            servidor se a instalação for concluída.
+        </p>
+
+
+        <div class="imagem-etapa">
+
+            🖼️
+
+            <br>
+
+            Aqui ficará a imagem mostrando
+            a confirmação.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CONTROLES -->
+
+    <div class="controles">
+
+        <button
+            class="controle"
+            id="anterior"
+            onclick="mudarEtapa(-1)"
+            disabled
+        >
+            ← Anterior
+        </button>
+
+
+        <span id="contador">
+            1 / 5
+        </span>
+
+
+        <button
+            class="controle proximo"
+            id="proximo"
+            onclick="mudarEtapa(1)"
+        >
+            Próximo →
+        </button>
+
+    </div>
+
+
+
+    <!-- CONCLUSÃO -->
+
+    <div
+        class="conclusao"
+        id="conclusao"
+        style="display:none;"
+    >
+
+        <h2>
+            🎉 Tutorial concluído!
+        </h2>
+
+
+        <p>
+            Agora você já sabe o processo básico
+            para adicionar um bot ao seu servidor.
+        </p>
+
+
+        <a
+            href="bots.html"
+            class="botao"
+        >
+            Voltar para Bots
+        </a>
+
+    </div>
+
+
 </section>
 
+
 </main>
+
 
 
 <footer>
@@ -121,6 +701,136 @@
     </p>
 
 </footer>
+
+
+
+<script>
+
+    let etapaAtual = 0;
+
+
+    const etapas =
+        document.querySelectorAll(".etapa");
+
+
+    const anterior =
+        document.getElementById("anterior");
+
+
+    const proximo =
+        document.getElementById("proximo");
+
+
+    const contador =
+        document.getElementById("contador");
+
+
+    const barra =
+        document.getElementById("barra");
+
+
+    const conclusao =
+        document.getElementById("conclusao");
+
+
+
+    function atualizar() {
+
+
+        etapas.forEach(
+            etapa => etapa.classList.remove("ativa")
+        );
+
+
+        etapas[etapaAtual]
+            .classList.add("ativa");
+
+
+        contador.textContent =
+            `${etapaAtual + 1} / ${etapas.length}`;
+
+
+        const porcentagem =
+            ((etapaAtual + 1) / etapas.length) * 100;
+
+
+        barra.style.width =
+            porcentagem + "%";
+
+
+        anterior.disabled =
+            etapaAtual === 0;
+
+
+        if (
+            etapaAtual === etapas.length - 1
+        ) {
+
+            proximo.textContent =
+                "Concluir ✓";
+
+        } else {
+
+            proximo.textContent =
+                "Próximo →";
+
+        }
+
+    }
+
+
+
+    function mudarEtapa(direcao) {
+
+
+        const novaEtapa =
+            etapaAtual + direcao;
+
+
+        if (
+            novaEtapa < 0 ||
+            novaEtapa >= etapas.length
+        ) {
+
+
+            if (
+                novaEtapa >= etapas.length
+            ) {
+
+                conclusao.style.display =
+                    "block";
+
+
+                proximo.style.display =
+                    "none";
+
+            }
+
+
+            return;
+
+        }
+
+
+        etapaAtual =
+            novaEtapa;
+
+
+        atualizar();
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+</script>
+
 
 </body>
 
