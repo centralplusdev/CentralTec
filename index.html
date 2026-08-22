@@ -11,26 +11,149 @@
 
 <body>
 
-    <header>
-        <h1>Central de Tutoriais</h1>
-        <p>Aprenda a configurar seus servidores passo a passo.</p>
+    <header class="topo">
+        <div class="logo">
+            Central<span>+</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#tutoriais">Tutoriais</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
     </header>
 
+
     <main>
-        <section>
-            <h2>Bem-vindo!</h2>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-texto">
+
+                <p class="tag">GUIA • APRENDIZADO • TECNOLOGIA</p>
+
+                <h1>
+                    Aprenda a configurar
+                    <span>do jeito certo.</span>
+                </h1>
+
+                <p class="descricao">
+                    Tutoriais simples e organizados para você aprender
+                    a configurar servidores, ferramentas e projetos.
+                </p>
+
+                <a href="#tutoriais" class="botao">
+                    Ver tutoriais →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="tutoriais" id="tutoriais">
+
+            <div class="titulo-secao">
+                <p class="tag">CATEGORIAS</p>
+
+                <h2>
+                    Escolha um tutorial
+                </h2>
+
+                <p>
+                    Encontre o conteúdo que você precisa.
+                </p>
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="icone">⚙️</div>
+
+                    <h3>Servidores</h3>
+
+                    <p>
+                        Aprenda a configurar e organizar
+                        seus servidores passo a passo.
+                    </p>
+
+                    <button onclick="abrirTutorial('Servidores')">
+                        Acessar →
+                    </button>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icone">🤖</div>
+
+                    <h3>Discord</h3>
+
+                    <p>
+                        Configure bots, cargos, canais
+                        e sistemas para sua comunidade.
+                    </p>
+
+                    <button onclick="abrirTutorial('Discord')">
+                        Acessar →
+                    </button>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icone">💻</div>
+
+                    <h3>Web</h3>
+
+                    <p>
+                        Aprenda HTML, CSS, JavaScript
+                        e criação de sites.
+                    </p>
+
+                    <button onclick="abrirTutorial('Web')">
+                        Acessar →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="sobre" id="sobre">
+
+            <p class="tag">SOBRE O PROJETO</p>
+
+            <h2>
+                Conhecimento sem complicação.
+            </h2>
 
             <p>
-                Aqui você encontrará tutoriais simples e organizados
-                para configurar seu servidor.
+                Nossa missão é transformar configurações complicadas
+                em tutoriais fáceis de entender e seguir.
             </p>
 
-            <button onclick="mostrarMensagem()">
-                Começar
-            </button>
         </section>
+
     </main>
 
+
+    <footer>
+
+        <p>
+            © 2026 Central+ • Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
     <script src="script.js"></script>
+
 </body>
 </html>
