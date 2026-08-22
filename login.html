@@ -1,1 +1,117 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Central+</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <div class="login-box">
+
+            <div class="logo login-logo">
+                Central<span>+</span>
+            </div>
+
+            <p class="tag">BEM-VINDO DE VOLTA</p>
+
+            <h1>Entrar</h1>
+
+            <p class="login-descricao">
+                Entre na sua conta para continuar.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="campo">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="seu@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit" class="botao login-botao">
+                    Entrar →
+                </button>
+
+            </form>
+
+
+            <p id="mensagem" class="login-mensagem"></p>
+
+
+            <div class="login-links">
+
+                <a href="index.html">
+                    ← Voltar para o início
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const formulario = document.getElementById("loginForm");
+        const mensagem = document.getElementById("mensagem");
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+
+            if (email && senha) {
+
+                mensagem.textContent =
+                    "Login recebido! A autenticação real será adicionada em breve.";
+
+                mensagem.style.display = "block";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
