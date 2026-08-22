@@ -22,8 +22,6 @@
             padding: 0 20px;
         }
 
-        /* PROGRESSO */
-
         .progresso {
             height: 5px;
             background: #151b27;
@@ -38,8 +36,6 @@
             background: #4da3ff;
             transition: width .3s ease;
         }
-
-        /* ETAPAS */
 
         .etapa {
             display: none;
@@ -66,30 +62,40 @@
         }
 
         .numero-etapa {
+
             color: #4da3ff;
+
             font-size: 12px;
+
             font-weight: bold;
+
             letter-spacing: 3px;
+
             margin-bottom: 8px;
+
         }
 
         .etapa h2 {
+
             font-size: 28px;
+
             margin: 0 0 12px;
+
         }
 
         .etapa p {
+
             color: #9aa4b5;
+
             line-height: 1.7;
+
         }
 
-        /* ÁREA DA IMAGEM */
+        /* IMAGEM */
 
         .imagem-etapa {
 
             width: 100%;
-
-            min-height: 260px;
 
             margin-top: 25px;
 
@@ -97,30 +103,21 @@
 
             border: 1px solid #252d3b;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #101622,
-                    #080b12
-                );
+            overflow: hidden;
 
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            color: #697386;
-
-            padding: 30px;
-
-            box-sizing: border-box;
+            background: #080b12;
 
         }
 
-        /* DICAS */
+        .imagem-etapa img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+        }
 
         .dica {
 
@@ -137,8 +134,6 @@
             color: #aeb7c6;
 
         }
-
-        /* CONTROLES */
 
         .controles {
 
@@ -191,8 +186,6 @@
             cursor: not-allowed;
 
         }
-
-        /* CONCLUSÃO */
 
         .conclusao {
 
@@ -288,7 +281,7 @@
 <section class="tutorial-container">
 
 
-    <!-- BARRA DE PROGRESSO -->
+    <!-- PROGRESSO -->
 
     <div class="progresso">
 
@@ -324,11 +317,10 @@
 
         <div class="imagem-etapa">
 
-            🖼️
-
-            <br><br>
-
-            A imagem da Etapa 1 será colocada aqui.
+            <img
+                src="etapa1-bot.png"
+                alt="Etapa 1 - Escolha do Bot"
+            >
 
         </div>
 
@@ -368,11 +360,10 @@
 
         <div class="imagem-etapa">
 
-            🖼️
-
-            <br><br>
-
-            A imagem da Etapa 2 será colocada aqui.
+            <img
+                src="etapa2-bot.png"
+                alt="Etapa 2 - Página do Bot"
+            >
 
         </div>
 
@@ -402,11 +393,10 @@
 
         <div class="imagem-etapa">
 
-            🖼️
-
-            <br><br>
-
-            A imagem da Etapa 3 será colocada aqui.
+            <img
+                src="etapa3-bot.png"
+                alt="Etapa 3 - Escolha do servidor"
+            >
 
         </div>
 
@@ -436,11 +426,10 @@
 
         <div class="imagem-etapa">
 
-            🖼️
-
-            <br><br>
-
-            A imagem da Etapa 4 será colocada aqui.
+            <img
+                src="etapa4-bot.png"
+                alt="Etapa 4 - Permissões"
+            >
 
         </div>
 
@@ -481,11 +470,10 @@
 
         <div class="imagem-etapa">
 
-            🖼️
-
-            <br><br>
-
-            A imagem da Etapa 5 será colocada aqui.
+            <img
+                src="etapa5-bot.png"
+                alt="Etapa 5 - Autorização do Bot"
+            >
 
         </div>
 
@@ -602,7 +590,6 @@
 
     function atualizar() {
 
-
         etapas.forEach(
             etapa => etapa.classList.remove("ativa")
         );
@@ -648,7 +635,6 @@
 
     function mudarEtapa(direcao) {
 
-
         const novaEtapa =
             etapaAtual + direcao;
 
@@ -662,14 +648,11 @@
 
         if (novaEtapa >= etapas.length) {
 
-
             conclusao.style.display =
                 "block";
 
-
             proximo.style.display =
                 "none";
-
 
             return;
 
@@ -699,258 +682,3 @@
 </body>
 
 </html>
-
-        <div class="imagem-etapa">
-
-            🖼️
-
-            <br>
-
-            A imagem da etapa será colocada aqui.
-
-        </div>
-
-
-        <div class="dica">
-
-            ⚠️ <strong>Atenção:</strong>
-            evite conceder permissões desnecessárias.
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ETAPA 5 -->
-
-    <div class="etapa">
-
-        <div class="numero-etapa">
-            ETAPA 5 DE 5
-        </div>
-
-
-        <h2>
-            Autorize o Bot
-        </h2>
-
-
-        <p>
-            Depois de conferir tudo, confirme a
-            autorização para finalizar a instalação.
-        </p>
-
-
-        <div class="imagem-etapa">
-
-            🖼️
-
-            <br>
-
-            A imagem da etapa será colocada aqui.
-
-        </div>
-
-    </div>
-
-
-
-    <!-- CONTROLES -->
-
-    <div class="controles">
-
-        <button
-            class="controle"
-            id="anterior"
-            onclick="mudarEtapa(-1)"
-            disabled
-        >
-            ← Anterior
-        </button>
-
-
-        <span id="contador">
-            1 / 5
-        </span>
-
-
-        <button
-            class="controle proximo"
-            id="proximo"
-            onclick="mudarEtapa(1)"
-        >
-            Próximo →
-        </button>
-
-    </div>
-
-
-
-    <!-- CONCLUSÃO -->
-
-    <div
-        class="conclusao"
-        id="conclusao"
-        style="display:none;"
-    >
-
-        <h2>
-            🎉 Tutorial concluído!
-        </h2>
-
-
-        <p>
-            Agora você já sabe o processo básico
-            para adicionar um bot ao seu servidor.
-        </p>
-
-
-        <a
-            href="bots.html"
-            class="botao"
-        >
-            Voltar para Bots
-        </a>
-
-    </div>
-
-
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-    <p>
-        © 2026 Central+ • Todos os direitos reservados.
-    </p>
-
-</footer>
-
-
-
-<script>
-
-    let etapaAtual = 0;
-
-
-    const etapas =
-        document.querySelectorAll(".etapa");
-
-
-    const anterior =
-        document.getElementById("anterior");
-
-
-    const proximo =
-        document.getElementById("proximo");
-
-
-    const contador =
-        document.getElementById("contador");
-
-
-    const barra =
-        document.getElementById("barra");
-
-
-    const conclusao =
-        document.getElementById("conclusao");
-
-
-
-    function atualizar() {
-
-        etapas.forEach(
-            etapa => etapa.classList.remove("ativa")
-        );
-
-
-        etapas[etapaAtual]
-            .classList.add("ativa");
-
-
-        contador.textContent =
-            `${etapaAtual + 1} / ${etapas.length}`;
-
-
-        const porcentagem =
-            ((etapaAtual + 1) / etapas.length) * 100;
-
-
-        barra.style.width =
-            porcentagem + "%";
-
-
-        anterior.disabled =
-            etapaAtual === 0;
-
-
-        if (
-            etapaAtual === etapas.length - 1
-        ) {
-
-            proximo.textContent =
-                "Concluir ✓";
-
-        } else {
-
-            proximo.textContent =
-                "Próximo →";
-
-        }
-
-    }
-
-
-
-    function mudarEtapa(direcao) {
-
-        const novaEtapa =
-            etapaAtual + direcao;
-
-
-        if (novaEtapa < 0) {
-            return;
-        }
-
-
-        if (novaEtapa >= etapas.length) {
-
-            conclusao.style.display =
-                "block";
-
-            proximo.style.display =
-                "none";
-
-            return;
-        }
-
-
-        etapaAtual =
-            novaEtapa;
-
-
-        atualizar();
-
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    }
-
-</script>
-
-
-</body>
-
-</html>  
