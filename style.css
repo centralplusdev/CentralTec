@@ -1,3 +1,215 @@
-function mostrarMensagem() {
-    alert("Bem-vindo à Central de Tutoriais! 🚀");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070b10;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.topo {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b1118;
+    border-bottom: 1px solid #1c2733;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #3b82f6;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #aeb8c4;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #3b82f6;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+        radial-gradient(circle at center, #14243a 0%, #070b10 60%);
+}
+
+.hero-texto {
+    max-width: 850px;
+}
+
+.tag {
+    color: #3b82f6;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #3b82f6;
+}
+
+.descricao {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #aeb8c4;
+    font-size: 18px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.tutoriais {
+    max-width: 1150px;
+    margin: auto;
+    padding: 100px 20px;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-secao h2,
+.sobre h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.titulo-secao p:last-child {
+    color: #8f9baa;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+    background: #0d141c;
+    border: 1px solid #1c2733;
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #2563eb;
+}
+
+.icone {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #8f9baa;
+    margin-bottom: 25px;
+}
+
+.card button {
+    border: none;
+    background: transparent;
+    color: #3b82f6;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sobre {
+    max-width: 800px;
+    margin: auto;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.sobre p:last-child {
+    color: #aeb8c4;
+    font-size: 17px;
+}
+
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #1c2733;
+    color: #687585;
+}
+
+@media (max-width: 800px) {
+
+    .topo {
+        padding: 18px 5%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
 }
