@@ -5,320 +5,174 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Adicionar um Bot - Central+</title>
 
     <link rel="stylesheet" href="style.css">
 
-
     <style>
 
-        /* ÁREA DO TUTORIAL */
-
         .tutorial-container {
-
             max-width: 900px;
-
             margin: 50px auto;
-
             padding: 0 20px;
-
         }
 
+        /* VÍDEO */
 
         .video-box {
-
             width: 100%;
-
             aspect-ratio: 16 / 9;
-
             background: #080b12;
-
             border: 1px solid #252d3b;
-
             border-radius: 18px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
             overflow: hidden;
-
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.25);
-
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
         }
 
-
-        .video-placeholder {
-
-            text-align: center;
-
-            color: #8f99aa;
-
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
         }
 
+        /* PROGRESSO */
 
-        .play {
+        .progresso {
+            height: 5px;
+            background: #151b27;
+            border-radius: 20px;
+            margin-top: 25px;
+            overflow: hidden;
+        }
 
-            width: 70px;
-
-            height: 70px;
-
-            margin: auto auto 15px;
-
-            border-radius: 50%;
-
+        .barra {
+            width: 20%;
+            height: 100%;
             background: #4da3ff;
-
-            color: white;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            font-size: 28px;
-
+            transition: width .3s ease;
         }
 
+        /* ETAPAS */
 
         .etapa {
-
             display: none;
-
             margin-top: 35px;
-
             animation: aparecer .35s ease;
-
         }
-
 
         .etapa.ativa {
-
             display: block;
-
         }
-
 
         @keyframes aparecer {
 
             from {
-
                 opacity: 0;
-
                 transform: translateY(15px);
-
             }
 
             to {
-
                 opacity: 1;
-
                 transform: translateY(0);
-
             }
 
         }
 
-
         .numero-etapa {
-
             color: #4da3ff;
-
             font-size: 12px;
-
             font-weight: bold;
-
             letter-spacing: 3px;
-
             margin-bottom: 8px;
-
         }
-
 
         .etapa h2 {
-
             font-size: 28px;
-
             margin: 0 0 12px;
-
         }
-
 
         .etapa p {
-
             color: #9aa4b5;
-
             line-height: 1.7;
-
         }
 
+        /* IMAGENS */
 
         .imagem-etapa {
-
             width: 100%;
-
             min-height: 220px;
-
             margin-top: 25px;
-
             border-radius: 15px;
-
             border: 1px solid #252d3b;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #101622,
-                    #080b12
-                );
-
+            background: linear-gradient(135deg, #101622, #080b12);
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             text-align: center;
-
             color: #697386;
-
             padding: 30px;
-
         }
 
-
-        .controles {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-top: 30px;
-
-            gap: 15px;
-
-        }
-
-
-        .controle {
-
-            padding: 13px 22px;
-
-            border: 0;
-
-            border-radius: 10px;
-
-            background: #151b27;
-
-            color: white;
-
-            cursor: pointer;
-
-            transition: .2s;
-
-        }
-
-
-        .controle:hover {
-
-            background: #202938;
-
-        }
-
-
-        .controle.proximo {
-
-            background: #4da3ff;
-
-        }
-
-
-        .controle:disabled {
-
-            opacity: .35;
-
-            cursor: not-allowed;
-
-        }
-
-
-        .progresso {
-
-            height: 5px;
-
-            background: #151b27;
-
-            border-radius: 20px;
-
-            margin-top: 25px;
-
-            overflow: hidden;
-
-        }
-
-
-        .barra {
-
-            width: 20%;
-
-            height: 100%;
-
-            background: #4da3ff;
-
-            transition: width .3s ease;
-
-        }
-
+        /* DICAS */
 
         .dica {
-
             margin-top: 25px;
-
             padding: 18px;
-
             border-left: 3px solid #4da3ff;
-
             background: rgba(77,163,255,.06);
-
             border-radius: 8px;
-
             color: #aeb7c6;
-
         }
 
+        /* CONTROLES */
+
+        .controles {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .controle {
+            padding: 13px 22px;
+            border: 0;
+            border-radius: 10px;
+            background: #151b27;
+            color: white;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .controle:hover {
+            background: #202938;
+        }
+
+        .controle.proximo {
+            background: #4da3ff;
+        }
+
+        .controle:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+
+        /* CONCLUSÃO */
 
         .conclusao {
-
             text-align: center;
-
             margin-top: 35px;
-
             padding: 30px;
-
             border: 1px solid #252d3b;
-
             border-radius: 15px;
-
             background: #0b1019;
-
         }
 
-
         .conclusao h2 {
-
             margin-top: 0;
-
         }
 
     </style>
@@ -395,21 +249,21 @@
 
     <div class="video-box">
 
-        <div class="video-placeholder">
+        <video
+            controls
+            playsinline
+            preload="metadata"
+        >
 
-            <div class="play">
-                ▶
-            </div>
+            <source
+                src="adicionar-bot.mp4"
+                type="video/mp4"
+            >
 
-            <strong>
-                Vídeo tutorial
-            </strong>
+            Seu navegador não conseguiu reproduzir
+            este vídeo.
 
-            <p>
-                O vídeo será adicionado aqui.
-            </p>
-
-        </div>
+        </video>
 
     </div>
 
@@ -455,8 +309,7 @@
 
             <br>
 
-            Aqui ficará a imagem mostrando
-            onde escolher o bot.
+            A imagem da etapa será colocada aqui.
 
         </div>
 
@@ -464,10 +317,8 @@
         <div class="dica">
 
             💡 <strong>Dica:</strong>
-            Antes de adicionar qualquer bot,
-            confira se ele é confiável e se
-            realmente precisa das permissões
-            solicitadas.
+            confira as permissões solicitadas
+            antes de adicionar um bot.
 
         </div>
 
@@ -490,9 +341,8 @@
 
 
         <p>
-            Entre na página oficial do bot e procure
-            a opção utilizada para adicioná-lo ao
-            Discord.
+            Entre na página do aplicativo e procure
+            a opção para adicioná-lo ao Discord.
         </p>
 
 
@@ -502,8 +352,7 @@
 
             <br>
 
-            Aqui ficará a imagem mostrando
-            o botão de adicionar.
+            A imagem da etapa será colocada aqui.
 
         </div>
 
@@ -526,9 +375,8 @@
 
 
         <p>
-            Depois de iniciar o processo de autorização,
-            selecione o servidor no qual deseja instalar
-            o bot.
+            Selecione o servidor no qual você
+            deseja instalar o aplicativo.
         </p>
 
 
@@ -538,8 +386,7 @@
 
             <br>
 
-            Aqui ficará a imagem mostrando
-            a seleção do servidor.
+            A imagem da etapa será colocada aqui.
 
         </div>
 
@@ -562,8 +409,8 @@
 
 
         <p>
-            Antes de confirmar, confira cuidadosamente
-            as permissões solicitadas pelo bot.
+            Confira cuidadosamente as permissões
+            solicitadas pelo aplicativo antes de continuar.
         </p>
 
 
@@ -573,8 +420,7 @@
 
             <br>
 
-            Aqui ficará a imagem mostrando
-            as permissões.
+            A imagem da etapa será colocada aqui.
 
         </div>
 
@@ -583,7 +429,6 @@
 
             ⚠️ <strong>Atenção:</strong>
             evite conceder permissões desnecessárias.
-            Quanto menores os privilégios, melhor.
 
         </div>
 
@@ -607,8 +452,7 @@
 
         <p>
             Depois de conferir tudo, confirme a
-            autorização. O bot será adicionado ao
-            servidor se a instalação for concluída.
+            autorização para finalizar a instalação.
         </p>
 
 
@@ -618,8 +462,7 @@
 
             <br>
 
-            Aqui ficará a imagem mostrando
-            a confirmação.
+            A imagem da etapa será colocada aqui.
 
         </div>
 
@@ -736,7 +579,6 @@
 
     function atualizar() {
 
-
         etapas.forEach(
             etapa => etapa.classList.remove("ativa")
         );
@@ -782,33 +624,24 @@
 
     function mudarEtapa(direcao) {
 
-
         const novaEtapa =
             etapaAtual + direcao;
 
 
-        if (
-            novaEtapa < 0 ||
-            novaEtapa >= etapas.length
-        ) {
+        if (novaEtapa < 0) {
+            return;
+        }
 
 
-            if (
-                novaEtapa >= etapas.length
-            ) {
+        if (novaEtapa >= etapas.length) {
 
-                conclusao.style.display =
-                    "block";
+            conclusao.style.display =
+                "block";
 
-
-                proximo.style.display =
-                    "none";
-
-            }
-
+            proximo.style.display =
+                "none";
 
             return;
-
         }
 
 
@@ -834,4 +667,4 @@
 
 </body>
 
-</html>
+</html>  
