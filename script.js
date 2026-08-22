@@ -1,4 +1,3 @@
-
-function mostrarMensagem() {
-    alert("Bem-vindo à Central de Tutoriais! 🚀");
+function abrirTutorial(categoria) {
+    alert("Você escolheu a categoria: " + categoria + " 🚀");
 }
