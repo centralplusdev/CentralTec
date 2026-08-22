@@ -2,109 +2,575 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login - Central+</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Central+ | Acesso</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #172033 0%,
+                    #080b12 45%,
+                    #030408 100%
+                );
+
+            color: white;
+
+            overflow: hidden;
+
+        }
+
+
+        /* TELA DE ANIMAÇÃO */
+
+        .intro {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #030408;
+
+            z-index: 10;
+
+            animation: desaparecer 1s ease 2.8s forwards;
+
+        }
+
+
+        .intro-logo {
+
+            font-size: 58px;
+
+            font-weight: 800;
+
+            letter-spacing: -3px;
+
+            opacity: 0;
+
+            transform: scale(.7);
+
+            animation:
+                aparecerLogo 1.2s ease forwards,
+                pulsar 1.5s ease 1.1s infinite;
+
+        }
+
+
+        .intro-logo span {
+
+            color: #4da3ff;
+
+        }
+
+
+        @keyframes aparecerLogo {
+
+            0% {
+
+                opacity: 0;
+
+                transform: scale(.7);
+
+                filter: blur(10px);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+                filter: blur(0);
+
+            }
+
+        }
+
+
+        @keyframes pulsar {
+
+            0%, 100% {
+
+                transform: scale(1);
+
+            }
+
+            50% {
+
+                transform: scale(1.05);
+
+            }
+
+        }
+
+
+        @keyframes desaparecer {
+
+            to {
+
+                opacity: 0;
+
+                visibility: hidden;
+
+            }
+
+        }
+
+
+
+        /* ÁREA DE LOGIN */
+
+        .login-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px;
+
+        }
+
+
+        .login-box {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            animation:
+                entrarLogin 1s ease 3s forwards;
+
+        }
+
+
+        @keyframes entrarLogin {
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .mini-logo {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .mini-logo span {
+
+            color: #4da3ff;
+
+        }
+
+
+        .tag {
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            color: #4da3ff;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        h1 {
+
+            margin: 0;
+
+            font-size: 38px;
+
+        }
+
+
+        .descricao {
+
+            color: #8f99aa;
+
+            margin: 12px 0 35px;
+
+        }
+
+
+        .campo {
+
+            text-align: left;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .campo label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            color: #dce2eb;
+
+        }
+
+
+        .campo input {
+
+            width: 100%;
+
+            padding: 16px 18px;
+
+            border: 1px solid #252d3b;
+
+            border-radius: 12px;
+
+            background: rgba(15, 19, 28, .85);
+
+            color: white;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: .25s;
+
+        }
+
+
+        .campo input:focus {
+
+            border-color: #4da3ff;
+
+            box-shadow:
+                0 0 0 3px rgba(77, 163, 255, .12);
+
+        }
+
+
+        .login-botao {
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #4da3ff;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .25s;
+
+        }
+
+
+        .login-botao:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 30px rgba(77, 163, 255, .2);
+
+        }
+
+
+        .mensagem {
+
+            min-height: 20px;
+
+            margin-top: 18px;
+
+            color: #ff6b6b;
+
+            font-size: 14px;
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .intro-logo {
+
+                font-size: 46px;
+
+            }
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+            .login-page {
+
+                padding: 22px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <main class="login-container">
+
+    <!-- ANIMAÇÃO INICIAL -->
+
+    <div class="intro">
+
+        <div class="intro-logo">
+
+            Central<span>+</span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LOGIN -->
+
+    <main class="login-page">
 
         <div class="login-box">
 
-            <div class="logo login-logo">
+
+            <div class="mini-logo">
+
                 Central<span>+</span>
+
             </div>
 
-            <p class="tag">ACESSO RESTRITO</p>
 
-            <h1>Entrar</h1>
+            <div class="tag">
 
-            <p class="login-descricao">
-                Entre para acessar os recursos da Central+.
+                ACESSO RESTRITO
+
+            </div>
+
+
+            <h1>
+
+                Bem-vindo
+
+            </h1>
+
+
+            <p class="descricao">
+
+                Entre para acessar a Central+.
+
             </p>
 
+
+
             <form id="loginForm">
+
 
                 <div class="campo">
 
                     <label for="usuario">
+
                         Usuário
+
                     </label>
 
+
                     <input
+
                         type="text"
+
                         id="usuario"
+
                         placeholder="Digite seu usuário"
+
                         autocomplete="username"
+
                         required
+
                     >
 
                 </div>
+
 
 
                 <div class="campo">
 
                     <label for="senha">
+
                         Senha
+
                     </label>
 
+
                     <input
+
                         type="password"
+
                         id="senha"
+
                         placeholder="Digite sua senha"
+
                         autocomplete="current-password"
+
                         required
+
                     >
 
                 </div>
 
 
-                <button type="submit" class="botao login-botao">
+
+                <button
+
+                    type="submit"
+
+                    class="login-botao"
+
+                >
+
                     Entrar →
+
                 </button>
+
 
             </form>
 
-            <p id="mensagem" class="login-mensagem"></p>
+
+            <p
+
+                id="mensagem"
+
+                class="mensagem"
+
+            ></p>
+
 
         </div>
 
     </main>
 
 
+
     <script>
 
-        const formulario = document.getElementById("loginForm");
-        const mensagem = document.getElementById("mensagem");
+        const formulario =
+            document.getElementById("loginForm");
 
-        formulario.addEventListener("submit", function(event) {
+        const mensagem =
+            document.getElementById("mensagem");
 
-            event.preventDefault();
 
-            const usuario = document.getElementById("usuario").value;
-            const senha = document.getElementById("senha").value;
+        formulario.addEventListener(
+            "submit",
+            function(event) {
 
-            if (usuario === "CentralTech" && senha === "Tech") {
+                event.preventDefault();
 
-                sessionStorage.setItem("centralLogin", "true");
 
-                window.location.href = "index.html";
+                const usuario =
+                    document.getElementById("usuario").value;
 
-            } else {
+                const senha =
+                    document.getElementById("senha").value;
 
-                mensagem.textContent = "Usuário ou senha incorretos.";
-                mensagem.style.display = "block";
+
+                if (
+                    usuario === "CentralTech" &&
+                    senha === "Tech"
+                ) {
+
+                    sessionStorage.setItem(
+                        "centralLogin",
+                        "true"
+                    );
+
+
+                    window.location.href =
+                        "index.html";
+
+
+                } else {
+
+                    mensagem.textContent =
+                        "Usuário ou senha incorretos.";
+
+                }
 
             }
-
-        });
+        );
 
     </script>
+
 
 </body>
 
