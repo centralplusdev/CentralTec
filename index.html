@@ -2,15 +2,35 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Central+ - Tutoriais</title>
 
     <link rel="stylesheet" href="style.css">
+
+
+    <!-- PROTEÇÃO DE ACESSO -->
+
+    <script>
+
+        if (sessionStorage.getItem("centralLogin") !== "true") {
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
 </head>
 
+
 <body>
+
+
+    <!-- MENU -->
 
     <header class="topo">
 
@@ -18,40 +38,67 @@
             Central<span>+</span>
         </div>
 
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#categorias">Categorias</a>
-            <a href="#sobre">Sobre</a>
 
-            <a href="login.html" class="botao">
-                Entrar
+        <nav>
+
+            <a href="#inicio">
+                Início
             </a>
+
+            <a href="#categorias">
+                Categorias
+            </a>
+
+            <a href="#sobre">
+                Sobre
+            </a>
+
+            <a href="login.html">
+                Conta
+            </a>
+
         </nav>
 
     </header>
 
 
+
     <main>
+
+
+        <!-- INÍCIO -->
 
         <section class="hero" id="inicio">
 
             <div class="hero-texto">
 
-                <p class="tag">CENTRAL DE TUTORIAIS</p>
+                <p class="tag">
+                    CENTRAL DE TUTORIAIS
+                </p>
+
 
                 <h1>
+
                     Aprenda.
                     <span>Configure.</span>
                     Evolua.
+
                 </h1>
 
+
                 <p class="descricao">
-                    Tutoriais simples e organizados para você aprender
-                    sobre tecnologia, servidores, programação e muito mais.
+
+                    Tutoriais simples e organizados para você
+                    aprender sobre tecnologia, servidores,
+                    programação e muito mais.
+
                 </p>
 
+
                 <a href="#categorias" class="botao">
+
                     Começar →
+
                 </a>
 
             </div>
@@ -59,15 +106,23 @@
         </section>
 
 
+
+        <!-- CATEGORIAS -->
+
         <section class="tutoriais" id="categorias">
+
 
             <div class="titulo-secao">
 
-                <p class="tag">CATEGORIAS</p>
+                <p class="tag">
+                    CATEGORIAS
+                </p>
+
 
                 <h2>
                     O que você quer aprender?
                 </h2>
+
 
                 <p>
                     Escolha uma categoria para começar.
@@ -76,115 +131,201 @@
             </div>
 
 
+
             <div class="cards">
 
 
+
+                <!-- DISCORD -->
+
                 <div class="card">
 
-                    <div class="icone">💬</div>
+                    <div class="icone">
+                        💬
+                    </div>
 
-                    <h3>Discord</h3>
+
+                    <h3>
+                        Discord
+                    </h3>
+
 
                     <p>
+
                         Aprenda a criar, configurar,
                         organizar e personalizar servidores.
+
                     </p>
+
 
                     <button onclick="window.location.href='discord.html'">
+
                         Acessar →
+
                     </button>
 
                 </div>
 
 
+
+                <!-- ROBLOX -->
+
                 <div class="card">
 
-                    <div class="icone">🎮</div>
+                    <div class="icone">
+                        🎮
+                    </div>
 
-                    <h3>Roblox</h3>
+
+                    <h3>
+                        Roblox
+                    </h3>
+
 
                     <p>
+
                         Tutoriais sobre criação de jogos,
                         configurações e desenvolvimento.
+
                     </p>
+
 
                     <button onclick="alert('Tutoriais de Roblox em construção!')">
+
                         Acessar →
+
                     </button>
 
                 </div>
 
 
+
+                <!-- PROGRAMAÇÃO -->
+
                 <div class="card">
 
-                    <div class="icone">💻</div>
+                    <div class="icone">
+                        💻
+                    </div>
 
-                    <h3>Programação</h3>
+
+                    <h3>
+                        Programação
+                    </h3>
+
 
                     <p>
+
                         Aprenda HTML, CSS, JavaScript
                         e desenvolvimento web.
+
                     </p>
+
 
                     <button onclick="alert('Tutoriais de Programação em construção!')">
+
                         Acessar →
+
                     </button>
 
                 </div>
 
 
+
+                <!-- CELULAR -->
+
                 <div class="card">
 
-                    <div class="icone">📱</div>
+                    <div class="icone">
+                        📱
+                    </div>
 
-                    <h3>Celular</h3>
+
+                    <h3>
+                        Celular
+                    </h3>
+
 
                     <p>
+
                         Dicas, configurações e tutoriais
                         para dispositivos móveis.
+
                     </p>
+
 
                     <button onclick="alert('Tutoriais de Celular em construção!')">
+
                         Acessar →
+
                     </button>
 
                 </div>
 
 
+
+                <!-- FERRAMENTAS -->
+
                 <div class="card">
 
-                    <div class="icone">🛠️</div>
+                    <div class="icone">
+                        🛠️
+                    </div>
 
-                    <h3>Ferramentas</h3>
+
+                    <h3>
+                        Ferramentas
+                    </h3>
+
 
                     <p>
+
                         Aprenda a utilizar ferramentas
                         úteis para seus projetos.
+
                     </p>
 
+
                     <button onclick="alert('Tutoriais de Ferramentas em construção!')">
+
                         Acessar →
+
                     </button>
 
                 </div>
 
+
+
+                <!-- GAMES -->
 
                 <div class="card">
 
-                    <div class="icone">🕹️</div>
+                    <div class="icone">
+                        🕹️
+                    </div>
 
-                    <h3>Games</h3>
+
+                    <h3>
+                        Games
+                    </h3>
+
 
                     <p>
+
                         Configurações, criação e tutoriais
                         relacionados a jogos.
+
                     </p>
 
+
                     <button onclick="alert('Tutoriais de Games em construção!')">
+
                         Acessar →
+
                     </button>
 
                 </div>
+
 
 
             </div>
@@ -192,35 +333,54 @@
         </section>
 
 
+
+        <!-- SOBRE -->
+
         <section class="sobre" id="sobre">
 
-            <p class="tag">SOBRE O PROJETO</p>
+
+            <p class="tag">
+                SOBRE O PROJETO
+            </p>
+
 
             <h2>
                 Conhecimento sem complicação.
             </h2>
 
+
             <p>
-                A Central+ reúne tutoriais organizados para ajudar
-                você a aprender e configurar diferentes tecnologias
-                de forma simples.
+
+                A Central+ reúne tutoriais organizados para
+                ajudar você a aprender e configurar diferentes
+                tecnologias de forma simples.
+
             </p>
 
+
         </section>
+
 
     </main>
 
 
+
+    <!-- RODAPÉ -->
+
     <footer>
 
         <p>
+
             © 2026 Central+ • Todos os direitos reservados.
+
         </p>
 
     </footer>
 
 
+
     <script src="script.js"></script>
+
 
 </body>
 
