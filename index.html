@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Central de Tutoriais</title>
+    <title>Central+ - Tutoriais</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,15 +13,17 @@
 <body>
 
     <header class="topo">
+
         <div class="logo">
             Central<span>+</span>
         </div>
 
         <nav>
             <a href="#inicio">Início</a>
-            <a href="#tutoriais">Tutoriais</a>
+            <a href="#categorias">Categorias</a>
             <a href="#sobre">Sobre</a>
         </nav>
+
     </header>
 
 
@@ -30,20 +33,21 @@
 
             <div class="hero-texto">
 
-                <p class="tag">GUIA • APRENDIZADO • TECNOLOGIA</p>
+                <p class="tag">CENTRAL DE TUTORIAIS</p>
 
                 <h1>
-                    Aprenda a configurar
-                    <span>do jeito certo.</span>
+                    Aprenda.
+                    <span>Configure.</span>
+                    Evolua.
                 </h1>
 
                 <p class="descricao">
                     Tutoriais simples e organizados para você aprender
-                    a configurar servidores, ferramentas e projetos.
+                    sobre tecnologia, servidores, programação e muito mais.
                 </p>
 
-                <a href="#tutoriais" class="botao">
-                    Ver tutoriais →
+                <a href="#categorias" class="botao">
+                    Começar →
                 </a>
 
             </div>
@@ -51,75 +55,145 @@
         </section>
 
 
-        <section class="tutoriais" id="tutoriais">
+        <section class="tutoriais" id="categorias">
 
             <div class="titulo-secao">
+
                 <p class="tag">CATEGORIAS</p>
 
                 <h2>
-                    Escolha um tutorial
+                    O que você quer aprender?
                 </h2>
 
                 <p>
-                    Encontre o conteúdo que você precisa.
+                    Escolha uma categoria para começar.
                 </p>
+
             </div>
 
 
             <div class="cards">
 
-                <div class="card">
 
-                    <div class="icone">⚙️</div>
-
-                    <h3>Servidores</h3>
-
-                    <p>
-                        Aprenda a configurar e organizar
-                        seus servidores passo a passo.
-                    </p>
-
-                    <button onclick="abrirTutorial('Servidores')">
-                        Acessar →
-                    </button>
-
-                </div>
-
+                <!-- DISCORD -->
 
                 <div class="card">
 
-                    <div class="icone">🤖</div>
+                    <div class="icone">💬</div>
 
                     <h3>Discord</h3>
 
                     <p>
-                        Configure bots, cargos, canais
-                        e sistemas para sua comunidade.
+                        Aprenda a criar, configurar,
+                        organizar e personalizar servidores.
                     </p>
 
-                    <button onclick="abrirTutorial('Discord')">
+                    <button onclick="window.location.href='discord.html'">
                         Acessar →
                     </button>
 
                 </div>
 
+
+                <!-- ROBLOX -->
+
+                <div class="card">
+
+                    <div class="icone">🎮</div>
+
+                    <h3>Roblox</h3>
+
+                    <p>
+                        Tutoriais sobre criação de jogos,
+                        configurações e desenvolvimento.
+                    </p>
+
+                    <button onclick="alert('Tutoriais de Roblox em construção!')">
+                        Acessar →
+                    </button>
+
+                </div>
+
+
+                <!-- PROGRAMAÇÃO -->
 
                 <div class="card">
 
                     <div class="icone">💻</div>
 
-                    <h3>Web</h3>
+                    <h3>Programação</h3>
 
                     <p>
                         Aprenda HTML, CSS, JavaScript
-                        e criação de sites.
+                        e desenvolvimento web.
                     </p>
 
-                    <button onclick="abrirTutorial('Web')">
+                    <button onclick="alert('Tutoriais de Programação em construção!')">
                         Acessar →
                     </button>
 
                 </div>
+
+
+                <!-- CELULAR -->
+
+                <div class="card">
+
+                    <div class="icone">📱</div>
+
+                    <h3>Celular</h3>
+
+                    <p>
+                        Dicas, configurações e tutoriais
+                        para dispositivos móveis.
+                    </p>
+
+                    <button onclick="alert('Tutoriais de Celular em construção!')">
+                        Acessar →
+                    </button>
+
+                </div>
+
+
+                <!-- FERRAMENTAS -->
+
+                <div class="card">
+
+                    <div class="icone">🛠️</div>
+
+                    <h3>Ferramentas</h3>
+
+                    <p>
+                        Aprenda a utilizar ferramentas
+                        úteis para seus projetos.
+                    </p>
+
+                    <button onclick="alert('Tutoriais de Ferramentas em construção!')">
+                        Acessar →
+                    </button>
+
+                </div>
+
+
+                <!-- GAMES -->
+
+                <div class="card">
+
+                    <div class="icone">🕹️</div>
+
+                    <h3>Games</h3>
+
+                    <p>
+                        Configurações, criação e tutoriais
+                        relacionados a jogos.
+                    </p>
+
+                    <button onclick="alert('Tutoriais de Games em construção!')">
+                        Acessar →
+                    </button>
+
+                </div>
+
 
             </div>
 
@@ -135,8 +209,9 @@
             </h2>
 
             <p>
-                Nossa missão é transformar configurações complicadas
-                em tutoriais fáceis de entender e seguir.
+                A Central+ reúne tutoriais organizados para ajudar
+                você a aprender e configurar diferentes tecnologias
+                de forma simples.
             </p>
 
         </section>
@@ -156,4 +231,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
