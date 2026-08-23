@@ -64,13 +64,20 @@
             font-weight: bold;
         }
 
+        .botoes-pagamento {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
         .botao-pix,
-        .botao-discord {
+        .botao-ticket {
             display: inline-block;
             border: none;
             border-radius: 10px;
             padding: 14px 20px;
-            margin: 6px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
@@ -81,7 +88,7 @@
             color: #000;
         }
 
-        .botao-discord {
+        .botao-ticket {
             background: #5865F2;
             color: white;
         }
@@ -89,7 +96,7 @@
         .aviso {
             color: #888;
             font-size: 13px;
-            margin-top: 15px;
+            margin-top: 18px;
         }
 
 
@@ -222,34 +229,40 @@
                 </div>
 
 
-                <button
-                    class="botao-pix"
-                    onclick="copiarPix()"
-                >
-                    📋 Copiar chave Pix
-                </button>
+                <div class="botoes-pagamento">
 
 
-                <br>
+                    <!-- COPIAR PIX -->
+
+                    <button
+                        class="botao-pix"
+                        onclick="copiarPix()"
+                    >
+                        📋 Copiar chave Pix
+                    </button>
 
 
-                <!-- DISCORD -->
+                    <!-- TICKET KING -->
 
-                <a
-                    class="botao-discord"
-                    href="https://discord.gg/wrHYNEUMT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    💬 Já paguei — Enviar comprovante
-                </a>
+                    <a
+                        class="botao-ticket"
+                        href="https://discord.com/channels/1540747183148499004/1540921605742661722"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🎫 Enviar comprovante
+                    </a>
+
+
+                </div>
 
 
                 <p class="aviso">
 
-                    Depois de pagar, entre no Discord
-                    e envie o comprovante para solicitar
-                    a liberação do conteúdo.
+                    Depois de realizar o pagamento,
+                    clique em "Enviar comprovante",
+                    abra seu ticket e envie o comprovante
+                    para nossa equipe.
 
                 </p>
 
@@ -303,9 +316,7 @@
                             de páginas da Web.
                         </p>
 
-                        <button
-                            onclick="conteudoBloqueado()"
-                        >
+                        <button onclick="conteudoBloqueado()">
                             🔒 Acessar
                         </button>
 
@@ -330,9 +341,7 @@
                             e criar layouts profissionais.
                         </p>
 
-                        <button
-                            onclick="conteudoBloqueado()"
-                        >
+                        <button onclick="conteudoBloqueado()">
                             🔒 Acessar
                         </button>
 
@@ -357,9 +366,7 @@
                             e funcionalidades para seus sites.
                         </p>
 
-                        <button
-                            onclick="conteudoBloqueado()"
-                        >
+                        <button onclick="conteudoBloqueado()">
                             🔒 Acessar
                         </button>
 
@@ -384,9 +391,7 @@
                             em prática criando projetos.
                         </p>
 
-                        <button
-                            onclick="conteudoBloqueado()"
-                        >
+                        <button onclick="conteudoBloqueado()">
                             🔒 Acessar
                         </button>
 
@@ -461,11 +466,10 @@
         }
 
 
-
         function conteudoBloqueado() {
 
             alert(
-                "🔒 Conteúdo bloqueado.\n\nFaça o pagamento de R$ 10,00 e envie o comprovante pelo Discord para solicitar o acesso."
+                "🔒 Conteúdo bloqueado.\n\nFaça o pagamento de R$ 10,00 e envie o comprovante pelo ticket para solicitar o acesso."
             );
 
         }
