@@ -5,30 +5,10 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Central+ • Administração</title>
-
-
-    <!-- PROTEÇÃO DO PAINEL -->
-
-    <script>
-
-        if (
-            sessionStorage.getItem("centralAdmin")
-            !== "true"
-        ) {
-
-            window.location.href =
-                "admin-login.html";
-
-        }
-
-    </script>
-
+    <title>Central+ - Admin</title>
 
     <style>
 
@@ -36,689 +16,194 @@
             box-sizing: border-box;
         }
 
-
         body {
-
             margin: 0;
-
-            min-height: 100vh;
-
             background: #080808;
-
-            color: white;
-
-            font-family:
-                Arial,
-                sans-serif;
-
+            color: #fff;
+            font-family: Arial, sans-serif;
         }
-
-
-        /* =========================
-           TOPO
-        ========================= */
 
         .topo {
-
             height: 70px;
-
             display: flex;
-
             align-items: center;
-
-            justify-content:
-                space-between;
-
-            padding:
-                0 25px;
-
+            justify-content: space-between;
+            padding: 0 25px;
             background: #0d0d0d;
-
-            border-bottom:
-                1px solid #222;
-
+            border-bottom: 1px solid #222;
         }
-
 
         .logo {
-
             font-size: 24px;
-
             font-weight: bold;
-
         }
-
 
         .logo span {
-
             color: #00ff88;
-
         }
-
-
-        .admin-status {
-
-            color: #00ff88;
-
-            font-size: 13px;
-
-        }
-
-
-        /* =========================
-           LAYOUT
-        ========================= */
-
-        .layout {
-
-            display: flex;
-
-            min-height:
-                calc(100vh - 70px);
-
-        }
-
-
-        /* =========================
-           SIDEBAR
-        ========================= */
-
-        .sidebar {
-
-            width: 230px;
-
-            flex-shrink: 0;
-
-            background: #0d0d0d;
-
-            border-right:
-                1px solid #222;
-
-            padding: 20px 14px;
-
-        }
-
-
-        .sidebar-titulo {
-
-            color: #666;
-
-            font-size: 11px;
-
-            margin:
-                10px 10px 15px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .menu {
-
-            display: block;
-
-            width: 100%;
-
-            padding: 13px;
-
-            margin-bottom: 6px;
-
-            border: none;
-
-            border-radius: 9px;
-
-            background:
-                transparent;
-
-            color: #aaa;
-
-            text-align: left;
-
-            cursor: pointer;
-
-            font-size: 14px;
-
-            transition: .15s;
-
-        }
-
-
-        .menu:hover {
-
-            background: #161616;
-
-            color: white;
-
-        }
-
-
-        .menu.ativo {
-
-            background: #161616;
-
-            color: #00ff88;
-
-        }
-
-
-        /* =========================
-           MAIN
-        ========================= */
-
-        .main {
-
-            flex: 1;
-
-            min-width: 0;
-
-            padding: 30px;
-
-        }
-
-
-        .titulo {
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .titulo h1 {
-
-            margin:
-                0 0 7px;
-
-            font-size: 30px;
-
-        }
-
-
-        .titulo p {
-
-            margin: 0;
-
-            color: #777;
-
-        }
-
-
-        /* =========================
-           ESTATÍSTICAS
-        ========================= */
-
-        .stats {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(
-                        180px,
-                        1fr
-                    )
-                );
-
-            gap: 15px;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .stat {
-
-            padding: 20px;
-
-            background: #111;
-
-            border:
-                1px solid #222;
-
-            border-radius: 15px;
-
-        }
-
-
-        .stat-icon {
-
-            font-size: 24px;
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .stat-number {
-
-            font-size: 26px;
-
-            font-weight: bold;
-
-        }
-
-
-        .stat-label {
-
-            color: #777;
-
-            font-size: 13px;
-
-            margin-top: 5px;
-
-        }
-
-
-        /* =========================
-           BOX
-        ========================= */
-
-        .box {
-
-            background: #111;
-
-            border:
-                1px solid #222;
-
-            border-radius: 15px;
-
-            padding: 22px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-        .box h2 {
-
-            margin:
-                0 0 20px;
-
-            font-size: 19px;
-
-        }
-
-
-        /* =========================
-           FORM
-        ========================= */
-
-        .form-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(
-                        180px,
-                        1fr
-                    )
-                );
-
-            gap: 12px;
-
-        }
-
-
-        .campo {
-
-            display: flex;
-
-            flex-direction:
-                column;
-
-            gap: 6px;
-
-        }
-
-
-        .campo label {
-
-            color: #888;
-
-            font-size: 12px;
-
-        }
-
-
-        .campo input,
-        .campo select {
-
-            width: 100%;
-
-            padding: 12px;
-
-            background: #181818;
-
-            color: white;
-
-            border:
-                1px solid #333;
-
-            border-radius: 9px;
-
-            outline: none;
-
-        }
-
-
-        .campo input:focus,
-        .campo select:focus {
-
-            border-color:
-                #00ff88;
-
-        }
-
-
-        /* =========================
-           BOTÕES
-        ========================= */
-
-        .btn {
-
-            padding:
-                10px 14px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            cursor: pointer;
-
-            font-weight: bold;
-
-        }
-
-
-        .btn-verde {
-
-            background:
-                #00ff88;
-
-            color: #000;
-
-        }
-
-
-        .btn-vermelho {
-
-            background:
-                #351313;
-
-            color:
-                #ff6868;
-
-        }
-
-
-        .btn-cinza {
-
-            background:
-                #222;
-
-            color:
-                #ddd;
-
-        }
-
-
-        .acoes {
-
-            display: flex;
-
-            gap: 7px;
-
-            flex-wrap: wrap;
-
-        }
-
-
-        /* =========================
-           TABELA
-        ========================= */
-
-        .tabela-container {
-
-            width: 100%;
-
-            overflow-x: auto;
-
-        }
-
-
-        table {
-
-            width: 100%;
-
-            border-collapse:
-                collapse;
-
-            min-width:
-                650px;
-
-        }
-
-
-        th,
-        td {
-
-            padding:
-                13px 10px;
-
-            text-align:
-                left;
-
-            border-bottom:
-                1px solid #222;
-
-            font-size: 13px;
-
-        }
-
-
-        th {
-
-            color: #777;
-
-            font-size: 11px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        /* =========================
-           STATUS
-        ========================= */
 
         .status {
-
-            display: inline-block;
-
-            padding:
-                5px 9px;
-
-            border-radius: 7px;
-
-            font-size: 11px;
-
-            font-weight: bold;
-
+            color: #00ff88;
+            font-size: 13px;
         }
 
-
-        .status-pendente {
-
-            background:
-                #3b3008;
-
-            color:
-                #ffd84d;
-
-        }
-
-
-        .status-aprovado {
-
-            background:
-                #063d28;
-
-            color:
-                #00ff88;
-
-        }
-
-
-        .status-recusado {
-
-            background:
-                #3b1111;
-
-            color:
-                #ff6666;
-
-        }
-
-
-        /* =========================
-           PRODUTOS
-        ========================= */
-
-        .produto {
-
+        .layout {
             display: flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap: 20px;
-
-            padding: 17px;
-
-            background:
-                #161616;
-
-            border:
-                1px solid #252525;
-
-            border-radius: 11px;
-
-            margin-bottom: 10px;
-
+            min-height: calc(100vh - 70px);
         }
 
-
-        .produto h3 {
-
-            margin:
-                0 0 5px;
-
+        .sidebar {
+            width: 230px;
+            background: #0d0d0d;
+            border-right: 1px solid #222;
+            padding: 20px 12px;
         }
 
-
-        .produto p {
-
-            margin: 0;
-
-            color: #777;
-
-            font-size: 12px;
-
-        }
-
-
-        .preco {
-
-            color:
-                #00ff88;
-
-            font-weight:
-                bold;
-
-        }
-
-
-        /* =========================
-           VAZIO
-        ========================= */
-
-        .vazio {
-
+        .titulo-menu {
             color: #666;
-
-            text-align: center;
-
-            padding: 25px;
-
+            font-size: 11px;
+            text-transform: uppercase;
+            margin: 10px;
         }
 
+        .menu {
+            width: 100%;
+            display: block;
+            border: 0;
+            background: transparent;
+            color: #aaa;
+            padding: 14px;
+            margin-bottom: 5px;
+            border-radius: 9px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        .menu:hover {
+            background: #171717;
+            color: #fff;
+        }
 
-        @media (
-            max-width: 700px
-        ) {
+        .menu.ativo {
+            background: #171717;
+            color: #00ff88;
+        }
+
+        .conteudo {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .pagina {
+            display: none;
+        }
+
+        .pagina.ativa {
+            display: block;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 30px;
+        }
+
+        .descricao {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin: 0 0 8px;
+            font-size: 15px;
+        }
+
+        .numero {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .verde {
+            color: #00ff88;
+        }
+
+        .box {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .box h2 {
+            margin-top: 0;
+        }
+
+        .linha {
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .linha:last-child {
+            border-bottom: 0;
+        }
+
+        .botao {
+            border: 0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .botao-verde {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .botao-vermelho {
+            background: #351313;
+            color: #ff6666;
+        }
+
+        .botao-cinza {
+            background: #222;
+            color: #fff;
+        }
+
+        @media (max-width: 700px) {
 
             .layout {
-
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
-
 
             .sidebar {
-
                 width: 100%;
-
-                border-right:
-                    none;
-
-                border-bottom:
-                    1px solid #222;
-
+                border-right: 0;
+                border-bottom: 1px solid #222;
             }
 
-
-            .main {
-
-                padding: 18px;
-
+            .conteudo {
+                padding: 20px;
             }
 
-
-            .topo {
-
-                padding:
-                    0 18px;
-
-            }
-
-
-            .admin-status {
-
+            .status {
                 display: none;
-
-            }
-
-
-            .produto {
-
-                flex-direction:
-                    column;
-
-                align-items:
-                    flex-start;
-
             }
 
         }
@@ -731,23 +216,14 @@
 <body>
 
 
-<!-- =========================
-     TOPO
-========================= -->
-
 <header class="topo">
 
     <div class="logo">
-
         Central<span>+</span>
-
     </div>
 
-
-    <div class="admin-status">
-
+    <div class="status">
         ● Administrador
-
     </div>
 
 </header>
@@ -757,530 +233,289 @@
 <div class="layout">
 
 
-<!-- =========================
-     MENU LATERAL
-========================= -->
+    <!-- MENU -->
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
-
-    <div class="sidebar-titulo">
-
-        Painel
-
-    </div>
-
-
-    <button
-        class="menu ativo"
-        data-painel="dashboard"
-    >
-
-        📊 Visão geral
-
-    </button>
-
-
-    <button
-        class="menu"
-        data-painel="vendas"
-    >
-
-        💰 Vendas
-
-    </button>
-
-
-    <button
-        class="menu"
-        data-painel="clientes"
-    >
-
-        👥 Clientes
-
-    </button>
-
-
-    <button
-        class="menu"
-        data-painel="produtos"
-    >
-
-        📚 Produtos
-
-    </button>
-
-
-
-    <div
-        class="sidebar-titulo"
-        style="margin-top:25px;"
-    >
-
-        Sistema
-
-    </div>
-
-
-    <button
-        class="menu"
-        id="botaoSite"
-    >
-
-        🌐 Site
-
-    </button>
-
-
-    <button
-        class="menu"
-        id="botaoSair"
-    >
-
-        🚪 Sair
-
-    </button>
-
-
-</aside>
-
-
-
-<!-- =========================
-     CONTEÚDO
-========================= -->
-
-<main class="main">
-
-
-<!-- =========================
-     DASHBOARD
-========================= -->
-
-<section
-    id="dashboard"
-    class="painel"
->
-
-
-    <div class="titulo">
-
-        <h1>
-            Visão geral
-        </h1>
-
-        <p>
-            Bem-vindo ao painel administrativo da Central+.
-        </p>
-
-    </div>
-
-
-    <div class="stats">
-
-
-        <div class="stat">
-
-            <div class="stat-icon">
-                💰
-            </div>
-
-            <div
-                class="stat-number"
-                id="total"
-            >
-                R$ 0,00
-            </div>
-
-            <div class="stat-label">
-                Total aprovado
-            </div>
-
+        <div class="titulo-menu">
+            Painel
         </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">
-                🛒
-            </div>
-
-            <div
-                class="stat-number"
-                id="vendasTotal"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Vendas aprovadas
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">
-                👥
-            </div>
-
-            <div
-                class="stat-number"
-                id="clientesTotal"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Clientes
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">
-                ⏳
-            </div>
-
-            <div
-                class="stat-number"
-                id="pendentesTotal"
-            >
-                0
-            </div>
-
-            <div class="stat-label">
-                Pagamentos pendentes
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="box">
-
-        <h2>
-            ⚡ Ações rápidas
-        </h2>
-
-
-        <div class="acoes">
-
-            <button
-                class="btn btn-verde"
-                id="acaoVenda"
-            >
-
-                + Registrar venda
-
-            </button>
-
-
-            <button
-                class="btn btn-cinza"
-                id="acaoClientes"
-            >
-
-                👥 Ver clientes
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =========================
-     VENDAS
-========================= -->
-
-<section
-    id="vendas"
-    class="painel"
-    style="display:none;"
->
-
-
-    <div class="titulo">
-
-        <h1>
-            Vendas
-        </h1>
-
-        <p>
-            Registre e gerencie os pagamentos.
-        </p>
-
-    </div>
-
-
-    <div class="box">
-
-        <h2>
-            ➕ Registrar venda
-        </h2>
-
-
-        <div class="form-grid">
-
-
-            <div class="campo">
-
-                <label>
-                    Cliente / Discord
-                </label>
-
-                <input
-                    type="text"
-                    id="clienteInput"
-                    placeholder="@usuario"
-                >
-
-            </div>
-
-
-            <div class="campo">
-
-                <label>
-                    Produto
-                </label>
-
-                <select id="produtoInput">
-
-                    <option value="Programação">
-                        Programação
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="campo">
-
-                <label>
-                    Valor
-                </label>
-
-                <input
-                    type="number"
-                    id="valorInput"
-                    value="10"
-                    min="0"
-                    step="0.01"
-                >
-
-            </div>
-
-
-        </div>
-
-
-        <br>
 
 
         <button
-            class="btn btn-verde"
-            id="registrarVendaBtn"
+            type="button"
+            class="menu ativo"
+            data-pagina="inicio"
         >
-
-            💾 Registrar venda
-
+            📊 Visão geral
         </button>
 
-    </div>
+
+        <button
+            type="button"
+            class="menu"
+            data-pagina="vendas"
+        >
+            💰 Vendas
+        </button>
 
 
-    <div class="box">
-
-        <h2>
-            📋 Histórico de vendas
-        </h2>
-
-
-        <div class="tabela-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Cliente
-                        </th>
-
-                        <th>
-                            Produto
-                        </th>
-
-                        <th>
-                            Valor
-                        </th>
-
-                        <th>
-                            Status
-                        </th>
-
-                        <th>
-                            Ações
-                        </th>
-
-                    </tr>
-
-                </thead>
+        <button
+            type="button"
+            class="menu"
+            data-pagina="clientes"
+        >
+            👥 Clientes
+        </button>
 
 
-                <tbody id="tabelaVendas">
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
+        <button
+            type="button"
+            class="menu"
+            data-pagina="produtos"
+        >
+            📚 Produtos
+        </button>
 
 
-</section>
-
-
-
-<!-- =========================
-     CLIENTES
-========================= -->
-
-<section
-    id="clientes"
-    class="painel"
-    style="display:none;"
->
-
-
-    <div class="titulo">
-
-        <h1>
-            Clientes
-        </h1>
-
-        <p>
-            Clientes que possuem acesso.
-        </p>
-
-    </div>
-
-
-    <div class="box">
-
-
-        <div class="tabela-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Cliente
-                        </th>
-
-                        <th>
-                            Produto
-                        </th>
-
-                        <th>
-                            Status
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody id="tabelaClientes">
-
-                </tbody>
-
-            </table>
-
+        <div
+            class="titulo-menu"
+            style="margin-top:25px;"
+        >
+            Sistema
         </div>
 
 
-    </div>
+        <button
+            type="button"
+            class="menu"
+            id="abrirSite"
+        >
+            🌐 Abrir site
+        </button>
 
 
-</section>
+        <button
+            type="button"
+            class="menu"
+            id="sair"
+        >
+            🚪 Sair
+        </button>
+
+    </aside>
 
 
 
-<!-- =========================
-     PRODUTOS
-========================= -->
+    <!-- CONTEÚDO -->
 
-<section
-    id="produtos"
-    class="painel"
-    style="display:none;"
->
+    <main class="conteudo">
 
 
-    <div class="titulo">
+        <!-- INÍCIO -->
 
-        <h1>
-            Produtos
-        </h1>
+        <section
+            id="inicio"
+            class="pagina ativa"
+        >
 
-        <p>
-            Produtos disponíveis na Central+.
-        </p>
+            <h1>
+                Visão geral
+            </h1>
 
-    </div>
+            <p class="descricao">
+                Painel administrativo da Central+.
+            </p>
 
 
-    <div class="box">
+            <div class="cards">
 
 
-        <div class="produto">
+                <div class="card">
 
-            <div>
+                    <h2>
+                        💰 Total
+                    </h2>
 
-                <h3>
-                    💻 Programação
-                </h3>
+                    <div
+                        class="numero verde"
+                        id="total"
+                    >
+                        R$ 0,00
+                    </div>
 
-                <p>
-                    HTML • CSS • JavaScript • Projetos
-                </p>
+                </div>
+
+
+                <div class="card">
+
+                    <h2>
+                        🛒 Vendas
+                    </h2>
+
+                    <div
+                        class="numero"
+                        id="quantidadeVendas"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>
+                        👥 Clientes
+                    </h2>
+
+                    <div
+                        class="numero"
+                        id="quantidadeClientes"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>
+                        ⏳ Pendentes
+                    </h2>
+
+                    <div
+                        class="numero"
+                        id="quantidadePendentes"
+                    >
+                        0
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <div class="preco">
 
-                R$ 10,00
+
+        <!-- VENDAS -->
+
+        <section
+            id="vendas"
+            class="pagina"
+        >
+
+            <h1>
+                Vendas
+            </h1>
+
+            <p class="descricao">
+                Gerencie os pagamentos recebidos.
+            </p>
+
+
+            <div class="box">
+
+                <h2>
+                    📋 Histórico
+                </h2>
+
+                <div id="listaVendas">
+
+                    <p style="color:#666;">
+                        Nenhuma venda registrada.
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
 
-    </div>
+
+        <!-- CLIENTES -->
+
+        <section
+            id="clientes"
+            class="pagina"
+        >
+
+            <h1>
+                Clientes
+            </h1>
+
+            <p class="descricao">
+                Clientes que possuem acesso aos conteúdos.
+            </p>
 
 
-</section>
+            <div class="box">
+
+                <h2>
+                    👥 Clientes aprovados
+                </h2>
+
+                <div id="listaClientes">
+
+                    <p style="color:#666;">
+                        Nenhum cliente registrado.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
-</main>
+
+        <!-- PRODUTOS -->
+
+        <section
+            id="produtos"
+            class="pagina"
+        >
+
+            <h1>
+                Produtos
+            </h1>
+
+            <p class="descricao">
+                Conteúdos disponíveis na Central+.
+            </p>
+
+
+            <div class="box">
+
+                <div class="linha">
+
+                    <strong>
+                        💻 Programação
+                    </strong>
+
+                    <br>
+
+                    <small style="color:#777;">
+                        HTML • CSS • JavaScript • Projetos
+                    </small>
+
+                    <br><br>
+
+                    <span class="verde">
+                        R$ 10,00
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
 
 </div>
 
@@ -1289,127 +524,106 @@
 <script>
 
 
-/* =========================
-   BANCO LOCAL
-========================= */
+/*
+========================================
+NAVEGAÇÃO DO PAINEL
+========================================
+*/
 
-let vendas =
-    JSON.parse(
-        localStorage.getItem(
-            "centralVendas"
-        )
-    ) || [];
-
-
-
-/* =========================
-   NAVEGAÇÃO DAS ABAS
-========================= */
-
-const botoesMenu =
+const botoes =
     document.querySelectorAll(
-        ".menu[data-painel]"
+        ".menu[data-pagina]"
     );
 
 
-const paineis =
+const paginas =
     document.querySelectorAll(
-        ".painel"
+        ".pagina"
     );
 
 
-function mostrarPainel(id) {
+botoes.forEach(function(botao) {
+
+    botao.addEventListener(
+        "click",
+        function() {
+
+            const destino =
+                botao.dataset.pagina;
 
 
-    paineis.forEach(
-        function(painel) {
+            /*
+            Esconde todas as páginas
+            */
 
-            painel.style.display =
-                "none";
+            paginas.forEach(
+                function(pagina) {
 
-        }
-    );
+                    pagina.classList.remove(
+                        "ativa"
+                    );
+
+                }
+            );
 
 
-    botoesMenu.forEach(
-        function(botao) {
+            /*
+            Remove o ativo dos botões
+            */
 
-            botao.classList.remove(
+            botoes.forEach(
+                function(item) {
+
+                    item.classList.remove(
+                        "ativo"
+                    );
+
+                }
+            );
+
+
+            /*
+            Mostra a página escolhida
+            */
+
+            const pagina =
+                document.getElementById(
+                    destino
+                );
+
+
+            if (pagina) {
+
+                pagina.classList.add(
+                    "ativa"
+                );
+
+            }
+
+
+            /*
+            Marca o botão
+            */
+
+            botao.classList.add(
                 "ativo"
             );
 
         }
     );
 
-
-    const painel =
-        document.getElementById(id);
-
-
-    const botao =
-        document.querySelector(
-            '.menu[data-painel="' +
-            id +
-            '"]'
-        );
-
-
-    if (painel) {
-
-        painel.style.display =
-            "block";
-
-    }
-
-
-    if (botao) {
-
-        botao.classList.add(
-            "ativo"
-        );
-
-    }
-
-
-    atualizar();
-
-}
+});
 
 
 
-/* =========================
-   CLIQUES DO MENU
-========================= */
-
-botoesMenu.forEach(
-    function(botao) {
-
-        botao.addEventListener(
-            "click",
-            function() {
-
-                const id =
-                    botao.getAttribute(
-                        "data-painel"
-                    );
-
-
-                mostrarPainel(id);
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =========================
-   SITE
-========================= */
+/*
+========================================
+ABRIR SITE
+========================================
+*/
 
 document
-    .getElementById("botaoSite")
+    .getElementById("abrirSite")
     .addEventListener(
         "click",
         function() {
@@ -1422,12 +636,14 @@ document
 
 
 
-/* =========================
-   SAIR
-========================= */
+/*
+========================================
+SAIR
+========================================
+*/
 
 document
-    .getElementById("botaoSair")
+    .getElementById("sair")
     .addEventListener(
         "click",
         function() {
@@ -1435,7 +651,6 @@ document
             sessionStorage.removeItem(
                 "centralAdmin"
             );
-
 
             window.location.href =
                 "admin-login.html";
@@ -1445,47 +660,203 @@ document
 
 
 
-/* =========================
-   AÇÃO RÁPIDA
-========================= */
+/*
+========================================
+DADOS SALVOS
+========================================
+*/
 
-document
-    .getElementById("acaoVenda")
-    .addEventListener(
-        "click",
-        function() {
+function carregarDados() {
 
-            mostrarPainel(
-                "vendas"
-            );
+    let vendas =
+        JSON.parse(
+            localStorage.getItem(
+                "centralVendas"
+            )
+        ) || [];
+
+
+    let total = 0;
+
+    let aprovadas = 0;
+
+    let pendentes = 0;
+
+
+    vendas.forEach(
+        function(venda) {
+
+            if (
+                venda.status ===
+                "Aprovado"
+            ) {
+
+                total +=
+                    Number(
+                        venda.valor
+                    );
+
+                aprovadas++;
+
+            }
+
+
+            if (
+                venda.status ===
+                "Pendente"
+            ) {
+
+                pendentes++;
+
+            }
 
         }
     );
 
 
+    document
+        .getElementById("total")
+        .textContent =
+        total.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
 
-document
-    .getElementById("acaoClientes")
-    .addEventListener(
-        "click",
-        function() {
 
-            mostrarPainel(
-                "clientes"
-            );
+    document
+        .getElementById(
+            "quantidadeVendas"
+        )
+        .textContent =
+        aprovadas;
+
+
+    document
+        .getElementById(
+            "quantidadePendentes"
+        )
+        .textContent =
+        pendentes;
+
+
+    const clientes =
+        new Set();
+
+
+    vendas.forEach(
+        function(venda) {
+
+            if (
+                venda.status ===
+                "Aprovado"
+            ) {
+
+                clientes.add(
+                    venda.cliente
+                );
+
+            }
 
         }
     );
 
 
+    document
+        .getElementById(
+            "quantidadeClientes"
+        )
+        .textContent =
+        clientes.size;
 
-/* =========================
-   REGISTRAR VENDA
-========================= */
 
-document
-    .getElementById(
-        "registrarVendaBtn"
-    )
-    .addEventListener(
-       
+    /*
+    Lista de vendas
+    */
+
+    const listaVendas =
+        document.getElementById(
+            "listaVendas"
+        );
+
+
+    if (vendas.length > 0) {
+
+        listaVendas.innerHTML = "";
+
+
+        vendas
+            .slice()
+            .reverse()
+            .forEach(
+                function(venda) {
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "linha";
+
+
+                    div.innerHTML = `
+
+                        <strong>
+                            ${venda.cliente || "Cliente"}
+                        </strong>
+
+                        <br>
+
+                        <small style="color:#777;">
+                            ${venda.produto || "Produto"}
+                        </small>
+
+                        <br>
+
+                        <span class="verde">
+                            R$ ${Number(
+                                venda.valor || 0
+                            ).toFixed(2).replace(".", ",")}
+                        </span>
+
+                        <br><br>
+
+                        <small>
+                            Status:
+                            ${venda.status || "Pendente"}
+                        </small>
+
+                    `;
+
+
+                    listaVendas.appendChild(
+                        div
+                    );
+
+                }
+            );
+
+    }
+
+}
+
+
+/*
+========================================
+INICIAR
+========================================
+*/
+
+carregarDados();
+
+
+</script>
+
+
+</body>
+
+</html>
