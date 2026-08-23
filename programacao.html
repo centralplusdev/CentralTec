@@ -10,177 +10,131 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Admin - Central+</title>
+    <title>Programação - Central+</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
 
-        .admin-container {
-            max-width: 1100px;
+        .programacao-container {
+            max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
         }
 
-        .admin-header {
-            margin-bottom: 30px;
-        }
+        /* PAGAMENTO */
 
-        .admin-header h1 {
-            margin-bottom: 8px;
-        }
-
-        .admin-header p {
-            color: #999;
-        }
-
-        .dashboard {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(210px, 1fr));
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-
-        .stat-card {
+        .pagamento {
             background: #111;
             border: 1px solid #222;
-            border-radius: 16px;
-            padding: 22px;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 45px;
+            box-shadow: 0 10px 40px rgba(0,0,0,.35);
         }
 
-        .stat-card .icone {
-            font-size: 30px;
+        .pagamento h1 {
             margin-bottom: 10px;
         }
 
-        .stat-card h3 {
-            margin: 0;
-            font-size: 28px;
+        .preco {
+            font-size: 44px;
+            font-weight: bold;
+            color: #00ff88;
+            margin: 20px 0;
         }
 
-        .stat-card p {
-            color: #888;
-            margin-bottom: 0;
-        }
-
-        .admin-section {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 18px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .admin-section h2 {
-            margin-top: 0;
-        }
-
-        .admin-menu {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .admin-button {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border: 1px solid #292929;
+        .pix-box {
+            max-width: 600px;
+            margin: 25px auto;
+            padding: 18px;
+            background: #1a1a1a;
+            border: 1px solid #333;
             border-radius: 12px;
-            background: #181818;
-            color: white;
-            cursor: pointer;
-            text-align: left;
-            font-weight: bold;
         }
 
-        .admin-button:hover {
-            background: #222;
-        }
-
-        .admin-button span {
+        .pix-chave {
             display: block;
-            font-size: 25px;
-            margin-bottom: 8px;
-        }
-
-        .pagamentos {
-            overflow-x: auto;
-        }
-
-        .pagamento {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            padding: 18px 0;
-            border-bottom: 1px solid #222;
-        }
-
-        .pagamento:last-child {
-            border-bottom: none;
-        }
-
-        .pagamento-info strong {
-            display: block;
-        }
-
-        .pagamento-info small {
-            color: #888;
-        }
-
-        .status-pendente {
-            color: #ffd000;
-            font-weight: bold;
-        }
-
-        .status-aprovado {
+            margin-top: 10px;
+            word-break: break-all;
             color: #00ff88;
             font-weight: bold;
         }
 
-        .acoes {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn-aprovar,
-        .btn-recusar {
+        .botao-pix,
+        .botao-discord {
+            display: inline-block;
             border: none;
-            border-radius: 8px;
-            padding: 9px 13px;
-            cursor: pointer;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin: 6px;
             font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
         }
 
-        .btn-aprovar {
+        .botao-pix {
             background: #00ff88;
             color: #000;
         }
 
-        .btn-recusar {
-            background: #ff4444;
+        .botao-discord {
+            background: #5865F2;
             color: white;
         }
 
-        @media (max-width: 600px) {
+        .aviso {
+            color: #888;
+            font-size: 13px;
+            margin-top: 15px;
+        }
 
-            .pagamento {
-                align-items: flex-start;
-                flex-direction: column;
-            }
 
-            .acoes {
-                width: 100%;
-            }
+        /* CONTEÚDOS */
 
-            .acoes button {
-                flex: 1;
-            }
+        .titulo-conteudos {
+            margin-bottom: 25px;
+        }
 
+        .conteudos {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .conteudo {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .conteudo .icone {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .conteudo h3 {
+            margin: 10px 0;
+        }
+
+        .conteudo p {
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .conteudo button {
+            margin-top: 10px;
+            padding: 11px 18px;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: bold;
+            background: #00ff88;
+            color: #000;
         }
 
     </style>
@@ -205,10 +159,6 @@
                 Início
             </a>
 
-            <a href="login.html">
-                Conta
-            </a>
-
         </nav>
 
     </header>
@@ -217,225 +167,217 @@
 
     <main>
 
-        <div class="admin-container">
+        <div class="programacao-container">
 
 
-            <!-- CABEÇALHO -->
+            <!-- PAGAMENTO -->
 
-            <section class="admin-header">
+            <section class="pagamento">
 
                 <p class="tag">
-                    CENTRAL • ADMIN
+                    CENTRAL • PROGRAMAÇÃO
                 </p>
 
                 <h1>
-                    Painel Administrativo
+                    Acesso à Programação
                 </h1>
 
                 <p>
-                    Gerencie usuários, pagamentos e conteúdos
-                    da Central+.
+                    Tenha acesso aos conteúdos de
+                    HTML, CSS, JavaScript e Projetos.
                 </p>
 
-            </section>
 
-
-
-            <!-- ESTATÍSTICAS -->
-
-            <section class="dashboard">
-
-
-                <div class="stat-card">
-
-                    <div class="icone">
-                        👥
-                    </div>
-
-                    <h3 id="totalUsuarios">
-                        0
-                    </h3>
-
-                    <p>
-                        Usuários
-                    </p>
-
+                <div class="preco">
+                    R$ 10,00
                 </div>
 
-
-
-                <div class="stat-card">
-
-                    <div class="icone">
-                        💰
-                    </div>
-
-                    <h3 id="totalVendas">
-                        R$ 0
-                    </h3>
-
-                    <p>
-                        Vendas
-                    </p>
-
-                </div>
-
-
-
-                <div class="stat-card">
-
-                    <div class="icone">
-                        ⏳
-                    </div>
-
-                    <h3 id="pagamentosPendentes">
-                        0
-                    </h3>
-
-                    <p>
-                        Pagamentos pendentes
-                    </p>
-
-                </div>
-
-
-
-                <div class="stat-card">
-
-                    <div class="icone">
-                        📚
-                    </div>
-
-                    <h3>
-                        4
-                    </h3>
-
-                    <p>
-                        Conteúdos
-                    </p>
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- MENU ADMIN -->
-
-            <section class="admin-section">
-
-                <h2>
-                    Gerenciamento
-                </h2>
 
                 <p>
-                    Acesse as ferramentas administrativas.
+                    Faça o pagamento pelo Pix.
                 </p>
 
 
-                <div class="admin-menu">
+                <div class="pix-box">
 
+                    <strong>
+                        🔑 Chave Pix
+                    </strong>
 
-                    <button
-                        class="admin-button"
-                        onclick="abrirUsuarios()"
+                    <span
+                        class="pix-chave"
+                        id="pix"
                     >
-
-                        <span>
-                            👥
-                        </span>
-
-                        Usuários
-
-                    </button>
-
-
-
-                    <button
-                        class="admin-button"
-                        onclick="abrirPagamentos()"
-                    >
-
-                        <span>
-                            💰
-                        </span>
-
-                        Pagamentos
-
-                    </button>
-
-
-
-                    <button
-                        class="admin-button"
-                        onclick="abrirConteudos()"
-                    >
-
-                        <span>
-                            📚
-                        </span>
-
-                        Conteúdos
-
-                    </button>
-
-
-
-                    <button
-                        class="admin-button"
-                        onclick="abrirConfiguracoes()"
-                    >
-
-                        <span>
-                            ⚙️
-                        </span>
-
-                        Configurações
-
-                    </button>
-
+                        4dfaef9f-eca4-4cfa-8a7f-725da6d4cf4f
+                    </span>
 
                 </div>
+
+
+                <button
+                    class="botao-pix"
+                    onclick="copiarPix()"
+                >
+                    📋 Copiar chave Pix
+                </button>
+
+
+                <br>
+
+
+                <!-- TROCAR PELO LINK DO SEU DISCORD -->
+
+                <a
+                    class="botao-discord"
+                    href="#"
+                    onclick="abrirDiscord(event)"
+                >
+                    💬 Já paguei — Enviar comprovante
+                </a>
+
+
+                <p class="aviso">
+
+                    Depois de pagar, envie o comprovante
+                    pelo atendimento para solicitar a liberação
+                    do conteúdo.
+
+                </p>
 
             </section>
 
 
 
-            <!-- PAGAMENTOS -->
+            <!-- CONTEÚDOS -->
 
-            <section class="admin-section">
-
-                <h2>
-                    Pagamentos recentes
-                </h2>
-
-                <p>
-                    Confira os pagamentos que precisam
-                    de análise.
-                </p>
+            <section>
 
 
-                <div class="pagamentos">
+                <div class="titulo-conteudos">
+
+                    <p class="tag">
+                        CONTEÚDO
+                    </p>
+
+                    <h2>
+                        O que você vai aprender
+                    </h2>
+
+                    <p>
+                        Aprenda programação através de
+                        conteúdos organizados e projetos.
+                    </p>
+
+                </div>
 
 
-                    <div class="pagamento">
 
-                        <div class="pagamento-info">
+                <div class="conteudos">
 
-                            <strong>
-                                Nenhum pagamento ainda
-                            </strong>
 
-                            <small>
-                                Os pagamentos aparecerão aqui.
-                            </small>
+                    <!-- HTML -->
 
+                    <div class="conteudo">
+
+                        <div class="icone">
+                            🌐
                         </div>
 
-                        <span class="status-pendente">
-                            —
-                        </span>
+                        <h3>
+                            HTML
+                        </h3>
+
+                        <p>
+                            Aprenda a criar a estrutura
+                            de páginas da Web.
+                        </p>
+
+                        <button
+                            onclick="conteudoBloqueado()"
+                        >
+                            🔒 Acessar
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- CSS -->
+
+                    <div class="conteudo">
+
+                        <div class="icone">
+                            🎨
+                        </div>
+
+                        <h3>
+                            CSS
+                        </h3>
+
+                        <p>
+                            Aprenda a estilizar páginas
+                            e criar layouts profissionais.
+                        </p>
+
+                        <button
+                            onclick="conteudoBloqueado()"
+                        >
+                            🔒 Acessar
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- JAVASCRIPT -->
+
+                    <div class="conteudo">
+
+                        <div class="icone">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            JavaScript
+                        </h3>
+
+                        <p>
+                            Aprenda lógica, interatividade
+                            e funcionalidades para seus sites.
+                        </p>
+
+                        <button
+                            onclick="conteudoBloqueado()"
+                        >
+                            🔒 Acessar
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- PROJETOS -->
+
+                    <div class="conteudo">
+
+                        <div class="icone">
+                            🚀
+                        </div>
+
+                        <h3>
+                            Projetos
+                        </h3>
+
+                        <p>
+                            Coloque seus conhecimentos
+                            em prática criando projetos.
+                        </p>
+
+                        <button
+                            onclick="conteudoBloqueado()"
+                        >
+                            🔒 Acessar
+                        </button>
 
                     </div>
 
@@ -465,40 +407,50 @@
 
     <script>
 
-        function abrirUsuarios() {
+
+        function copiarPix() {
+
+            const chave =
+                document.getElementById("pix").innerText;
+
+            navigator.clipboard.writeText(chave)
+                .then(function () {
+
+                    alert("✅ Chave Pix copiada!");
+
+                })
+                .catch(function () {
+
+                    alert(
+                        "Não foi possível copiar automaticamente. Copie a chave manualmente."
+                    );
+
+                });
+
+        }
+
+
+
+        function abrirDiscord(event) {
+
+            event.preventDefault();
 
             alert(
-                "👥 Área de usuários em desenvolvimento."
+                "💬 Primeiro vamos configurar o link do seu atendimento no Discord."
             );
 
         }
 
 
-        function abrirPagamentos() {
+
+        function conteudoBloqueado() {
 
             alert(
-                "💰 Área de pagamentos em desenvolvimento."
+                "🔒 Conteúdo bloqueado.\n\nFaça o pagamento de R$ 10,00 e envie o comprovante para solicitar o acesso."
             );
 
         }
 
-
-        function abrirConteudos() {
-
-            alert(
-                "📚 Área de conteúdos em desenvolvimento."
-            );
-
-        }
-
-
-        function abrirConfiguracoes() {
-
-            alert(
-                "⚙️ Área de configurações em desenvolvimento."
-            );
-
-        }
 
     </script>
 
