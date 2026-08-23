@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
         /* ÁREA DE COMPRA */
 
         .compra {
@@ -39,7 +40,7 @@
         }
 
 
-        /* MODAL PIX */
+        /* MODAL */
 
         .pix-modal {
             display: none;
@@ -52,6 +53,7 @@
             z-index: 9999;
         }
 
+
         .pix-caixa {
             width: 100%;
             max-width: 430px;
@@ -63,15 +65,18 @@
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         }
 
+
         .pix-caixa h2 {
             margin-top: 0;
         }
+
 
         .valor-pix {
             font-size: 25px;
             font-weight: bold;
             margin: 15px 0 20px;
         }
+
 
         .chave-area {
             background: #222;
@@ -81,12 +86,14 @@
             word-break: break-all;
         }
 
+
         .chave {
             display: block;
             margin-bottom: 12px;
             color: #00ff88;
             font-weight: bold;
         }
+
 
         .copiar {
             border: none;
@@ -95,6 +102,7 @@
             border-radius: 8px;
             font-weight: bold;
         }
+
 
         .ja-paguei {
             width: 100%;
@@ -106,6 +114,7 @@
             font-weight: bold;
         }
 
+
         .fechar {
             margin-top: 12px;
             background: transparent;
@@ -114,16 +123,38 @@
             cursor: pointer;
         }
 
+
         .aviso-pix {
             font-size: 13px;
             color: #aaa;
             line-height: 1.5;
         }
+
+
+        /* CONTEÚDO BLOQUEADO */
+
+        #tutorial {
+            display: none;
+        }
+
+
+        .bloqueado {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.05);
+        }
+
     </style>
 
 </head>
 
+
 <body>
+
+
+    <!-- MENU -->
 
     <header class="topo">
 
@@ -132,42 +163,63 @@
         </div>
 
         <nav>
-            <a href="index.html">Início</a>
-            <a href="servidores.html">Servidores</a>
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="servidores.html">
+                Servidores
+            </a>
+
         </nav>
 
     </header>
 
 
+
     <main>
+
 
         <!-- CABEÇALHO -->
 
         <section class="sobre">
 
-            <p class="tag">TUTORIAL • SERVIDORES</p>
+            <p class="tag">
+                TUTORIAL • SERVIDORES
+            </p>
 
-            <h1>Configuração Básica</h1>
+
+            <h1>
+                Configuração Básica
+            </h1>
+
 
             <p>
                 Aprenda os primeiros passos para organizar
                 e configurar seu servidor.
             </p>
 
+
             <a href="servidores.html" class="botao">
                 ← Voltar para Servidores
             </a>
+
 
 
             <!-- COMPRA -->
 
             <div class="compra">
 
-                <p>Tenha acesso ao tutorial completo.</p>
+                <p>
+                    Acesso ao tutorial completo
+                </p>
+
 
                 <div class="preco">
                     R$ 10,00
                 </div>
+
 
                 <button
                     class="botao-pix"
@@ -181,15 +233,43 @@
         </section>
 
 
-        <!-- CONTEÚDO DO TUTORIAL -->
+
+        <!-- AVISO DE BLOQUEIO -->
 
         <section class="tutoriais">
 
-            <div class="cards">
+            <div
+                class="bloqueado"
+                id="bloqueado"
+            >
+
+                🔒
+
+                <h2>
+                    Conteúdo bloqueado
+                </h2>
+
+                <p>
+                    Faça o pagamento para receber
+                    acesso ao tutorial completo.
+                </p>
+
+            </div>
+
+
+            <!-- TUTORIAL -->
+
+            <div
+                class="cards"
+                id="tutorial"
+            >
+
 
                 <div class="card">
 
-                    <div class="icone">🚀</div>
+                    <div class="icone">
+                        🚀
+                    </div>
 
                     <h3>
                         1. Crie seu servidor
@@ -203,9 +283,12 @@
                 </div>
 
 
+
                 <div class="card">
 
-                    <div class="icone">📁</div>
+                    <div class="icone">
+                        📁
+                    </div>
 
                     <h3>
                         2. Organize os canais
@@ -219,9 +302,12 @@
                 </div>
 
 
+
                 <div class="card">
 
-                    <div class="icone">👥</div>
+                    <div class="icone">
+                        👥
+                    </div>
 
                     <h3>
                         3. Configure os cargos
@@ -235,9 +321,12 @@
                 </div>
 
 
+
                 <div class="card">
 
-                    <div class="icone">🔐</div>
+                    <div class="icone">
+                        🔐
+                    </div>
 
                     <h3>
                         4. Revise as permissões
@@ -250,6 +339,7 @@
 
                 </div>
 
+
             </div>
 
         </section>
@@ -257,7 +347,8 @@
     </main>
 
 
-    <!-- MODAL DE PAGAMENTO PIX -->
+
+    <!-- MODAL PIX -->
 
     <div
         class="pix-modal"
@@ -270,9 +361,11 @@
                 💠 Pagamento via Pix
             </h2>
 
+
             <div class="valor-pix">
                 R$ 10,00
             </div>
+
 
             <p>
                 Copie a chave Pix abaixo e faça
@@ -280,9 +373,11 @@
             </p>
 
 
+
             <div class="chave-area">
 
-                <!-- TROQUE PELA SUA CHAVE PIX -->
+
+                <!-- COLOQUE SUA CHAVE PIX AQUI -->
 
                 <span
                     class="chave"
@@ -290,6 +385,7 @@
                 >
                     4dfaef9f-eca4-4cfa-8a7f-725da6d4cf4f
                 </span>
+
 
                 <button
                     class="copiar"
@@ -301,12 +397,14 @@
             </div>
 
 
+
             <p class="aviso-pix">
 
                 Depois de realizar o pagamento,
-                aguarde a confirmação.
+                envie o comprovante para confirmação.
 
             </p>
+
 
 
             <button
@@ -329,6 +427,9 @@
     </div>
 
 
+
+    <!-- RODAPÉ -->
+
     <footer>
 
         <p>
@@ -338,13 +439,16 @@
     </footer>
 
 
+
     <script>
+
 
         function abrirPix() {
 
             document.getElementById("pixModal").style.display = "flex";
 
         }
+
 
 
         function fecharPix() {
@@ -354,51 +458,63 @@
         }
 
 
+
         function copiarPix() {
 
             const chave =
                 document.getElementById("chavePix").innerText;
 
+
             navigator.clipboard.writeText(chave)
+
                 .then(function () {
 
                     alert("Chave Pix copiada!");
 
                 })
+
                 .catch(function () {
 
-                    alert("Não foi possível copiar automaticamente. Copie a chave manualmente.");
+                    alert(
+                        "Não foi possível copiar automaticamente. Copie a chave manualmente."
+                    );
 
                 });
 
         }
 
 
+
         function jaPaguei() {
 
             alert(
-                "Pagamento informado! Aguarde a confirmação."
+                "Pagamento informado! Envie o comprovante para receber a confirmação."
             );
 
         }
 
 
-        // Fecha o modal ao clicar fora da caixa
 
-        document.getElementById("pixModal").addEventListener(
-            "click",
-            function(event) {
+        /* FECHAR CLICANDO FORA */
 
-                if (event.target === this) {
+        document
+            .getElementById("pixModal")
+            .addEventListener(
+                "click",
+                function(event) {
 
-                    fecharPix();
+                    if (event.target === this) {
+
+                        fecharPix();
+
+                    }
 
                 }
+            );
 
-            }
-        );
 
     </script>
+
 
 </body>
 
