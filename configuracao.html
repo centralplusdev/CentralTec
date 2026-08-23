@@ -8,6 +8,119 @@
     <title>Configuração Básica - Central+</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ÁREA DE COMPRA */
+
+        .compra {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .preco {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .botao-pix {
+            border: none;
+            cursor: pointer;
+            padding: 14px 25px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background: #00ff88;
+            color: #000;
+        }
+
+        .botao-pix:hover {
+            transform: scale(1.03);
+        }
+
+
+        /* MODAL PIX */
+
+        .pix-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 9999;
+        }
+
+        .pix-caixa {
+            width: 100%;
+            max-width: 430px;
+            background: #111;
+            color: white;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .pix-caixa h2 {
+            margin-top: 0;
+        }
+
+        .valor-pix {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 15px 0 20px;
+        }
+
+        .chave-area {
+            background: #222;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+
+        .chave {
+            display: block;
+            margin-bottom: 12px;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .copiar {
+            border: none;
+            cursor: pointer;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .ja-paguei {
+            width: 100%;
+            margin-top: 15px;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .fechar {
+            margin-top: 12px;
+            background: transparent;
+            color: #aaa;
+            border: none;
+            cursor: pointer;
+        }
+
+        .aviso-pix {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.5;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -28,6 +141,8 @@
 
     <main>
 
+        <!-- CABEÇALHO -->
+
         <section class="sobre">
 
             <p class="tag">TUTORIAL • SERVIDORES</p>
@@ -43,50 +158,96 @@
                 ← Voltar para Servidores
             </a>
 
+
+            <!-- COMPRA -->
+
+            <div class="compra">
+
+                <p>Tenha acesso ao tutorial completo.</p>
+
+                <div class="preco">
+                    R$ 10,00
+                </div>
+
+                <button
+                    class="botao-pix"
+                    onclick="abrirPix()"
+                >
+                    💠 Comprar com Pix
+                </button>
+
+            </div>
+
         </section>
 
+
+        <!-- CONTEÚDO DO TUTORIAL -->
 
         <section class="tutoriais">
 
             <div class="cards">
 
                 <div class="card">
+
                     <div class="icone">🚀</div>
-                    <h3>1. Crie seu servidor</h3>
+
+                    <h3>
+                        1. Crie seu servidor
+                    </h3>
+
                     <p>
                         Comece criando um servidor e escolha
                         um nome que represente sua comunidade.
                     </p>
+
                 </div>
 
 
                 <div class="card">
+
                     <div class="icone">📁</div>
-                    <h3>2. Organize os canais</h3>
+
+                    <h3>
+                        2. Organize os canais
+                    </h3>
+
                     <p>
                         Crie categorias e canais para separar
                         conversas, informações e comandos.
                     </p>
+
                 </div>
 
 
                 <div class="card">
+
                     <div class="icone">👥</div>
-                    <h3>3. Configure os cargos</h3>
+
+                    <h3>
+                        3. Configure os cargos
+                    </h3>
+
                     <p>
                         Crie cargos para organizar os membros
                         e definir diferentes níveis de acesso.
                     </p>
+
                 </div>
 
 
                 <div class="card">
+
                     <div class="icone">🔐</div>
-                    <h3>4. Revise as permissões</h3>
+
+                    <h3>
+                        4. Revise as permissões
+                    </h3>
+
                     <p>
                         Verifique cuidadosamente quais permissões
                         cada cargo poderá utilizar.
                     </p>
+
                 </div>
 
             </div>
@@ -96,6 +257,78 @@
     </main>
 
 
+    <!-- MODAL DE PAGAMENTO PIX -->
+
+    <div
+        class="pix-modal"
+        id="pixModal"
+    >
+
+        <div class="pix-caixa">
+
+            <h2>
+                💠 Pagamento via Pix
+            </h2>
+
+            <div class="valor-pix">
+                R$ 10,00
+            </div>
+
+            <p>
+                Copie a chave Pix abaixo e faça
+                o pagamento pelo aplicativo do seu banco.
+            </p>
+
+
+            <div class="chave-area">
+
+                <!-- TROQUE PELA SUA CHAVE PIX -->
+
+                <span
+                    class="chave"
+                    id="chavePix"
+                >
+                    4dfaef9f-eca4-4cfa-8a7f-725da6d4cf4f
+                </span>
+
+                <button
+                    class="copiar"
+                    onclick="copiarPix()"
+                >
+                    📋 Copiar chave Pix
+                </button>
+
+            </div>
+
+
+            <p class="aviso-pix">
+
+                Depois de realizar o pagamento,
+                aguarde a confirmação.
+
+            </p>
+
+
+            <button
+                class="ja-paguei"
+                onclick="jaPaguei()"
+            >
+                ✅ Já fiz o pagamento
+            </button>
+
+
+            <button
+                class="fechar"
+                onclick="fecharPix()"
+            >
+                Fechar
+            </button>
+
+        </div>
+
+    </div>
+
+
     <footer>
 
         <p>
@@ -103,6 +336,69 @@
         </p>
 
     </footer>
+
+
+    <script>
+
+        function abrirPix() {
+
+            document.getElementById("pixModal").style.display = "flex";
+
+        }
+
+
+        function fecharPix() {
+
+            document.getElementById("pixModal").style.display = "none";
+
+        }
+
+
+        function copiarPix() {
+
+            const chave =
+                document.getElementById("chavePix").innerText;
+
+            navigator.clipboard.writeText(chave)
+                .then(function () {
+
+                    alert("Chave Pix copiada!");
+
+                })
+                .catch(function () {
+
+                    alert("Não foi possível copiar automaticamente. Copie a chave manualmente.");
+
+                });
+
+        }
+
+
+        function jaPaguei() {
+
+            alert(
+                "Pagamento informado! Aguarde a confirmação."
+            );
+
+        }
+
+
+        // Fecha o modal ao clicar fora da caixa
+
+        document.getElementById("pixModal").addEventListener(
+            "click",
+            function(event) {
+
+                if (event.target === this) {
+
+                    fecharPix();
+
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
 
