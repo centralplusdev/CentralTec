@@ -1395,4 +1395,418 @@ body.auth-ok{
                 Administrador principal da Central+.
             </p>
 
-         
+                     <div class="card">
+
+                <div class="card-icon">
+                    👑
+                </div>
+
+                <h3>
+                    Central
+                </h3>
+
+                <p>
+                    Administrador principal da Central+.
+                </p>
+
+                <span class="badge badge-green">
+                    ATIVO
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TICKETS -->
+
+<section class="page" id="tickets">
+
+    <div class="page-header">
+
+        <div class="page-tag">
+            CENTRAL+ • SUPORTE
+        </div>
+
+        <h1 class="page-title">
+            Tickets
+        </h1>
+
+        <p class="page-description">
+            Gerencie os tickets de suporte.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎫
+            </div>
+
+            <h3>
+                Nenhum ticket
+            </h3>
+
+            <p>
+                Não existem tickets abertos no momento.
+            </p>
+
+            <button
+                class="btn btn-dark"
+                onclick="mostrarAviso('Nenhum ticket aberto')"
+            >
+                Atualizar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUTOS -->
+
+<section class="page" id="produtos">
+
+    <div class="page-header">
+
+        <div class="page-tag">
+            CENTRAL+ • PRODUTOS
+        </div>
+
+        <h1 class="page-title">
+            Produtos
+        </h1>
+
+        <p class="page-description">
+            Gerencie os produtos disponíveis na plataforma.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                📦
+            </div>
+
+            <h3>
+                Nenhum produto
+            </h3>
+
+            <p>
+                Adicione produtos para começar a realizar vendas.
+            </p>
+
+            <button
+                class="btn btn-green"
+                onclick="mostrarAviso('Área de produtos preparada')"
+            >
+                Adicionar produto
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONFIGURAÇÕES -->
+
+<section class="page" id="config">
+
+    <div class="page-header">
+
+        <div class="page-tag">
+            CENTRAL+ • SISTEMA
+        </div>
+
+        <h1 class="page-title">
+            Configurações
+        </h1>
+
+        <p class="page-description">
+            Configure o funcionamento da Central+.
+        </p>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="panel-body">
+
+            <div class="setting">
+
+                <div>
+
+                    <div class="setting-title">
+                        Sistema online
+                    </div>
+
+                    <div class="setting-description">
+                        Status atual da plataforma.
+                    </div>
+
+                </div>
+
+                <span class="badge badge-green">
+                    ONLINE
+                </span>
+
+            </div>
+
+
+            <div class="setting">
+
+                <div>
+
+                    <div class="setting-title">
+                        Notificações
+                    </div>
+
+                    <div class="setting-description">
+                        Controle das notificações administrativas.
+                    </div>
+
+                </div>
+
+                <button
+                    class="btn btn-green"
+                    onclick="mostrarAviso('Notificações ativadas')"
+                >
+                    Ativado
+                </button>
+
+            </div>
+
+
+            <div class="setting">
+
+                <div>
+
+                    <div class="setting-title">
+                        Segurança
+                    </div>
+
+                    <div class="setting-description">
+                        Proteção de acesso ao painel administrativo.
+                    </div>
+
+                </div>
+
+                <span class="badge badge-green">
+                    PROTEGIDO
+                </span>
+
+            </div>
+
+
+            <div class="setting">
+
+                <div>
+
+                    <div class="setting-title">
+                        Sessão administrativa
+                    </div>
+
+                    <div class="setting-description">
+                        Encerre sua sessão neste dispositivo.
+                    </div>
+
+                </div>
+
+                <button
+                    class="btn btn-red"
+                    onclick="sair()"
+                >
+                    Encerrar sessão
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function abrirPagina(nome){
+
+    const paginas =
+        document.querySelectorAll(".page");
+
+    const botoes =
+        document.querySelectorAll(".nav-button[data-page]");
+
+
+    paginas.forEach(function(pagina){
+
+        pagina.classList.remove("active");
+
+    });
+
+
+    botoes.forEach(function(botao){
+
+        botao.classList.remove("active");
+
+    });
+
+
+    const pagina =
+        document.getElementById(nome);
+
+
+    const botao =
+        document.querySelector(
+            '.nav-button[data-page="' + nome + '"]'
+        );
+
+
+    if(!pagina){
+
+        console.error(
+            "Página não encontrada:",
+            nome
+        );
+
+        return;
+
+    }
+
+
+    pagina.classList.add("active");
+
+
+    if(botao){
+
+        botao.classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+document
+.querySelectorAll(".nav-button[data-page]")
+.forEach(function(botao){
+
+    botao.addEventListener(
+        "click",
+        function(){
+
+            abrirPagina(
+                botao.dataset.page
+            );
+
+        }
+    );
+
+});
+
+
+function mostrarAviso(mensagem){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent =
+        mensagem;
+
+
+    toast.classList.add("show");
+
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+function sair(){
+
+    sessionStorage.removeItem(
+        "centralAdmin"
+    );
+
+    window.location.replace(
+        "admin-login.html"
+    );
+
+}
+
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+
+if(logoutButton){
+
+    logoutButton.addEventListener(
+        "click",
+        sair
+    );
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document.body.classList.add(
+            "auth-ok"
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
