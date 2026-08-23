@@ -3,505 +3,285 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<title>Central+ • Login Administrativo</title>
 
-    <title>Central+ • Login Administrativo</title>
+<style>
 
-    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+:root {
+    --bg: #060708;
+    --card: #101315;
+    --border: #202529;
+    --text: #f5f7f8;
+    --muted: #858d94;
+    --green: #00e887;
+    --red: #ff5964;
+}
 
-        body {
+body {
 
-            margin: 0;
+    min-height: 100vh;
 
-            min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            display: flex;
+    padding: 20px;
 
-            align-items: center;
+    background:
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(0,232,135,.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(0,232,135,.05),
+            transparent 35%
+        ),
+        var(--bg);
 
-            justify-content: center;
+    color: var(--text);
 
-            padding: 20px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-            background:
-                radial-gradient(
-                    circle at top,
-                    #123528 0%,
-                    #080a0b 40%,
-                    #050606 100%
-                );
+}
 
-            color: #f2f4f5;
+.login-box {
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+    width: min(420px, 100%);
 
-        }
+    padding: 35px;
 
+    background:
+        rgba(16,19,21,.96);
 
-        .background {
+    border:
+        1px solid var(--border);
 
-            position: fixed;
+    border-radius: 18px;
 
-            inset: 0;
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.6);
 
-            pointer-events: none;
+    animation:
+        appear .5s ease;
 
-            overflow: hidden;
+}
 
-        }
+@keyframes appear {
 
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
 
-        .glow {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 
-            position: absolute;
+}
 
-            width: 350px;
+.logo {
 
-            height: 350px;
+    text-align: center;
 
-            border-radius: 50%;
+    margin-bottom: 30px;
 
-            background: #00e887;
+}
 
-            opacity: .06;
+.logo-icon {
 
-            filter: blur(90px);
+    width: 58px;
+    height: 58px;
 
-        }
+    margin: 0 auto 15px;
 
+    display: flex;
 
-        .glow.one {
+    align-items: center;
+    justify-content: center;
 
-            top: -120px;
+    border-radius: 15px;
 
-            left: -100px;
+    background:
+        var(--green);
 
-        }
+    color: #000;
 
+    font-weight: 900;
 
-        .glow.two {
+    box-shadow:
+        0 0 35px rgba(0,232,135,.2);
 
-            right: -120px;
+}
 
-            bottom: -120px;
+.logo h1 {
 
-        }
+    font-size: 26px;
 
+    font-weight: 900;
 
-        .login-container {
+}
 
-            position: relative;
+.logo h1 span {
 
-            width: 100%;
+    color:
+        var(--green);
 
-            max-width: 430px;
+}
 
-        }
+.logo p {
 
+    margin-top: 7px;
 
-        .logo {
+    color:
+        var(--muted);
 
-            display: flex;
+    font-size: 11px;
 
-            align-items: center;
+}
 
-            justify-content: center;
+label {
 
-            gap: 11px;
+    display: block;
 
-            margin-bottom: 25px;
+    margin:
+        16px 0 7px;
 
-        }
+    color:
+        var(--muted);
 
+    font-size: 10px;
 
-        .logo-icon {
+    font-weight: 800;
 
-            width: 45px;
+    text-transform:
+        uppercase;
 
-            height: 45px;
+}
 
-            display: flex;
+input {
 
-            align-items: center;
+    width: 100%;
 
-            justify-content: center;
+    padding: 13px;
 
-            border-radius: 12px;
+    background:
+        #0c0f11;
 
-            background: #00e887;
+    color: white;
 
-            color: #000;
+    border:
+        1px solid var(--border);
 
-            font-size: 15px;
+    border-radius: 9px;
 
-            font-weight: 900;
+    outline: none;
 
-            box-shadow:
-                0 0 30px rgba(
-                    0,
-                    232,
-                    135,
-                    .15
-                );
+    font-size: 12px;
 
-        }
+    transition: .2s;
 
+}
 
-        .logo-name {
+input:focus {
 
-            font-size: 23px;
+    border-color:
+        var(--green);
 
-            font-weight: 800;
+    box-shadow:
+        0 0 0 3px
+        rgba(0,232,135,.07);
 
-        }
+}
 
+button {
 
-        .logo-name span {
+    width: 100%;
 
-            color: #00e887;
+    margin-top: 22px;
 
-        }
+    padding: 14px;
 
+    border: 0;
 
-        .card {
+    border-radius: 9px;
 
-            padding: 32px;
+    background:
+        var(--green);
 
-            background:
-                rgba(
-                    14,
-                    17,
-                    19,
-                    .94
-                );
+    color: #000;
 
-            border:
-                1px solid #22272b;
+    font-size: 12px;
 
-            border-radius: 17px;
+    font-weight: 900;
 
-            box-shadow:
-                0 25px 70px rgba(
-                    0,
-                    0,
-                    0,
-                    .45
-                );
+    cursor: pointer;
 
-            backdrop-filter:
-                blur(20px);
+    transition: .2s;
 
-        }
+}
 
+button:hover {
 
-        .tag {
+    transform:
+        translateY(-2px);
 
-            margin: 0 0 9px;
+    box-shadow:
+        0 10px 30px
+        rgba(0,232,135,.15);
 
-            color: #00e887;
+}
 
-            font-size: 10px;
+.error {
 
-            font-weight: 800;
+    min-height: 16px;
 
-            letter-spacing: 1.2px;
+    margin-top: 12px;
 
-        }
+    color:
+        var(--red);
 
+    text-align: center;
 
-        h1 {
+    font-size: 10px;
 
-            margin: 0;
+}
 
-            font-size: 25px;
+.footer {
 
-        }
+    margin-top: 25px;
 
+    color:
+        #515960;
 
-        .description {
+    text-align: center;
 
-            margin:
-                9px 0 25px;
+    font-size: 9px;
 
-            color: #858b91;
+}
 
-            font-size: 12px;
-
-            line-height: 1.5;
-
-        }
-
-
-        .field {
-
-            margin-bottom: 17px;
-
-        }
-
-
-        label {
-
-            display: block;
-
-            margin-bottom: 7px;
-
-            color: #aeb4b9;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-        }
-
-
-        .input-box {
-
-            position: relative;
-
-        }
-
-
-        input {
-
-            width: 100%;
-
-            height: 46px;
-
-            padding:
-                0 13px;
-
-            background: #0a0c0e;
-
-            color: #fff;
-
-            border:
-                1px solid #252a2e;
-
-            border-radius: 9px;
-
-            outline: none;
-
-            font-size: 13px;
-
-            transition: .2s;
-
-        }
-
-
-        input:focus {
-
-            border-color: #00e887;
-
-            box-shadow:
-                0 0 0 3px rgba(
-                    0,
-                    232,
-                    135,
-                    .07
-                );
-
-        }
-
-
-        input::placeholder {
-
-            color: #4f555a;
-
-        }
-
-
-        .password-button {
-
-            position: absolute;
-
-            top: 50%;
-
-            right: 12px;
-
-            transform:
-                translateY(-50%);
-
-            border: 0;
-
-            background: transparent;
-
-            color: #777;
-
-            cursor: pointer;
-
-            font-size: 15px;
-
-        }
-
-
-        .password-button:hover {
-
-            color: #00e887;
-
-        }
-
-
-        .login-button {
-
-            width: 100%;
-
-            height: 47px;
-
-            margin-top: 5px;
-
-            border: 0;
-
-            border-radius: 9px;
-
-            background: #00e887;
-
-            color: #000;
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            cursor: pointer;
-
-            transition: .2s;
-
-        }
-
-
-        .login-button:hover {
-
-            transform:
-                translateY(-1px);
-
-            box-shadow:
-                0 8px 25px rgba(
-                    0,
-                    232,
-                    135,
-                    .16
-                );
-
-        }
-
-
-        .login-button:active {
-
-            transform:
-                translateY(0);
-
-        }
-
-
-        .error {
-
-            display: none;
-
-            margin-top: 14px;
-
-            padding: 10px;
-
-            background: #301619;
-
-            border:
-                1px solid #542126;
-
-            border-radius: 8px;
-
-            color: #ff6c73;
-
-            font-size: 11px;
-
-            text-align: center;
-
-        }
-
-
-        .security {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 6px;
-
-            margin-top: 20px;
-
-            color: #555c62;
-
-            font-size: 10px;
-
-        }
-
-
-        .security-dot {
-
-            width: 6px;
-
-            height: 6px;
-
-            border-radius: 50%;
-
-            background: #00e887;
-
-        }
-
-
-        .footer {
-
-            margin-top: 18px;
-
-            color: #4e5459;
-
-            font-size: 10px;
-
-            text-align: center;
-
-        }
-
-
-        @media (max-width: 500px) {
-
-            .card {
-
-                padding: 25px 20px;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
-
 
 <body>
 
 
-<div class="background">
-
-    <div class="glow one"></div>
-
-    <div class="glow two"></div>
-
-</div>
-
-
-
-<div class="login-container">
+<div class="login-box">
 
 
     <div class="logo">
@@ -510,273 +290,126 @@
             C+
         </div>
 
-        <div class="logo-name">
-            Central<span>+</span>
-        </div>
-
-    </div>
-
-
-
-    <div class="card">
-
-
-        <p class="tag">
-            ÁREA RESTRITA
-        </p>
-
-
         <h1>
-            Painel Administrativo
+            Central<span>+</span>
         </h1>
 
-
-        <p class="description">
-
-            Entre com suas credenciais para
-            acessar o gerenciamento da Central+.
-
+        <p>
+            Área administrativa
         </p>
 
-
-
-        <form id="loginForm">
-
-
-            <div class="field">
-
-                <label for="usuario">
-                    Usuário
-                </label>
-
-                <input
-                    id="usuario"
-                    type="text"
-                    placeholder="Digite seu usuário"
-                    autocomplete="username"
-                    required
-                >
-
-            </div>
-
-
-
-            <div class="field">
-
-                <label for="senha">
-                    Senha
-                </label>
-
-
-                <div class="input-box">
-
-                    <input
-                        id="senha"
-                        type="password"
-                        placeholder="Digite sua senha"
-                        autocomplete="current-password"
-                        required
-                    >
-
-
-                    <button
-                        type="button"
-                        class="password-button"
-                        id="mostrarSenha"
-                    >
-                        👁
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <button
-                type="submit"
-                class="login-button"
-            >
-
-                Entrar no painel →
-
-            </button>
-
-
-            <div
-                class="error"
-                id="erro"
-            >
-
-                Usuário ou senha incorretos.
-
-            </div>
-
-
-        </form>
-
-
-
-        <div class="security">
-
-            <span class="security-dot"></span>
-
-            Área protegida da Central+
-
-        </div>
-
-
     </div>
+
+
+    <form id="loginForm">
+
+
+        <label for="usuario">
+            Usuário
+        </label>
+
+
+        <input
+            id="usuario"
+            type="text"
+            placeholder="Digite seu usuário"
+            autocomplete="username"
+            required
+        >
+
+
+        <label for="senha">
+            Senha
+        </label>
+
+
+        <input
+            id="senha"
+            type="password"
+            placeholder="Digite sua senha"
+            autocomplete="current-password"
+            required
+        >
+
+
+        <button type="submit">
+            Entrar no painel
+        </button>
+
+
+        <div
+            class="error"
+            id="error"
+        ></div>
+
+
+    </form>
 
 
     <div class="footer">
-
-        © 2026 Central+ • Acesso administrativo
-
+        Central+ • Sistema Administrativo
     </div>
 
 
 </div>
 
 
-
 <script>
 
-
-/* =================================
-   LOGIN
-================================= */
-
-const form =
-    document.getElementById(
-        "loginForm"
-    );
-
-
-const usuario =
-    document.getElementById(
-        "usuario"
-    );
-
-
-const senha =
-    document.getElementById(
-        "senha"
-    );
-
-
-const erro =
-    document.getElementById(
-        "erro"
-    );
-
-
-
-form.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
-
-
-        const user =
-            usuario.value.trim();
-
-
-        const pass =
-            senha.value;
-
-
-        /*
-            CREDENCIAIS
-        */
-
-        if (
-            user === "Central" &&
-            pass === "Ninja"
-        ) {
-
-
-            sessionStorage.setItem(
-                "centralAdmin",
-                "true"
-            );
-
-
-            window.location.href =
-                "admin.html";
-
-
-        } else {
-
-
-            erro.style.display =
-                "block";
-
-
-            senha.value = "";
-
-
-            senha.focus();
-
-
-            setTimeout(
-                function() {
-
-                    erro.style.display =
-                        "none";
-
-                },
-                3000
-            );
-
-        }
-
-    }
-);
-
-
-
-/* =================================
-   MOSTRAR SENHA
-================================= */
-
 document
-    .getElementById(
-        "mostrarSenha"
-    )
+    .getElementById("loginForm")
     .addEventListener(
-        "click",
-        function() {
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const usuario =
+                document
+                .getElementById("usuario")
+                .value
+                .trim();
+
+
+            const senha =
+                document
+                .getElementById("senha")
+                .value;
+
+
+            const error =
+                document
+                .getElementById("error");
 
 
             if (
-                senha.type ===
-                "password"
+                usuario === "Central" &&
+                senha === "Ninja"
             ) {
 
-                senha.type =
-                    "text";
+                sessionStorage.setItem(
+                    "centralAdmin",
+                    "true"
+                );
 
-                this.textContent =
-                    "🙈";
+
+                window.location.replace(
+                    "admin.html"
+                );
+
 
             } else {
 
-                senha.type =
-                    "password";
-
-                this.textContent =
-                    "👁";
+                error.textContent =
+                    "Usuário ou senha incorretos.";
 
             }
 
         }
     );
 
-
 </script>
-
 
 </body>
 
