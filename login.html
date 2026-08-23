@@ -12,7 +12,6 @@
 
 <title>Central+ | Acesso</title>
 
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
@@ -62,7 +61,7 @@ body{
 
 
 /* =========================
-   ANIMAÇÃO INICIAL
+   ANIMAÇÃO CENTRAL+
 ========================= */
 
 .intro{
@@ -376,7 +375,7 @@ h2{
 
 
 /* =========================
-   BOTÕES
+   BOTÃO
 ========================= */
 
 .botao{
@@ -439,6 +438,8 @@ h2{
     font-size:11px;
 
     color:#ff6b6b;
+
+    line-height:1.5;
 
 }
 
@@ -545,7 +546,7 @@ h2{
 
 
 <!-- =========================
-     LOGIN
+     LOGIN BOX
 ========================= -->
 
 <div class="login-box">
@@ -569,7 +570,7 @@ h2{
 
 
     <!-- =========================
-         ÁREA DE LOGIN
+         LOGIN
     ========================= -->
 
     <div id="loginArea">
@@ -588,6 +589,7 @@ h2{
 
 
         <form id="loginForm">
+
 
             <div class="campo">
 
@@ -631,13 +633,14 @@ h2{
                 Entrar →
             </button>
 
+
         </form>
 
     </div>
 
 
     <!-- =========================
-         ÁREA DE CADASTRO
+         CADASTRO
     ========================= -->
 
     <div
@@ -659,6 +662,7 @@ h2{
 
 
         <form id="cadastroForm">
+
 
             <div class="campo">
 
@@ -703,6 +707,7 @@ h2{
                 Criar conta
             </button>
 
+
         </form>
 
     </div>
@@ -727,6 +732,7 @@ h2{
         <span id="textoTrocar">
             Ainda não possui uma conta?
         </span>
+
 
         <button
             id="trocarModo"
@@ -772,43 +778,61 @@ const supabaseClient =
 ===================================== */
 
 const loginArea =
-    document.getElementById("loginArea");
+    document.getElementById(
+        "loginArea"
+    );
 
 
 const cadastroArea =
-    document.getElementById("cadastroArea");
+    document.getElementById(
+        "cadastroArea"
+    );
 
 
 const loginForm =
-    document.getElementById("loginForm");
+    document.getElementById(
+        "loginForm"
+    );
 
 
 const cadastroForm =
-    document.getElementById("cadastroForm");
+    document.getElementById(
+        "cadastroForm"
+    );
 
 
 const mensagem =
-    document.getElementById("mensagem");
+    document.getElementById(
+        "mensagem"
+    );
 
 
 const trocarModo =
-    document.getElementById("trocarModo");
+    document.getElementById(
+        "trocarModo"
+    );
 
 
 const textoTrocar =
-    document.getElementById("textoTrocar");
+    document.getElementById(
+        "textoTrocar"
+    );
 
 
 const loginButton =
-    document.getElementById("loginButton");
+    document.getElementById(
+        "loginButton"
+    );
 
 
 const cadastroButton =
-    document.getElementById("cadastroButton");
+    document.getElementById(
+        "cadastroButton"
+    );
 
 
 /* =====================================
-   MODO LOGIN / CADASTRO
+   TROCAR LOGIN / CADASTRO
 ===================================== */
 
 let modoCadastro = false;
@@ -822,7 +846,8 @@ trocarModo.addEventListener(
             !modoCadastro;
 
 
-        mensagem.textContent = "";
+        mensagem.textContent =
+            "";
 
         mensagem.className =
             "mensagem";
@@ -886,20 +911,24 @@ loginForm.addEventListener(
 
         const email =
             document
-                .getElementById("loginEmail")
+                .getElementById(
+                    "loginEmail"
+                )
                 .value
                 .trim();
 
 
         const senha =
             document
-                .getElementById("loginSenha")
+                .getElementById(
+                    "loginSenha"
+                )
                 .value;
 
 
         try{
 
-            const { data, error } =
+            const resultado =
                 await supabaseClient.auth
                     .signInWithPassword({
 
@@ -910,12 +939,29 @@ loginForm.addEventListener(
                     });
 
 
+            const data =
+                resultado.data;
+
+            const error =
+                resultado.error;
+
+
+            /* =========================
+               ERRO REAL DO SUPABASE
+            ========================= */
+
             if(error){
 
-                console.error(error);
+                console.error(
+                    "Erro Supabase:",
+                    error
+                );
+
 
                 mensagem.textContent =
-                    "E-mail ou senha incorretos.";
+                    error.message ||
+                    "Não foi possível entrar.";
+
 
                 loginButton.disabled =
                     false;
@@ -925,7 +971,11 @@ loginForm.addEventListener(
             }
 
 
-            if(data.session){
+            /* =========================
+               LOGIN REALIZADO
+            ========================= */
+
+            if(data && data.session){
 
                 sessionStorage.setItem(
                     "centralLogin",
@@ -935,6 +985,7 @@ loginForm.addEventListener(
 
                 mensagem.className =
                     "mensagem sucesso";
+
 
                 mensagem.textContent =
                     "Login realizado!";
@@ -947,17 +998,32 @@ loginForm.addEventListener(
                             "index.html";
 
                     },
-                    500
+                    600
                 );
+
+
+            }else{
+
+                mensagem.textContent =
+                    "A sessão não foi criada.";
+
+                loginButton.disabled =
+                    false;
 
             }
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                "Erro inesperado:",
+                error
+            );
+
 
             mensagem.textContent =
-                "Erro ao conectar ao servidor.";
+                error.message ||
+                "Erro ao conectar ao Supabase.";
+
 
             loginButton.disabled =
                 false;
@@ -992,20 +1058,24 @@ cadastroForm.addEventListener(
 
         const email =
             document
-                .getElementById("cadastroEmail")
+                .getElementById(
+                    "cadastroEmail"
+                )
                 .value
                 .trim();
 
 
         const senha =
             document
-                .getElementById("cadastroSenha")
+                .getElementById(
+                    "cadastroSenha"
+                )
                 .value;
 
 
         try{
 
-            const { data, error } =
+            const resultado =
                 await supabaseClient.auth
                     .signUp({
 
@@ -1016,12 +1086,29 @@ cadastroForm.addEventListener(
                     });
 
 
+            const data =
+                resultado.data;
+
+            const error =
+                resultado.error;
+
+
+            /* =========================
+               ERRO NO CADASTRO
+            ========================= */
+
             if(error){
 
-                console.error(error);
+                console.error(
+                    "Erro Supabase:",
+                    error
+                );
+
 
                 mensagem.textContent =
-                    error.message;
+                    error.message ||
+                    "Não foi possível criar a conta.";
+
 
                 cadastroButton.disabled =
                     false;
@@ -1031,16 +1118,15 @@ cadastroForm.addEventListener(
             }
 
 
-            /*
-              Se a confirmação de e-mail
-              estiver ativada no Supabase,
-              não haverá sessão imediatamente.
-            */
+            /* =========================
+               CADASTRO COM SESSÃO
+            ========================= */
 
-            if(data.session){
+            if(data && data.session){
 
                 mensagem.className =
                     "mensagem sucesso";
+
 
                 mensagem.textContent =
                     "Conta criada! Entrando...";
@@ -1065,11 +1151,19 @@ cadastroForm.addEventListener(
 
             }else{
 
+                /*
+                   Isso normalmente acontece
+                   quando a confirmação de
+                   e-mail está ativada.
+                */
+
                 mensagem.className =
                     "mensagem sucesso";
 
+
                 mensagem.textContent =
-                    "Conta criada! Verifique seu e-mail para confirmar.";
+                    "Conta criada! Verifique seu e-mail para confirmar o cadastro.";
+
 
                 cadastroButton.disabled =
                     false;
@@ -1078,10 +1172,16 @@ cadastroForm.addEventListener(
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                "Erro inesperado:",
+                error
+            );
+
 
             mensagem.textContent =
+                error.message ||
                 "Erro ao criar a conta.";
+
 
             cadastroButton.disabled =
                 false;
@@ -1100,12 +1200,19 @@ async function verificarSessao(){
 
     try{
 
-        const { data } =
+        const resultado =
             await supabaseClient.auth
                 .getSession();
 
 
-        if(data.session){
+        const data =
+            resultado.data;
+
+
+        if(
+            data &&
+            data.session
+        ){
 
             sessionStorage.setItem(
                 "centralLogin",
@@ -1133,4 +1240,4 @@ verificarSessao();
 
 </body>
 
-</html>
+    </html>
