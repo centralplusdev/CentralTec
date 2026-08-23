@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,9 +10,180 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Programação - Central+</title>
+    <title>Admin - Central+</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .admin-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .admin-header {
+            margin-bottom: 30px;
+        }
+
+        .admin-header h1 {
+            margin-bottom: 8px;
+        }
+
+        .admin-header p {
+            color: #999;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .stat-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .stat-card .icone {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .stat-card p {
+            color: #888;
+            margin-bottom: 0;
+        }
+
+        .admin-section {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .admin-section h2 {
+            margin-top: 0;
+        }
+
+        .admin-menu {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .admin-button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            background: #181818;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .admin-button:hover {
+            background: #222;
+        }
+
+        .admin-button span {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .pagamentos {
+            overflow-x: auto;
+        }
+
+        .pagamento {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .pagamento:last-child {
+            border-bottom: none;
+        }
+
+        .pagamento-info strong {
+            display: block;
+        }
+
+        .pagamento-info small {
+            color: #888;
+        }
+
+        .status-pendente {
+            color: #ffd000;
+            font-weight: bold;
+        }
+
+        .status-aprovado {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .acoes {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-aprovar,
+        .btn-recusar {
+            border: none;
+            border-radius: 8px;
+            padding: 9px 13px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-aprovar {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .btn-recusar {
+            background: #ff4444;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+
+            .pagamento {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .acoes {
+                width: 100%;
+            }
+
+            .acoes button {
+                flex: 1;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -21,220 +191,316 @@
 <body>
 
 
-<header class="topo">
+    <!-- MENU -->
 
-    <div class="logo">
-        Central<span>+</span>
-    </div>
+    <header class="topo">
 
+        <div class="logo">
+            Central<span>+</span>
+        </div>
 
-    <nav>
+        <nav>
 
-        <a href="index.html">
-            Início
-        </a>
+            <a href="index.html">
+                Início
+            </a>
 
-    </nav>
+            <a href="login.html">
+                Conta
+            </a>
 
-</header>
+        </nav>
 
-
-
-<main>
-
-
-<section class="sobre">
-
-    <p class="tag">
-        CENTRAL • PROGRAMAÇÃO
-    </p>
-
-
-    <h1>
-        Programação
-    </h1>
-
-
-    <p>
-        Aprenda os fundamentos da programação
-        e comece a criar seus próprios projetos.
-    </p>
-
-
-    <a
-        href="index.html"
-        class="botao"
-    >
-        ← Voltar para Início
-    </a>
-
-</section>
+    </header>
 
 
 
-<section class="tutoriais">
+    <main>
+
+        <div class="admin-container">
 
 
-    <div class="titulo-secao">
+            <!-- CABEÇALHO -->
 
-        <p class="tag">
-            APRENDA
-        </p>
+            <section class="admin-header">
+
+                <p class="tag">
+                    CENTRAL • ADMIN
+                </p>
+
+                <h1>
+                    Painel Administrativo
+                </h1>
+
+                <p>
+                    Gerencie usuários, pagamentos e conteúdos
+                    da Central+.
+                </p>
+
+            </section>
 
 
-        <h2>
-            Escolha uma categoria
-        </h2>
 
+            <!-- ESTATÍSTICAS -->
+
+            <section class="dashboard">
+
+
+                <div class="stat-card">
+
+                    <div class="icone">
+                        👥
+                    </div>
+
+                    <h3 id="totalUsuarios">
+                        0
+                    </h3>
+
+                    <p>
+                        Usuários
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="icone">
+                        💰
+                    </div>
+
+                    <h3 id="totalVendas">
+                        R$ 0
+                    </h3>
+
+                    <p>
+                        Vendas
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="icone">
+                        ⏳
+                    </div>
+
+                    <h3 id="pagamentosPendentes">
+                        0
+                    </h3>
+
+                    <p>
+                        Pagamentos pendentes
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="icone">
+                        📚
+                    </div>
+
+                    <h3>
+                        4
+                    </h3>
+
+                    <p>
+                        Conteúdos
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- MENU ADMIN -->
+
+            <section class="admin-section">
+
+                <h2>
+                    Gerenciamento
+                </h2>
+
+                <p>
+                    Acesse as ferramentas administrativas.
+                </p>
+
+
+                <div class="admin-menu">
+
+
+                    <button
+                        class="admin-button"
+                        onclick="abrirUsuarios()"
+                    >
+
+                        <span>
+                            👥
+                        </span>
+
+                        Usuários
+
+                    </button>
+
+
+
+                    <button
+                        class="admin-button"
+                        onclick="abrirPagamentos()"
+                    >
+
+                        <span>
+                            💰
+                        </span>
+
+                        Pagamentos
+
+                    </button>
+
+
+
+                    <button
+                        class="admin-button"
+                        onclick="abrirConteudos()"
+                    >
+
+                        <span>
+                            📚
+                        </span>
+
+                        Conteúdos
+
+                    </button>
+
+
+
+                    <button
+                        class="admin-button"
+                        onclick="abrirConfiguracoes()"
+                    >
+
+                        <span>
+                            ⚙️
+                        </span>
+
+                        Configurações
+
+                    </button>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PAGAMENTOS -->
+
+            <section class="admin-section">
+
+                <h2>
+                    Pagamentos recentes
+                </h2>
+
+                <p>
+                    Confira os pagamentos que precisam
+                    de análise.
+                </p>
+
+
+                <div class="pagamentos">
+
+
+                    <div class="pagamento">
+
+                        <div class="pagamento-info">
+
+                            <strong>
+                                Nenhum pagamento ainda
+                            </strong>
+
+                            <small>
+                                Os pagamentos aparecerão aqui.
+                            </small>
+
+                        </div>
+
+                        <span class="status-pendente">
+                            —
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
 
         <p>
-            Comece pelos fundamentos e evolua
-            passo a passo.
+            © 2026 Central+ • Todos os direitos reservados.
         </p>
 
-    </div>
+    </footer>
 
 
 
-    <div class="cards">
+    <script>
+
+        function abrirUsuarios() {
+
+            alert(
+                "👥 Área de usuários em desenvolvimento."
+            );
+
+        }
 
 
+        function abrirPagamentos() {
 
-        <!-- HTML -->
+            alert(
+                "💰 Área de pagamentos em desenvolvimento."
+            );
 
-        <div class="card">
-
-            <div class="icone">
-                🌐
-            </div>
-
-
-            <h3>
-                HTML
-            </h3>
+        }
 
 
-            <p>
-                Aprenda a criar a estrutura
-                de páginas da Web.
-            </p>
+        function abrirConteudos() {
+
+            alert(
+                "📚 Área de conteúdos em desenvolvimento."
+            );
+
+        }
 
 
-            <button
-                onclick="window.location.href='html.html'"
-            >
-                Acessar →
-            </button>
+        function abrirConfiguracoes() {
 
-        </div>
+            alert(
+                "⚙️ Área de configurações em desenvolvimento."
+            );
 
+        }
 
-
-        <!-- CSS -->
-
-        <div class="card">
-
-            <div class="icone">
-                🎨
-            </div>
-
-
-            <h3>
-                CSS
-            </h3>
-
-
-            <p>
-                Aprenda a estilizar e deixar
-                seus sites mais profissionais.
-            </p>
-
-
-            <button
-                onclick="window.location.href='css.html'"
-            >
-                Acessar →
-            </button>
-
-        </div>
-
-
-
-        <!-- JAVASCRIPT -->
-
-        <div class="card">
-
-            <div class="icone">
-                ⚡
-            </div>
-
-
-            <h3>
-                JavaScript
-            </h3>
-
-
-            <p>
-                Aprenda a adicionar interatividade
-                e funcionalidades aos sites.
-            </p>
-
-
-            <button
-                onclick="window.location.href='javascript.html'"
-            >
-                Acessar →
-            </button>
-
-        </div>
-
-
-
-        <!-- PROJETOS -->
-
-        <div class="card">
-
-            <div class="icone">
-                🚀
-            </div>
-
-
-            <h3>
-                Projetos
-            </h3>
-
-
-            <p>
-                Coloque seus conhecimentos em prática
-                criando projetos.
-            </p>
-
-
-            <button
-                onclick="window.location.href='projetos.html'"
-            >
-                Acessar →
-            </button>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-    <p>
-        © 2026 Central+ • Todos os direitos reservados.
-    </p>
-
-</footer>
+    </script>
 
 
 </body>
