@@ -14,12 +14,14 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
 
         * {
             box-sizing: border-box;
         }
-
 
         body {
 
@@ -44,7 +46,9 @@
         }
 
 
-        /* TELA DE ANIMAÇÃO */
+        /* =========================
+           INTRO
+        ========================= */
 
         .intro {
 
@@ -62,7 +66,8 @@
 
             z-index: 10;
 
-            animation: desaparecer 1s ease 2.8s forwards;
+            animation:
+                desaparecer 1s ease 2.8s forwards;
 
         }
 
@@ -148,8 +153,9 @@
         }
 
 
-
-        /* ÁREA DE LOGIN */
+        /* =========================
+           LOGIN
+        ========================= */
 
         .login-page {
 
@@ -340,6 +346,45 @@
         }
 
 
+        .login-botao:disabled {
+
+            opacity: .6;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        .alternar {
+
+            margin-top: 18px;
+
+            color: #8f99aa;
+
+            font-size: 13px;
+
+        }
+
+
+        .alternar button {
+
+            border: none;
+
+            background: none;
+
+            color: #4da3ff;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+        }
+
+
         .mensagem {
 
             min-height: 20px;
@@ -349,6 +394,24 @@
             color: #ff6b6b;
 
             font-size: 14px;
+
+        }
+
+
+        .mensagem.sucesso {
+
+            color: #00e887;
+
+        }
+
+
+        .footer {
+
+            margin-top: 25px;
+
+            color: #515960;
+
+            font-size: 9px;
 
         }
 
@@ -383,7 +446,9 @@
 <body>
 
 
-    <!-- ANIMAÇÃO INICIAL -->
+    <!-- =========================
+         INTRO
+    ========================= -->
 
     <div class="intro">
 
@@ -396,8 +461,9 @@
     </div>
 
 
-
-    <!-- LOGIN -->
+    <!-- =========================
+         LOGIN
+    ========================= -->
 
     <main class="login-page">
 
@@ -411,36 +477,47 @@
             </div>
 
 
-            <div class="tag">
+            <div
+                class="tag"
+                id="tag"
+            >
 
                 ACESSO RESTRITO
 
             </div>
 
 
-            <h1>
+            <h1 id="titulo">
 
                 Bem-vindo
 
             </h1>
 
 
-            <p class="descricao">
+            <p
+                class="descricao"
+                id="descricao"
+            >
 
                 Entre para acessar a Central+.
 
             </p>
 
 
-
             <form id="loginForm">
 
 
-                <div class="campo">
+                <!-- NOME -->
 
-                    <label for="usuario">
+                <div
+                    class="campo"
+                    id="campoNome"
+                    style="display:none;"
+                >
 
-                        Usuário
+                    <label for="nome">
+
+                        Nome
 
                     </label>
 
@@ -449,11 +526,37 @@
 
                         type="text"
 
-                        id="usuario"
+                        id="nome"
 
-                        placeholder="Digite seu usuário"
+                        placeholder="Digite seu nome"
 
-                        autocomplete="username"
+                        autocomplete="name"
+
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="campo">
+
+                    <label for="email">
+
+                        Email
+
+                    </label>
+
+
+                    <input
+
+                        type="email"
+
+                        id="email"
+
+                        placeholder="Digite seu email"
+
+                        autocomplete="email"
 
                         required
 
@@ -462,6 +565,7 @@
                 </div>
 
 
+                <!-- SENHA -->
 
                 <div class="campo">
 
@@ -482,6 +586,8 @@
 
                         autocomplete="current-password"
 
+                        minlength="6"
+
                         required
 
                     >
@@ -489,12 +595,13 @@
                 </div>
 
 
-
                 <button
 
                     type="submit"
 
                     class="login-botao"
+
+                    id="botao"
 
                 >
 
@@ -506,6 +613,27 @@
             </form>
 
 
+            <div class="alternar">
+
+                <span id="textoAlternar">
+
+                    Ainda não possui uma conta?
+
+                </span>
+
+
+                <button
+                    type="button"
+                    id="alternarModo"
+                >
+
+                    Criar conta
+
+                </button>
+
+            </div>
+
+
             <p
 
                 id="mensagem"
@@ -515,39 +643,363 @@
             ></p>
 
 
+            <div class="footer">
+
+                Central+ • Acesso seguro
+
+            </div>
+
+
         </div>
 
     </main>
 
 
-
     <script>
+
+        /* =========================
+           SUPABASE
+        ========================= */
+
+        const SUPABASE_URL =
+            "COLOQUE_AQUI_A_MESMA_URL_DO_ADMIN_HTML";
+
+
+        const SUPABASE_KEY =
+            "COLOQUE_AQUI_A_MESMA_CHAVE_PUBLICA_DO_ADMIN_HTML";
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+        /* =========================
+           ELEMENTOS
+        ========================= */
 
         const formulario =
             document.getElementById("loginForm");
+
 
         const mensagem =
             document.getElementById("mensagem");
 
 
+        const alternarModo =
+            document.getElementById("alternarModo");
+
+
+        const campoNome =
+            document.getElementById("campoNome");
+
+
+        const nomeInput =
+            document.getElementById("nome");
+
+
+        const emailInput =
+            document.getElementById("email");
+
+
+        const senhaInput =
+            document.getElementById("senha");
+
+
+        const botao =
+            document.getElementById("botao");
+
+
+        const titulo =
+            document.getElementById("titulo");
+
+
+        const descricao =
+            document.getElementById("descricao");
+
+
+        const tag =
+            document.getElementById("tag");
+
+
+        const textoAlternar =
+            document.getElementById("textoAlternar");
+
+
+        let modoCadastro = false;
+
+
+        /* =========================
+           ALTERNAR LOGIN/CADASTRO
+        ========================= */
+
+        alternarModo.addEventListener(
+            "click",
+            function() {
+
+                modoCadastro =
+                    !modoCadastro;
+
+
+                mensagem.textContent = "";
+
+                mensagem.classList.remove(
+                    "sucesso"
+                );
+
+
+                if(modoCadastro){
+
+                    campoNome.style.display =
+                        "block";
+
+
+                    nomeInput.required =
+                        true;
+
+
+                    titulo.textContent =
+                        "Criar conta";
+
+
+                    descricao.textContent =
+                        "Crie sua conta para acessar a Central+.";
+
+
+                    tag.textContent =
+                        "NOVO CLIENTE";
+
+
+                    botao.textContent =
+                        "Criar conta →";
+
+
+                    textoAlternar.textContent =
+                        "Já possui uma conta?";
+
+
+                    alternarModo.textContent =
+                        "Entrar";
+
+
+                }else{
+
+                    campoNome.style.display =
+                        "none";
+
+
+                    nomeInput.required =
+                        false;
+
+
+                    titulo.textContent =
+                        "Bem-vindo";
+
+
+                    descricao.textContent =
+                        "Entre para acessar a Central+.";
+
+
+                    tag.textContent =
+                        "ACESSO RESTRITO";
+
+
+                    botao.textContent =
+                        "Entrar →";
+
+
+                    textoAlternar.textContent =
+                        "Ainda não possui uma conta?";
+
+
+                    alternarModo.textContent =
+                        "Criar conta";
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           LOGIN / CADASTRO
+        ========================= */
+
         formulario.addEventListener(
             "submit",
-            function(event) {
+            async function(event) {
 
                 event.preventDefault();
 
 
-                const usuario =
-                    document.getElementById("usuario").value;
+                mensagem.textContent = "";
+
+                mensagem.classList.remove(
+                    "sucesso"
+                );
+
+
+                botao.disabled =
+                    true;
+
+
+                botao.textContent =
+                    modoCadastro
+                        ? "Criando conta..."
+                        : "Entrando...";
+
+
+                const email =
+                    emailInput.value.trim();
+
 
                 const senha =
-                    document.getElementById("senha").value;
+                    senhaInput.value;
 
 
-                if (
-                    usuario === "CentralTech" &&
-                    senha === "Tech"
-                ) {
+                try {
+
+
+                    /* =====================
+                       CADASTRO
+                    ===================== */
+
+                    if(modoCadastro){
+
+                        const nome =
+                            nomeInput.value.trim();
+
+
+                        if(!nome){
+
+                            throw new Error(
+                                "Digite seu nome."
+                            );
+
+                        }
+
+
+                        const resultado =
+                            await supabaseClient.auth.signUp({
+
+                                email: email,
+
+                                password: senha
+
+                            });
+
+
+                        if(resultado.error){
+
+                            throw resultado.error;
+
+                        }
+
+
+                        const usuario =
+                            resultado.data.user;
+
+
+                        if(!usuario){
+
+                            throw new Error(
+                                "Não foi possível criar a conta."
+                            );
+
+                        }
+
+
+                        /*
+                           SALVA O CLIENTE
+                           NA TABELA clientes
+                        */
+
+                        const cadastroCliente =
+                            await supabaseClient
+                                .from("clientes")
+                                .insert({
+
+                                    id: usuario.id,
+
+                                    nome: nome,
+
+                                    email: email
+
+                                });
+
+
+                        if(cadastroCliente.error){
+
+                            console.error(
+                                "Erro ao salvar cliente:",
+                                cadastroCliente.error
+                            );
+
+                            throw new Error(
+                                "A conta foi criada, mas não foi possível salvar os dados do cliente."
+                            );
+
+                        }
+
+
+                        /*
+                           SESSÃO LOCAL
+                           PARA O INDEX ATUAL
+                        */
+
+                        sessionStorage.setItem(
+                            "centralLogin",
+                            "true"
+                        );
+
+
+                        mensagem.textContent =
+                            "Conta criada com sucesso!";
+
+
+                        mensagem.classList.add(
+                            "sucesso"
+                        );
+
+
+                        setTimeout(
+                            function(){
+
+                                window.location.href =
+                                    "index.html";
+
+                            },
+                            800
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    /* =====================
+                       LOGIN
+                    ===================== */
+
+                    const resultadoLogin =
+                        await supabaseClient.auth.signInWithPassword({
+
+                            email: email,
+
+                            password: senha
+
+                        });
+
+
+                    if(resultadoLogin.error){
+
+                        throw resultadoLogin.error;
+
+                    }
+
 
                     sessionStorage.setItem(
                         "centralLogin",
@@ -555,14 +1007,106 @@
                     );
 
 
-                    window.location.href =
-                        "index.html";
+                    mensagem.textContent =
+                        "Login realizado com sucesso!";
 
 
-                } else {
+                    mensagem.classList.add(
+                        "sucesso"
+                    );
+
+
+                    setTimeout(
+                        function(){
+
+                            window.location.href =
+                                "index.html";
+
+                        },
+                        500
+                    );
+
+
+                }catch(error){
+
+                    console.error(
+                        "Erro de autenticação:",
+                        error
+                    );
+
+
+                    let texto =
+                        "Não foi possível realizar a operação.";
+
+
+                    if(
+                        error.message
+                    ){
+
+                        texto =
+                            error.message;
+
+                    }
+
+
+                    /*
+                       Mensagens mais amigáveis
+                    */
+
+                    if(
+                        texto.includes(
+                            "Invalid login credentials"
+                        )
+                    ){
+
+                        texto =
+                            "Email ou senha incorretos.";
+
+                    }
+
+
+                    if(
+                        texto.includes(
+                            "User already registered"
+                        )
+                    ){
+
+                        texto =
+                            "Esse email já possui uma conta.";
+
+                    }
+
+
+                    if(
+                        texto.includes(
+                            "Password should be at least"
+                        )
+                    ){
+
+                        texto =
+                            "A senha precisa ter pelo menos 6 caracteres.";
+
+                    }
+
 
                     mensagem.textContent =
-                        "Usuário ou senha incorretos.";
+                        texto;
+
+                    mensagem.classList.remove(
+                        "sucesso"
+                    );
+
+
+                }finally{
+
+                    botao.disabled =
+                        false;
+
+
+                    botao.textContent =
+                        modoCadastro
+                            ? "Criar conta →"
+                            : "Entrar →";
 
                 }
 
@@ -570,7 +1114,6 @@
         );
 
     </script>
-
 
 </body>
 
