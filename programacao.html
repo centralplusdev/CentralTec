@@ -22,7 +22,9 @@
             padding: 20px;
         }
 
-        /* PAGAMENTO */
+        /* =========================
+           PAGAMENTO
+        ========================= */
 
         .pagamento {
             background: #111;
@@ -31,7 +33,7 @@
             padding: 30px;
             text-align: center;
             margin-bottom: 45px;
-            box-shadow: 0 10px 40px rgba(0,0,0,.35);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
         }
 
         .pagamento h1 {
@@ -91,7 +93,9 @@
         }
 
 
-        /* CONTEÚDOS */
+        /* =========================
+           CONTEÚDOS
+        ========================= */
 
         .titulo-conteudos {
             margin-bottom: 25px;
@@ -145,7 +149,9 @@
 <body>
 
 
-    <!-- MENU -->
+    <!-- =========================
+         MENU
+    ========================= -->
 
     <header class="topo">
 
@@ -170,7 +176,9 @@
         <div class="programacao-container">
 
 
-            <!-- PAGAMENTO -->
+            <!-- =========================
+                 PAGAMENTO
+            ========================= -->
 
             <section class="pagamento">
 
@@ -225,12 +233,13 @@
                 <br>
 
 
-                <!-- TROCAR PELO LINK DO SEU DISCORD -->
+                <!-- DISCORD -->
 
                 <a
                     class="botao-discord"
-                    href="#"
-                    onclick="abrirDiscord(event)"
+                    href="https://discord.gg/wrHYNEUMT"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     💬 Já paguei — Enviar comprovante
                 </a>
@@ -238,9 +247,9 @@
 
                 <p class="aviso">
 
-                    Depois de pagar, envie o comprovante
-                    pelo atendimento para solicitar a liberação
-                    do conteúdo.
+                    Depois de pagar, entre no Discord
+                    e envie o comprovante para solicitar
+                    a liberação do conteúdo.
 
                 </p>
 
@@ -248,7 +257,9 @@
 
 
 
-            <!-- CONTEÚDOS -->
+            <!-- =========================
+                 CONTEÚDOS
+            ========================= -->
 
             <section>
 
@@ -393,7 +404,9 @@
 
 
 
-    <!-- RODAPÉ -->
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
 
     <footer>
 
@@ -405,39 +418,45 @@
 
 
 
-    <script>
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
+    <script>
 
         function copiarPix() {
 
             const chave =
                 document.getElementById("pix").innerText;
 
-            navigator.clipboard.writeText(chave)
-                .then(function () {
+            if (
+                navigator.clipboard &&
+                navigator.clipboard.writeText
+            ) {
 
-                    alert("✅ Chave Pix copiada!");
+                navigator.clipboard.writeText(chave)
+                    .then(function () {
 
-                })
-                .catch(function () {
+                        alert(
+                            "✅ Chave Pix copiada!"
+                        );
 
-                    alert(
-                        "Não foi possível copiar automaticamente. Copie a chave manualmente."
-                    );
+                    })
+                    .catch(function () {
 
-                });
+                        alert(
+                            "Não foi possível copiar automaticamente. Copie a chave manualmente."
+                        );
 
-        }
+                    });
 
+            } else {
 
+                alert(
+                    "Copie a chave Pix manualmente."
+                );
 
-        function abrirDiscord(event) {
-
-            event.preventDefault();
-
-            alert(
-                "💬 Primeiro vamos configurar o link do seu atendimento no Discord."
-            );
+            }
 
         }
 
@@ -446,11 +465,10 @@
         function conteudoBloqueado() {
 
             alert(
-                "🔒 Conteúdo bloqueado.\n\nFaça o pagamento de R$ 10,00 e envie o comprovante para solicitar o acesso."
+                "🔒 Conteúdo bloqueado.\n\nFaça o pagamento de R$ 10,00 e envie o comprovante pelo Discord para solicitar o acesso."
             );
 
         }
-
 
     </script>
 
