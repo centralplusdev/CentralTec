@@ -2,10 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Central+ • Painel Administrativo</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -31,6 +34,7 @@
 
 body{
     min-height:100vh;
+
     background:
         radial-gradient(
             circle at 20% 0%,
@@ -42,11 +46,6 @@ body{
     color:var(--text);
     font-family:Arial,Helvetica,sans-serif;
 }
-
-
-/* =========================
-   PROTEÇÃO
-========================= */
 
 body{
     visibility:hidden;
@@ -63,11 +62,13 @@ body.auth-ok{
 
 .header{
     position:fixed;
+
     top:0;
     left:0;
     right:0;
 
     height:70px;
+
     z-index:1000;
 
     display:flex;
@@ -86,6 +87,7 @@ body.auth-ok{
 .logo{
     display:flex;
     align-items:center;
+
     gap:11px;
 
     font-size:20px;
@@ -125,6 +127,7 @@ body.auth-ok{
     gap:7px;
 
     color:var(--muted);
+
     font-size:10px;
 }
 
@@ -142,11 +145,13 @@ body.auth-ok{
 .profile{
     display:flex;
     align-items:center;
+
     gap:9px;
 
     padding:6px 10px;
 
     border:1px solid var(--border);
+
     border-radius:9px;
 }
 
@@ -256,6 +261,7 @@ body.auth-ok{
 
 .nav-icon{
     width:22px;
+
     text-align:center;
 }
 
@@ -267,6 +273,7 @@ body.auth-ok{
     border-radius:5px;
 
     background:var(--red-dark);
+
     color:var(--red);
 
     font-size:8px;
@@ -490,6 +497,7 @@ body.auth-ok{
 
 .btn-green{
     background:var(--green);
+
     color:#000;
 }
 
@@ -556,16 +564,19 @@ body.auth-ok{
 
 .badge-green{
     background:var(--green-dark);
+
     color:var(--green);
 }
 
 .badge-red{
     background:var(--red-dark);
+
     color:var(--red);
 }
 
 .badge-yellow{
     background:#3a300b;
+
     color:var(--yellow);
 }
 
@@ -641,6 +652,7 @@ body.auth-ok{
     color:var(--muted);
 
     font-size:9px;
+
     font-weight:800;
 }
 
@@ -927,7 +939,7 @@ body.auth-ok{
         <span class="nav-icon">💰</span>
         Vendas
 
-        <span class="nav-count">
+        <span class="nav-count" id="vendasCount">
             0
         </span>
     </button>
@@ -1018,7 +1030,10 @@ body.auth-ok{
     <div class="stats">
 
         <div class="stat">
-            <div class="stat-icon">💰</div>
+
+            <div class="stat-icon">
+                💰
+            </div>
 
             <div class="stat-number">
                 R$ 0,00
@@ -1027,11 +1042,15 @@ body.auth-ok{
             <div class="stat-label">
                 Receita aprovada
             </div>
+
         </div>
 
 
         <div class="stat">
-            <div class="stat-icon">🛒</div>
+
+            <div class="stat-icon">
+                🛒
+            </div>
 
             <div class="stat-number">
                 0
@@ -1040,24 +1059,35 @@ body.auth-ok{
             <div class="stat-label">
                 Vendas aprovadas
             </div>
+
         </div>
 
 
         <div class="stat">
-            <div class="stat-icon">👥</div>
 
-            <div class="stat-number">
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div
+                class="stat-number"
+                id="clientesTotal"
+            >
                 0
             </div>
 
             <div class="stat-label">
                 Clientes
             </div>
+
         </div>
 
 
         <div class="stat">
-            <div class="stat-icon">⏳</div>
+
+            <div class="stat-icon">
+                ⏳
+            </div>
 
             <div class="stat-number">
                 0
@@ -1066,6 +1096,7 @@ body.auth-ok{
             <div class="stat-label">
                 Pendentes
             </div>
+
         </div>
 
     </div>
@@ -1076,9 +1107,11 @@ body.auth-ok{
         <div class="panel">
 
             <div class="panel-header">
+
                 <div class="panel-title">
                     Atividade recente
                 </div>
+
             </div>
 
 
@@ -1097,7 +1130,7 @@ body.auth-ok{
 
                 <div class="activity">
 
-                    Nenhuma venda registrada.
+                    Dados conectados ao Supabase.
 
                     <div class="activity-time">
                         Sistema aguardando dados.
@@ -1150,7 +1183,9 @@ body.auth-ok{
 </section>
 
 
-<!-- VENDAS -->
+<!-- =========================
+     VENDAS
+========================= -->
 
 <section class="page" id="vendas">
 
@@ -1192,12 +1227,27 @@ body.auth-ok{
         <table class="table">
 
             <thead>
+
                 <tr>
-                    <th>Cliente</th>
-                    <th>Produto</th>
-                    <th>Valor</th>
-                    <th>Status</th>
+
+                    <th>
+                        Cliente
+                    </th>
+
+                    <th>
+                        Produto
+                    </th>
+
+                    <th>
+                        Valor
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
                 </tr>
+
             </thead>
 
 
@@ -1209,13 +1259,20 @@ body.auth-ok{
                         Nenhuma venda
                     </td>
 
-                    <td>—</td>
-                    <td>—</td>
+                    <td>
+                        —
+                    </td>
 
                     <td>
+                        —
+                    </td>
+
+                    <td>
+
                         <span class="badge badge-yellow">
                             Aguardando
                         </span>
+
                     </td>
 
                 </tr>
@@ -1229,7 +1286,9 @@ body.auth-ok{
 </section>
 
 
-<!-- CLIENTES -->
+<!-- =========================
+     CLIENTES
+========================= -->
 
 <section class="page" id="clientes">
 
@@ -1250,7 +1309,10 @@ body.auth-ok{
     </div>
 
 
-    <div class="cards">
+    <div
+        class="cards"
+        id="clientesContainer"
+    >
 
         <div class="card">
 
@@ -1259,20 +1321,12 @@ body.auth-ok{
             </div>
 
             <h3>
-                Nenhum cliente
+                Carregando...
             </h3>
 
             <p>
-                Os clientes aparecerão aqui
-                após suas compras.
+                Buscando clientes no banco de dados.
             </p>
-
-            <button
-                class="btn btn-dark"
-                onclick="mostrarAviso('Nenhum cliente cadastrado')"
-            >
-                Atualizar
-            </button>
 
         </div>
 
@@ -1281,7 +1335,9 @@ body.auth-ok{
 </section>
 
 
-<!-- ACESSOS -->
+<!-- =========================
+     ACESSOS
+========================= -->
 
 <section class="page" id="acessos">
 
@@ -1358,28 +1414,14 @@ body.auth-ok{
 </section>
 
 
-<!-- ADMINS -->
+<!-- =========================
+     ADMINS
+========================= -->
 
 <section class="page" id="admins">
 
-    <div class="page-header">
-
-        <div class="page-tag">
-            CENTRAL+ • EQUIPE
-        </div>
-
-        <h1 class="page-title">
-            Administradores
-        </h1>
-
-        <p class="page-description">
-            Controle dos administradores da plataforma.
-        </p>
-
-    </div>
-
-
-    <div class="cards">
+    <div
+            class="cards">
 
         <div class="card">
 
@@ -1395,25 +1437,9 @@ body.auth-ok{
                 Administrador principal da Central+.
             </p>
 
-                     <div class="card">
-
-                <div class="card-icon">
-                    👑
-                </div>
-
-                <h3>
-                    Central
-                </h3>
-
-                <p>
-                    Administrador principal da Central+.
-                </p>
-
-                <span class="badge badge-green">
-                    ATIVO
-                </span>
-
-            </div>
+            <span class="badge badge-green">
+                ATIVO
+            </span>
 
         </div>
 
@@ -1422,7 +1448,9 @@ body.auth-ok{
 </section>
 
 
-<!-- TICKETS -->
+<!-- =========================
+     TICKETS
+========================= -->
 
 <section class="page" id="tickets">
 
@@ -1437,43 +1465,110 @@ body.auth-ok{
         </h1>
 
         <p class="page-description">
-            Gerencie os tickets de suporte.
+            Gerencie os tickets e solicitações dos clientes.
         </p>
 
     </div>
 
 
-    <div class="cards">
+    <div class="panel">
 
-        <div class="card">
+        <div class="panel-header">
 
-            <div class="card-icon">
-                🎫
+            <div class="panel-title">
+                Tickets recentes
             </div>
-
-            <h3>
-                Nenhum ticket
-            </h3>
-
-            <p>
-                Não existem tickets abertos no momento.
-            </p>
 
             <button
                 class="btn btn-dark"
-                onclick="mostrarAviso('Nenhum ticket aberto')"
+                onclick="mostrarAviso('Lista de tickets atualizada')"
             >
                 Atualizar
             </button>
 
         </div>
 
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Cliente
+                    </th>
+
+                    <th>
+                        Assunto
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Ação
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        #0001
+                    </td>
+
+                    <td>
+                        Nenhum cliente
+                    </td>
+
+                    <td>
+                        —
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-yellow">
+                            AGUARDANDO
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="btn btn-dark"
+                            onclick="mostrarAviso('Nenhum ticket disponível')"
+                        >
+                            Abrir
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
     </div>
 
 </section>
 
 
-<!-- PRODUTOS -->
+<!-- =========================
+     PRODUTOS
+========================= -->
 
 <section class="page" id="produtos">
 
@@ -1496,6 +1591,7 @@ body.auth-ok{
 
     <div class="cards">
 
+
         <div class="card">
 
             <div class="card-icon">
@@ -1503,28 +1599,55 @@ body.auth-ok{
             </div>
 
             <h3>
-                Nenhum produto
+                Adicionar produto
             </h3>
 
             <p>
-                Adicione produtos para começar a realizar vendas.
+                Cadastre um novo produto na Central+.
             </p>
 
             <button
                 class="btn btn-green"
-                onclick="mostrarAviso('Área de produtos preparada')"
+                onclick="mostrarAviso('Função de adicionar produto')"
             >
-                Adicionar produto
+                Adicionar
             </button>
 
         </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🛒
+            </div>
+
+            <h3>
+                Produtos cadastrados
+            </h3>
+
+            <p>
+                Veja e gerencie todos os produtos.
+            </p>
+
+            <button
+                class="btn btn-dark"
+                onclick="mostrarAviso('Nenhum produto cadastrado')"
+            >
+                Ver produtos
+            </button>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- CONFIGURAÇÕES -->
+<!-- =========================
+     CONFIGURAÇÕES
+========================= -->
 
 <section class="page" id="config">
 
@@ -1547,7 +1670,17 @@ body.auth-ok{
 
     <div class="panel">
 
+        <div class="panel-header">
+
+            <div class="panel-title">
+                Configurações gerais
+            </div>
+
+        </div>
+
+
         <div class="panel-body">
+
 
             <div class="setting">
 
@@ -1558,37 +1691,17 @@ body.auth-ok{
                     </div>
 
                     <div class="setting-description">
-                        Status atual da plataforma.
+                        Define se o sistema está disponível.
                     </div>
 
                 </div>
 
-                <span class="badge badge-green">
-                    ONLINE
-                </span>
-
-            </div>
-
-
-            <div class="setting">
-
-                <div>
-
-                    <div class="setting-title">
-                        Notificações
-                    </div>
-
-                    <div class="setting-description">
-                        Controle das notificações administrativas.
-                    </div>
-
-                </div>
 
                 <button
                     class="btn btn-green"
-                    onclick="mostrarAviso('Notificações ativadas')"
+                    onclick="mostrarAviso('Sistema está online')"
                 >
-                    Ativado
+                    ONLINE
                 </button>
 
             </div>
@@ -1599,17 +1712,21 @@ body.auth-ok{
                 <div>
 
                     <div class="setting-title">
-                        Segurança
+                        Banco de dados
                     </div>
 
                     <div class="setting-description">
-                        Proteção de acesso ao painel administrativo.
+                        Status da conexão com o Supabase.
                     </div>
 
                 </div>
 
-                <span class="badge badge-green">
-                    PROTEGIDO
+
+                <span
+                    class="badge badge-green"
+                    id="supabaseStatus"
+                >
+                    CONECTANDO
                 </span>
 
             </div>
@@ -1624,19 +1741,18 @@ body.auth-ok{
                     </div>
 
                     <div class="setting-description">
-                        Encerre sua sessão neste dispositivo.
+                        Proteção da área administrativa.
                     </div>
 
                 </div>
 
-                <button
-                    class="btn btn-red"
-                    onclick="sair()"
-                >
-                    Encerrar sessão
-                </button>
+
+                <span class="badge badge-green">
+                    PROTEGIDA
+                </span>
 
             </div>
+
 
         </div>
 
@@ -1648,12 +1764,16 @@ body.auth-ok{
 </main>
 
 
-<!-- TOAST -->
+<!-- =========================
+     TOAST
+========================= -->
 
 <div
     class="toast"
     id="toast"
-></div>
+>
+    Mensagem
+</div>
 
 
 <!-- =========================
@@ -1662,13 +1782,123 @@ body.auth-ok{
 
 <script>
 
+/* =========================
+   SUPABASE
+========================= */
+
+/*
+   COLOQUE AQUI AS SUAS INFORMAÇÕES
+   DO PROJETO SUPABASE.
+
+   Exemplo:
+
+   const SUPABASE_URL =
+   "https://seuprojeto.supabase.co";
+
+   const SUPABASE_KEY =
+   "sua-chave-anon";
+*/
+
+const SUPABASE_URL =
+    "https://meaxcosoblauhokxputd.supabase.co";
+
+const SUPABASE_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
+
+
+let supabaseClient = null;
+
+
+/* =========================
+   INICIAR SUPABASE
+========================= */
+
+function iniciarSupabase(){
+
+    const status =
+        document.getElementById("supabaseStatus");
+
+
+    if(
+        SUPABASE_URL ===
+        "COLOQUE_SUA_URL_AQUI"
+        ||
+        SUPABASE_KEY ===
+        "COLOQUE_SUA_CHAVE_AQUI"
+    ){
+
+        if(status){
+
+            status.textContent =
+                "NÃO CONFIGURADO";
+
+            status.className =
+                "badge badge-yellow";
+
+        }
+
+        return;
+
+    }
+
+
+    try{
+
+        supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+        if(status){
+
+            status.textContent =
+                "CONECTADO";
+
+            status.className =
+                "badge badge-green";
+
+        }
+
+
+        carregarClientes();
+
+
+    }catch(error){
+
+        console.error(
+            "Erro Supabase:",
+            error
+        );
+
+
+        if(status){
+
+            status.textContent =
+                "ERRO";
+
+            status.className =
+                "badge badge-red";
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
 function abrirPagina(nome){
 
     const paginas =
         document.querySelectorAll(".page");
 
     const botoes =
-        document.querySelectorAll(".nav-button[data-page]");
+        document.querySelectorAll(".nav-button");
 
 
     paginas.forEach(function(pagina){
@@ -1691,23 +1921,17 @@ function abrirPagina(nome){
 
     const botao =
         document.querySelector(
-            '.nav-button[data-page="' + nome + '"]'
+            '.nav-button[data-page="' +
+            nome +
+            '"]'
         );
 
 
-    if(!pagina){
+    if(pagina){
 
-        console.error(
-            "Página não encontrada:",
-            nome
-        );
-
-        return;
+        pagina.classList.add("active");
 
     }
-
-
-    pagina.classList.add("active");
 
 
     if(botao){
@@ -1722,25 +1946,66 @@ function abrirPagina(nome){
         behavior:"smooth"
     });
 
+
+    if(nome === "clientes"){
+
+        carregarClientes();
+
+    }
+
 }
 
 
-document
-.querySelectorAll(".nav-button[data-page]")
-.forEach(function(botao){
+/* =========================
+   BOTÕES DA SIDEBAR
+========================= */
 
-    botao.addEventListener(
+document
+    .querySelectorAll(".nav-button[data-page]")
+    .forEach(function(botao){
+
+        botao.addEventListener(
+            "click",
+            function(){
+
+                abrirPagina(
+                    botao.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+document
+    .getElementById("logoutButton")
+    .addEventListener(
         "click",
         function(){
 
-            abrirPagina(
-                botao.dataset.page
+            sessionStorage.removeItem(
+                "centralAdmin"
+            );
+
+
+            window.location.replace(
+                "admin-login.html"
             );
 
         }
     );
 
-});
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimeout;
 
 
 function mostrarAviso(mensagem){
@@ -1756,51 +2021,249 @@ function mostrarAviso(mensagem){
     toast.classList.add("show");
 
 
-    setTimeout(function(){
-
-        toast.classList.remove("show");
-
-    },2500);
-
-}
+    clearTimeout(toastTimeout);
 
 
-function sair(){
+    toastTimeout =
+        setTimeout(function(){
 
-    sessionStorage.removeItem(
-        "centralAdmin"
-    );
+            toast.classList.remove(
+                "show"
+            );
 
-    window.location.replace(
-        "admin-login.html"
-    );
+        },3000);
 
 }
 
 
-const logoutButton =
-    document.getElementById(
-        "logoutButton"
-    );
+/* =========================
+   CARREGAR CLIENTES
+========================= */
+
+async function carregarClientes(){
+
+    const container =
+        document.getElementById(
+            "clientesContainer"
+        );
 
 
-if(logoutButton){
+    const total =
+        document.getElementById(
+            "clientesTotal"
+        );
 
-    logoutButton.addEventListener(
-        "click",
-        sair
-    );
+
+    if(!container){
+
+        return;
+
+    }
+
+
+    if(!supabaseClient){
+
+        container.innerHTML = `
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Banco não configurado
+                </h3>
+
+                <p>
+                    Configure a URL e a chave
+                    do Supabase no código.
+                </p>
+
+            </div>
+
+        `;
+
+
+        if(total){
+
+            total.textContent = "0";
+
+        }
+
+        return;
+
+    }
+
+
+    try{
+
+        /*
+           ALTERE "clientes" caso sua tabela
+           tenha outro nome.
+        */
+
+        const resultado =
+            await supabaseClient
+                .from("clientes")
+                .select("*");
+
+
+        if(resultado.error){
+
+            throw resultado.error;
+
+        }
+
+
+        const clientes =
+            resultado.data || [];
+
+
+        if(total){
+
+            total.textContent =
+                clientes.length;
+
+        }
+
+
+        if(clientes.length === 0){
+
+            container.innerHTML = `
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Nenhum cliente
+                    </h3>
+
+                    <p>
+                        Ainda não existem
+                        clientes cadastrados.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        container.innerHTML =
+            clientes.map(function(cliente){
+
+                const nome =
+                    cliente.nome ||
+                    cliente.name ||
+                    cliente.email ||
+                    "Cliente";
+
+
+                const email =
+                    cliente.email ||
+                    "Sem email";
+
+
+                return `
+
+                    <div class="card">
+
+                        <div class="card-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            ${escaparHTML(nome)}
+                        </h3>
+
+                        <p>
+                            ${escaparHTML(email)}
+                        </p>
+
+                        <span class="badge badge-green">
+                            CADASTRADO
+                        </span>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+
+    }catch(error){
+
+        console.error(
+            "Erro ao carregar clientes:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ❌
+                </div>
+
+                <h3>
+                    Erro ao carregar
+                </h3>
+
+                <p>
+                    Não foi possível buscar
+                    os clientes no banco de dados.
+                </p>
+
+                <button
+                    class="btn btn-dark"
+                    onclick="carregarClientes()"
+                >
+                    Tentar novamente
+                </button>
+
+            </div>
+
+        `;
+
+    }
 
 }
 
+
+/* =========================
+   PROTEÇÃO HTML
+========================= */
+
+function escaparHTML(valor){
+
+    return String(valor)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        document.body.classList.add(
-            "auth-ok"
-        );
+        iniciarSupabase();
 
     }
 );
