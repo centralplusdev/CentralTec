@@ -1,288 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Central+ • Login Administrativo</title>
+<title>Central+ • Login</title>
 
 <style>
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --bg: #060708;
-    --card: #101315;
-    --border: #202529;
-    --text: #f5f7f8;
-    --muted: #858d94;
-    --green: #00e887;
-    --red: #ff5964;
 }
 
 body {
-
     min-height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 20px;
 
     background:
-        radial-gradient(
-            circle at 20% 0%,
-            rgba(0,232,135,.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 100% 100%,
-            rgba(0,232,135,.05),
-            transparent 35%
-        ),
-        var(--bg);
+        radial-gradient(circle at 20% 0%, rgba(0,232,135,.12), transparent 35%),
+        #060708;
 
-    color: var(--text);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
 
-.login-box {
-
-    width: min(420px, 100%);
-
+.login {
+    width: min(410px, 100%);
     padding: 35px;
 
-    background:
-        rgba(16,19,21,.96);
-
-    border:
-        1px solid var(--border);
-
+    background: #101315;
+    border: 1px solid #202529;
     border-radius: 18px;
 
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.6);
-
-    animation:
-        appear .5s ease;
-
-}
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(.97);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
 }
 
 .logo {
-
     text-align: center;
-
-    margin-bottom: 30px;
-
+    margin-bottom: 28px;
 }
 
 .logo-icon {
-
     width: 58px;
     height: 58px;
 
-    margin: 0 auto 15px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border-radius: 15px;
+    margin: 0 auto 14px;
 
-    background:
-        var(--green);
-
+    background: #00e887;
     color: #000;
 
+    border-radius: 15px;
     font-weight: 900;
-
-    box-shadow:
-        0 0 35px rgba(0,232,135,.2);
-
 }
 
 .logo h1 {
-
     font-size: 26px;
-
-    font-weight: 900;
-
 }
 
-.logo h1 span {
-
-    color:
-        var(--green);
-
+.logo span {
+    color: #00e887;
 }
 
 .logo p {
-
     margin-top: 7px;
-
-    color:
-        var(--muted);
-
+    color: #858d94;
     font-size: 11px;
-
 }
 
 label {
-
     display: block;
+    margin: 16px 0 7px;
 
-    margin:
-        16px 0 7px;
-
-    color:
-        var(--muted);
-
+    color: #858d94;
     font-size: 10px;
-
-    font-weight: 800;
-
-    text-transform:
-        uppercase;
-
+    font-weight: bold;
 }
 
 input {
-
     width: 100%;
-
     padding: 13px;
 
-    background:
-        #0c0f11;
+    background: #0c0f11;
+    color: #fff;
 
-    color: white;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid #202529;
     border-radius: 9px;
 
     outline: none;
-
-    font-size: 12px;
-
-    transition: .2s;
-
 }
 
 input:focus {
-
-    border-color:
-        var(--green);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(0,232,135,.07);
-
+    border-color: #00e887;
 }
 
 button {
-
     width: 100%;
-
     margin-top: 22px;
-
     padding: 14px;
 
     border: 0;
-
     border-radius: 9px;
 
-    background:
-        var(--green);
-
+    background: #00e887;
     color: #000;
 
-    font-size: 12px;
-
     font-weight: 900;
-
     cursor: pointer;
-
-    transition: .2s;
-
 }
 
 button:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(0,232,135,.15);
-
+    filter: brightness(1.08);
 }
 
 .error {
-
-    min-height: 16px;
-
+    min-height: 18px;
     margin-top: 12px;
 
-    color:
-        var(--red);
-
+    color: #ff5964;
     text-align: center;
 
     font-size: 10px;
-
 }
 
 .footer {
-
     margin-top: 25px;
 
-    color:
-        #515960;
-
+    color: #515960;
     text-align: center;
 
     font-size: 9px;
-
 }
-
 </style>
-
 </head>
 
 <body>
 
-
-<div class="login-box">
-
+<div class="login">
 
     <div class="logo">
 
@@ -295,122 +156,97 @@ button:hover {
         </h1>
 
         <p>
-            Área administrativa
+            Painel administrativo
         </p>
 
     </div>
 
-
     <form id="loginForm">
 
-
-        <label for="usuario">
+        <label>
             Usuário
         </label>
-
 
         <input
             id="usuario"
             type="text"
             placeholder="Digite seu usuário"
-            autocomplete="username"
             required
         >
 
-
-        <label for="senha">
+        <label>
             Senha
         </label>
-
 
         <input
             id="senha"
             type="password"
             placeholder="Digite sua senha"
-            autocomplete="current-password"
             required
         >
-
 
         <button type="submit">
             Entrar no painel
         </button>
-
 
         <div
             class="error"
             id="error"
         ></div>
 
-
     </form>
 
-
     <div class="footer">
-        Central+ • Sistema Administrativo
+        Central+ • Administração
     </div>
 
-
 </div>
-
 
 <script>
 
 document
-    .getElementById("loginForm")
-    .addEventListener(
-        "submit",
-        function(event) {
+.getElementById("loginForm")
+.addEventListener("submit", function(event) {
 
-            event.preventDefault();
+    event.preventDefault();
 
+    const usuario =
+        document.getElementById("usuario").value.trim();
 
-            const usuario =
-                document
-                .getElementById("usuario")
-                .value
-                .trim();
+    const senha =
+        document.getElementById("senha").value;
 
+    const error =
+        document.getElementById("error");
 
-            const senha =
-                document
-                .getElementById("senha")
-                .value;
+    /*
+       PROTÓTIPO
+       Trocaremos isso por autenticação
+       no servidor posteriormente.
+    */
 
+    if (
+        usuario === "Central" &&
+        senha === "Ninja"
+    ) {
 
-            const error =
-                document
-                .getElementById("error");
+        sessionStorage.setItem(
+            "centralAdmin",
+            "true"
+        );
 
+        window.location.href = "admin.html";
 
-            if (
-                usuario === "Central" &&
-                senha === "Ninja"
-            ) {
+    } else {
 
-                sessionStorage.setItem(
-                    "centralAdmin",
-                    "true"
-                );
+        error.textContent =
+            "Usuário ou senha incorretos.";
 
+    }
 
-                window.location.replace(
-                    "admin.html"
-                );
-
-
-            } else {
-
-                error.textContent =
-                    "Usuário ou senha incorretos.";
-
-            }
-
-        }
-    );
+});
 
 </script>
 
 </body>
-
 </html>
