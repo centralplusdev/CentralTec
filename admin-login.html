@@ -5,10 +5,12 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Central+ - Admin</title>
+    <title>Central+ • Login Administrativo</title>
 
     <style>
 
@@ -17,193 +19,466 @@
         }
 
         body {
+
             margin: 0;
-            background: #080808;
-            color: #fff;
-            font-family: Arial, sans-serif;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #123528 0%,
+                    #080a0b 40%,
+                    #050606 100%
+                );
+
+            color: #f2f4f5;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
         }
 
-        .topo {
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 25px;
-            background: #0d0d0d;
-            border-bottom: 1px solid #222;
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
         }
+
+
+        .glow {
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: #00e887;
+
+            opacity: .06;
+
+            filter: blur(90px);
+
+        }
+
+
+        .glow.one {
+
+            top: -120px;
+
+            left: -100px;
+
+        }
+
+
+        .glow.two {
+
+            right: -120px;
+
+            bottom: -120px;
+
+        }
+
+
+        .login-container {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 430px;
+
+        }
+
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
 
-        .logo span {
-            color: #00ff88;
-        }
-
-        .status {
-            color: #00ff88;
-            font-size: 13px;
-        }
-
-        .layout {
             display: flex;
-            min-height: calc(100vh - 70px);
-        }
 
-        .sidebar {
-            width: 230px;
-            background: #0d0d0d;
-            border-right: 1px solid #222;
-            padding: 20px 12px;
-        }
+            align-items: center;
 
-        .titulo-menu {
-            color: #666;
-            font-size: 11px;
-            text-transform: uppercase;
-            margin: 10px;
-        }
+            justify-content: center;
 
-        .menu {
-            width: 100%;
-            display: block;
-            border: 0;
-            background: transparent;
-            color: #aaa;
-            padding: 14px;
-            margin-bottom: 5px;
-            border-radius: 9px;
-            text-align: left;
-            cursor: pointer;
-            font-size: 14px;
-        }
+            gap: 11px;
 
-        .menu:hover {
-            background: #171717;
-            color: #fff;
-        }
-
-        .menu.ativo {
-            background: #171717;
-            color: #00ff88;
-        }
-
-        .conteudo {
-            flex: 1;
-            padding: 30px;
-        }
-
-        .pagina {
-            display: none;
-        }
-
-        .pagina.ativa {
-            display: block;
-        }
-
-        h1 {
-            margin-top: 0;
-            font-size: 30px;
-        }
-
-        .descricao {
-            color: #777;
             margin-bottom: 25px;
+
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+
+        .logo-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #00e887;
+
+            color: #000;
+
+            font-size: 15px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 0 30px rgba(
+                    0,
+                    232,
+                    135,
+                    .15
+                );
+
         }
+
+
+        .logo-name {
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-name span {
+
+            color: #00e887;
+
+        }
+
 
         .card {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 14px;
-            padding: 20px;
+
+            padding: 32px;
+
+            background:
+                rgba(
+                    14,
+                    17,
+                    19,
+                    .94
+                );
+
+            border:
+                1px solid #22272b;
+
+            border-radius: 17px;
+
+            box-shadow:
+                0 25px 70px rgba(
+                    0,
+                    0,
+                    0,
+                    .45
+                );
+
+            backdrop-filter:
+                blur(20px);
+
         }
 
-        .card h2 {
-            margin: 0 0 8px;
-            font-size: 15px;
+
+        .tag {
+
+            margin: 0 0 9px;
+
+            color: #00e887;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
         }
 
-        .numero {
-            font-size: 26px;
-            font-weight: bold;
+
+        h1 {
+
+            margin: 0;
+
+            font-size: 25px;
+
         }
 
-        .verde {
-            color: #00ff88;
+
+        .description {
+
+            margin:
+                9px 0 25px;
+
+            color: #858b91;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
         }
 
-        .box {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 20px;
+
+        .field {
+
+            margin-bottom: 17px;
+
         }
 
-        .box h2 {
-            margin-top: 0;
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #aeb4b9;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
         }
 
-        .linha {
-            padding: 15px 0;
-            border-bottom: 1px solid #222;
+
+        .input-box {
+
+            position: relative;
+
         }
 
-        .linha:last-child {
-            border-bottom: 0;
-        }
 
-        .botao {
-            border: 0;
-            border-radius: 8px;
-            padding: 10px 14px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-right: 5px;
-        }
+        input {
 
-        .botao-verde {
-            background: #00ff88;
-            color: #000;
-        }
+            width: 100%;
 
-        .botao-vermelho {
-            background: #351313;
-            color: #ff6666;
-        }
+            height: 46px;
 
-        .botao-cinza {
-            background: #222;
+            padding:
+                0 13px;
+
+            background: #0a0c0e;
+
             color: #fff;
+
+            border:
+                1px solid #252a2e;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 13px;
+
+            transition: .2s;
+
         }
 
-        @media (max-width: 700px) {
 
-            .layout {
-                flex-direction: column;
-            }
+        input:focus {
 
-            .sidebar {
-                width: 100%;
-                border-right: 0;
-                border-bottom: 1px solid #222;
-            }
+            border-color: #00e887;
 
-            .conteudo {
-                padding: 20px;
-            }
+            box-shadow:
+                0 0 0 3px rgba(
+                    0,
+                    232,
+                    135,
+                    .07
+                );
 
-            .status {
-                display: none;
+        }
+
+
+        input::placeholder {
+
+            color: #4f555a;
+
+        }
+
+
+        .password-button {
+
+            position: absolute;
+
+            top: 50%;
+
+            right: 12px;
+
+            transform:
+                translateY(-50%);
+
+            border: 0;
+
+            background: transparent;
+
+            color: #777;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+        }
+
+
+        .password-button:hover {
+
+            color: #00e887;
+
+        }
+
+
+        .login-button {
+
+            width: 100%;
+
+            height: 47px;
+
+            margin-top: 5px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: #00e887;
+
+            color: #000;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .login-button:hover {
+
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 8px 25px rgba(
+                    0,
+                    232,
+                    135,
+                    .16
+                );
+
+        }
+
+
+        .login-button:active {
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        .error {
+
+            display: none;
+
+            margin-top: 14px;
+
+            padding: 10px;
+
+            background: #301619;
+
+            border:
+                1px solid #542126;
+
+            border-radius: 8px;
+
+            color: #ff6c73;
+
+            font-size: 11px;
+
+            text-align: center;
+
+        }
+
+
+        .security {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            margin-top: 20px;
+
+            color: #555c62;
+
+            font-size: 10px;
+
+        }
+
+
+        .security-dot {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #00e887;
+
+        }
+
+
+        .footer {
+
+            margin-top: 18px;
+
+            color: #4e5459;
+
+            font-size: 10px;
+
+            text-align: center;
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .card {
+
+                padding: 25px 20px;
+
             }
 
         }
@@ -216,306 +491,150 @@
 <body>
 
 
-<header class="topo">
+<div class="background">
+
+    <div class="glow one"></div>
+
+    <div class="glow two"></div>
+
+</div>
+
+
+
+<div class="login-container">
+
 
     <div class="logo">
-        Central<span>+</span>
+
+        <div class="logo-icon">
+            C+
+        </div>
+
+        <div class="logo-name">
+            Central<span>+</span>
+        </div>
+
     </div>
 
-    <div class="status">
-        ● Administrador
-    </div>
-
-</header>
 
 
+    <div class="card">
 
-<div class="layout">
+
+        <p class="tag">
+            ÁREA RESTRITA
+        </p>
 
 
-    <!-- MENU -->
+        <h1>
+            Painel Administrativo
+        </h1>
 
-    <aside class="sidebar">
 
-        <div class="titulo-menu">
-            Painel
+        <p class="description">
+
+            Entre com suas credenciais para
+            acessar o gerenciamento da Central+.
+
+        </p>
+
+
+
+        <form id="loginForm">
+
+
+            <div class="field">
+
+                <label for="usuario">
+                    Usuário
+                </label>
+
+                <input
+                    id="usuario"
+                    type="text"
+                    placeholder="Digite seu usuário"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="senha">
+                    Senha
+                </label>
+
+
+                <div class="input-box">
+
+                    <input
+                        id="senha"
+                        type="password"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button
+                        type="button"
+                        class="password-button"
+                        id="mostrarSenha"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="login-button"
+            >
+
+                Entrar no painel →
+
+            </button>
+
+
+            <div
+                class="error"
+                id="erro"
+            >
+
+                Usuário ou senha incorretos.
+
+            </div>
+
+
+        </form>
+
+
+
+        <div class="security">
+
+            <span class="security-dot"></span>
+
+            Área protegida da Central+
+
         </div>
 
 
-        <button
-            type="button"
-            class="menu ativo"
-            data-pagina="inicio"
-        >
-            📊 Visão geral
-        </button>
+    </div>
 
 
-        <button
-            type="button"
-            class="menu"
-            data-pagina="vendas"
-        >
-            💰 Vendas
-        </button>
+    <div class="footer">
 
+        © 2026 Central+ • Acesso administrativo
 
-        <button
-            type="button"
-            class="menu"
-            data-pagina="clientes"
-        >
-            👥 Clientes
-        </button>
+    </div>
 
-
-        <button
-            type="button"
-            class="menu"
-            data-pagina="produtos"
-        >
-            📚 Produtos
-        </button>
-
-
-        <div
-            class="titulo-menu"
-            style="margin-top:25px;"
-        >
-            Sistema
-        </div>
-
-
-        <button
-            type="button"
-            class="menu"
-            id="abrirSite"
-        >
-            🌐 Abrir site
-        </button>
-
-
-        <button
-            type="button"
-            class="menu"
-            id="sair"
-        >
-            🚪 Sair
-        </button>
-
-    </aside>
-
-
-
-    <!-- CONTEÚDO -->
-
-    <main class="conteudo">
-
-
-        <!-- INÍCIO -->
-
-        <section
-            id="inicio"
-            class="pagina ativa"
-        >
-
-            <h1>
-                Visão geral
-            </h1>
-
-            <p class="descricao">
-                Painel administrativo da Central+.
-            </p>
-
-
-            <div class="cards">
-
-
-                <div class="card">
-
-                    <h2>
-                        💰 Total
-                    </h2>
-
-                    <div
-                        class="numero verde"
-                        id="total"
-                    >
-                        R$ 0,00
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h2>
-                        🛒 Vendas
-                    </h2>
-
-                    <div
-                        class="numero"
-                        id="quantidadeVendas"
-                    >
-                        0
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h2>
-                        👥 Clientes
-                    </h2>
-
-                    <div
-                        class="numero"
-                        id="quantidadeClientes"
-                    >
-                        0
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h2>
-                        ⏳ Pendentes
-                    </h2>
-
-                    <div
-                        class="numero"
-                        id="quantidadePendentes"
-                    >
-                        0
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- VENDAS -->
-
-        <section
-            id="vendas"
-            class="pagina"
-        >
-
-            <h1>
-                Vendas
-            </h1>
-
-            <p class="descricao">
-                Gerencie os pagamentos recebidos.
-            </p>
-
-
-            <div class="box">
-
-                <h2>
-                    📋 Histórico
-                </h2>
-
-                <div id="listaVendas">
-
-                    <p style="color:#666;">
-                        Nenhuma venda registrada.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- CLIENTES -->
-
-        <section
-            id="clientes"
-            class="pagina"
-        >
-
-            <h1>
-                Clientes
-            </h1>
-
-            <p class="descricao">
-                Clientes que possuem acesso aos conteúdos.
-            </p>
-
-
-            <div class="box">
-
-                <h2>
-                    👥 Clientes aprovados
-                </h2>
-
-                <div id="listaClientes">
-
-                    <p style="color:#666;">
-                        Nenhum cliente registrado.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- PRODUTOS -->
-
-        <section
-            id="produtos"
-            class="pagina"
-        >
-
-            <h1>
-                Produtos
-            </h1>
-
-            <p class="descricao">
-                Conteúdos disponíveis na Central+.
-            </p>
-
-
-            <div class="box">
-
-                <div class="linha">
-
-                    <strong>
-                        💻 Programação
-                    </strong>
-
-                    <br>
-
-                    <small style="color:#777;">
-                        HTML • CSS • JavaScript • Projetos
-                    </small>
-
-                    <br><br>
-
-                    <span class="verde">
-                        R$ 10,00
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
 
 </div>
 
@@ -524,334 +643,136 @@
 <script>
 
 
-/*
-========================================
-NAVEGAÇÃO DO PAINEL
-========================================
-*/
+/* =================================
+   LOGIN
+================================= */
 
-const botoes =
-    document.querySelectorAll(
-        ".menu[data-pagina]"
+const form =
+    document.getElementById(
+        "loginForm"
     );
 
 
-const paginas =
-    document.querySelectorAll(
-        ".pagina"
+const usuario =
+    document.getElementById(
+        "usuario"
     );
 
 
-botoes.forEach(function(botao) {
-
-    botao.addEventListener(
-        "click",
-        function() {
-
-            const destino =
-                botao.dataset.pagina;
-
-
-            /*
-            Esconde todas as páginas
-            */
-
-            paginas.forEach(
-                function(pagina) {
-
-                    pagina.classList.remove(
-                        "ativa"
-                    );
-
-                }
-            );
-
-
-            /*
-            Remove o ativo dos botões
-            */
-
-            botoes.forEach(
-                function(item) {
-
-                    item.classList.remove(
-                        "ativo"
-                    );
-
-                }
-            );
-
-
-            /*
-            Mostra a página escolhida
-            */
-
-            const pagina =
-                document.getElementById(
-                    destino
-                );
-
-
-            if (pagina) {
-
-                pagina.classList.add(
-                    "ativa"
-                );
-
-            }
-
-
-            /*
-            Marca o botão
-            */
-
-            botao.classList.add(
-                "ativo"
-            );
-
-        }
+const senha =
+    document.getElementById(
+        "senha"
     );
 
-});
+
+const erro =
+    document.getElementById(
+        "erro"
+    );
 
 
 
-/*
-========================================
-ABRIR SITE
-========================================
-*/
+form.addEventListener(
+    "submit",
+    function(event) {
 
-document
-    .getElementById("abrirSite")
-    .addEventListener(
-        "click",
-        function() {
+        event.preventDefault();
+
+
+        const user =
+            usuario.value.trim();
+
+
+        const pass =
+            senha.value;
+
+
+        /*
+            CREDENCIAIS
+        */
+
+        if (
+            user === "Central" &&
+            pass === "Ninja"
+        ) {
+
+
+            sessionStorage.setItem(
+                "centralAdmin",
+                "true"
+            );
+
 
             window.location.href =
-                "index.html";
-
-        }
-    );
+                "admin.html";
 
 
+        } else {
 
-/*
-========================================
-SAIR
-========================================
-*/
 
-document
-    .getElementById("sair")
-    .addEventListener(
-        "click",
-        function() {
+            erro.style.display =
+                "block";
 
-            sessionStorage.removeItem(
-                "centralAdmin"
+
+            senha.value = "";
+
+
+            senha.focus();
+
+
+            setTimeout(
+                function() {
+
+                    erro.style.display =
+                        "none";
+
+                },
+                3000
             );
 
-            window.location.href =
-                "admin-login.html";
-
         }
-    );
-
-
-
-/*
-========================================
-DADOS SALVOS
-========================================
-*/
-
-function carregarDados() {
-
-    let vendas =
-        JSON.parse(
-            localStorage.getItem(
-                "centralVendas"
-            )
-        ) || [];
-
-
-    let total = 0;
-
-    let aprovadas = 0;
-
-    let pendentes = 0;
-
-
-    vendas.forEach(
-        function(venda) {
-
-            if (
-                venda.status ===
-                "Aprovado"
-            ) {
-
-                total +=
-                    Number(
-                        venda.valor
-                    );
-
-                aprovadas++;
-
-            }
-
-
-            if (
-                venda.status ===
-                "Pendente"
-            ) {
-
-                pendentes++;
-
-            }
-
-        }
-    );
-
-
-    document
-        .getElementById("total")
-        .textContent =
-        total.toLocaleString(
-            "pt-BR",
-            {
-                style: "currency",
-                currency: "BRL"
-            }
-        );
-
-
-    document
-        .getElementById(
-            "quantidadeVendas"
-        )
-        .textContent =
-        aprovadas;
-
-
-    document
-        .getElementById(
-            "quantidadePendentes"
-        )
-        .textContent =
-        pendentes;
-
-
-    const clientes =
-        new Set();
-
-
-    vendas.forEach(
-        function(venda) {
-
-            if (
-                venda.status ===
-                "Aprovado"
-            ) {
-
-                clientes.add(
-                    venda.cliente
-                );
-
-            }
-
-        }
-    );
-
-
-    document
-        .getElementById(
-            "quantidadeClientes"
-        )
-        .textContent =
-        clientes.size;
-
-
-    /*
-    Lista de vendas
-    */
-
-    const listaVendas =
-        document.getElementById(
-            "listaVendas"
-        );
-
-
-    if (vendas.length > 0) {
-
-        listaVendas.innerHTML = "";
-
-
-        vendas
-            .slice()
-            .reverse()
-            .forEach(
-                function(venda) {
-
-                    const div =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    div.className =
-                        "linha";
-
-
-                    div.innerHTML = `
-
-                        <strong>
-                            ${venda.cliente || "Cliente"}
-                        </strong>
-
-                        <br>
-
-                        <small style="color:#777;">
-                            ${venda.produto || "Produto"}
-                        </small>
-
-                        <br>
-
-                        <span class="verde">
-                            R$ ${Number(
-                                venda.valor || 0
-                            ).toFixed(2).replace(".", ",")}
-                        </span>
-
-                        <br><br>
-
-                        <small>
-                            Status:
-                            ${venda.status || "Pendente"}
-                        </small>
-
-                    `;
-
-
-                    listaVendas.appendChild(
-                        div
-                    );
-
-                }
-            );
 
     }
+);
 
-}
 
 
-/*
-========================================
-INICIAR
-========================================
-*/
+/* =================================
+   MOSTRAR SENHA
+================================= */
 
-carregarDados();
+document
+    .getElementById(
+        "mostrarSenha"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+
+            if (
+                senha.type ===
+                "password"
+            ) {
+
+                senha.type =
+                    "text";
+
+                this.textContent =
+                    "🙈";
+
+            } else {
+
+                senha.type =
+                    "password";
+
+                this.textContent =
+                    "👁";
+
+            }
+
+        }
+    );
 
 
 </script>
