@@ -1,318 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Central+ • Painel Administrativo</title>
 
-
 <style>
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 :root {
-
     --bg: #060708;
     --sidebar: #0b0d0f;
     --card: #101315;
-    --card2: #14181b;
-
     --border: #202529;
-
     --text: #f5f7f8;
     --muted: #858d94;
-
     --green: #00e887;
     --green-dark: #073b2a;
-
     --red: #ff5964;
     --red-dark: #3b171b;
-
     --yellow: #ffc857;
-
 }
-
 
 body {
-
     min-height: 100vh;
-
     background:
-        radial-gradient(
-            circle at 20% 0%,
-            rgba(0,232,135,.08),
-            transparent 30%
-        ),
+        radial-gradient(circle at 20% 0%, rgba(0,232,135,.08), transparent 30%),
         var(--bg);
-
-    color:
-        var(--text);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* =====================
-   LOADING
-===================== */
-
-.loading {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background:
-        #060708;
-
-    transition:
-        opacity .4s;
-
-}
-
-.loading.hide {
-
-    opacity: 0;
-
-    pointer-events: none;
-
-}
-
-.loader {
-
-    width: 45px;
-    height: 45px;
-
-    border:
-        3px solid #202529;
-
-    border-top-color:
-        var(--green);
-
-    border-radius: 50%;
-
-    animation:
-        spin .8s linear infinite;
-
-}
-
-@keyframes spin {
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-
-/* =====================
-   HEADER
-===================== */
+/* HEADER */
 
 .header {
-
     position: fixed;
-
     top: 0;
     left: 0;
     right: 0;
-
     height: 70px;
-
     z-index: 1000;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    padding:
-        0 25px;
+    padding: 0 25px;
 
-    background:
-        rgba(8,10,11,.92);
-
-    backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid var(--border);
-
+    background: rgba(8,10,11,.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
 }
 
-
 .logo {
-
     display: flex;
-
     align-items: center;
-
     gap: 11px;
 
     font-size: 20px;
-
     font-weight: 900;
-
 }
 
 .logo-icon {
-
     width: 38px;
     height: 38px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 10px;
 
-    background:
-        var(--green);
-
-    color:
-        #000;
+    background: var(--green);
+    color: #000;
 
     font-size: 11px;
-
 }
 
 .logo span {
-
-    color:
-        var(--green);
-
+    color: var(--green);
 }
-
 
 .header-right {
-
     display: flex;
-
     align-items: center;
-
     gap: 15px;
-
 }
-
 
 .status {
-
     display: flex;
-
     align-items: center;
-
     gap: 7px;
 
-    color:
-        var(--muted);
-
+    color: var(--muted);
     font-size: 10px;
-
 }
 
-
 .status-dot {
-
     width: 7px;
     height: 7px;
 
     border-radius: 50%;
+    background: var(--green);
 
-    background:
-        var(--green);
-
-    box-shadow:
-        0 0 10px var(--green);
-
+    box-shadow: 0 0 10px var(--green);
 }
 
-
 .profile {
-
     display: flex;
-
     align-items: center;
-
     gap: 9px;
 
-    padding:
-        6px 10px;
+    padding: 6px 10px;
 
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 9px;
-
 }
 
 .profile-icon {
-
     width: 30px;
     height: 30px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 8px;
-
-    background:
-        #1b2024;
-
+    background: #1b2024;
 }
 
 .profile-name {
-
     font-size: 11px;
-
     font-weight: 800;
-
 }
 
 .profile-role {
-
     margin-top: 2px;
 
-    color:
-        var(--green);
-
+    color: var(--green);
     font-size: 8px;
-
 }
 
-
-/* =====================
-   SIDEBAR
-===================== */
+/* SIDEBAR */
 
 .sidebar {
-
     position: fixed;
 
     top: 70px;
@@ -321,698 +157,376 @@ body {
 
     width: 240px;
 
-    padding:
-        20px 13px;
+    padding: 20px 13px;
 
-    background:
-        rgba(10,12,14,.95);
-
-    border-right:
-        1px solid var(--border);
-
+    background: rgba(10,12,14,.95);
+    border-right: 1px solid var(--border);
 }
-
 
 .section-label {
+    margin: 14px 10px 8px;
 
-    margin:
-        14px 10px 8px;
-
-    color:
-        #515960;
-
+    color: #515960;
     font-size: 9px;
-
     font-weight: 900;
-
-    letter-spacing:
-        1px;
-
+    letter-spacing: 1px;
 }
 
-
 .nav-button {
-
     width: 100%;
 
     display: flex;
-
     align-items: center;
-
     gap: 11px;
 
-    padding:
-        11px 12px;
-
+    padding: 11px 12px;
     margin-bottom: 3px;
 
     border: 0;
-
     border-radius: 9px;
 
-    background:
-        transparent;
-
-    color:
-        #899198;
+    background: transparent;
+    color: #899198;
 
     cursor: pointer;
-
     text-align: left;
 
     font-size: 12px;
 
     transition: .2s;
-
 }
-
 
 .nav-button:hover {
-
-    background:
-        #14181b;
-
-    color:
-        white;
-
+    background: #14181b;
+    color: white;
+    transform: translateX(2px);
 }
-
 
 .nav-button.active {
-
-    background:
-        linear-gradient(
-            90deg,
-            #103526,
-            #0d241b
-        );
-
-    color:
-        var(--green);
-
+    background: linear-gradient(90deg, #103526, #0d241b);
+    color: var(--green);
 }
-
 
 .nav-icon {
-
     width: 22px;
-
     text-align: center;
-
 }
 
-
 .nav-count {
-
     margin-left: auto;
 
-    padding:
-        3px 6px;
+    padding: 3px 6px;
 
     border-radius: 5px;
 
-    background:
-        var(--red-dark);
-
-    color:
-        var(--red);
+    background: var(--red-dark);
+    color: var(--red);
 
     font-size: 8px;
-
 }
 
-
-/* =====================
-   MAIN
-===================== */
+/* MAIN */
 
 .main {
-
     margin-left: 240px;
 
-    padding:
-        100px 30px 40px;
+    padding: 100px 30px 40px;
 
     min-height: 100vh;
-
 }
-
 
 .page {
-
     display: none;
 
-    animation:
-        pageIn .25s ease;
-
+    animation: pageIn .25s ease;
 }
-
 
 .page.active {
-
     display: block;
-
 }
 
-
 @keyframes pageIn {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(8px);
-
+        transform: translateY(8px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
-
 }
 
-
-/* =====================
-   PAGE HEADER
-===================== */
+/* PAGE HEADER */
 
 .page-header {
-
     margin-bottom: 25px;
-
 }
-
 
 .page-tag {
-
     margin-bottom: 7px;
 
-    color:
-        var(--green);
+    color: var(--green);
 
     font-size: 9px;
-
     font-weight: 900;
-
-    letter-spacing:
-        1px;
-
+    letter-spacing: 1px;
 }
-
 
 .page-title {
-
     font-size: 28px;
-
     font-weight: 900;
-
 }
-
 
 .page-description {
-
     margin-top: 7px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 12px;
-
 }
 
-
-/* =====================
-   STATS
-===================== */
+/* STATS */
 
 .stats {
-
     display: grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 13px;
 
     margin-bottom: 18px;
-
 }
 
-
 .stat {
-
     padding: 18px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #111517,
-            #0d1012
-        );
+    background: linear-gradient(145deg, #111517, #0d1012);
 
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 13px;
 
     transition: .2s;
-
 }
-
 
 .stat:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        #344039;
-
+    transform: translateY(-4px);
+    border-color: #344039;
 }
-
 
 .stat-icon {
-
     margin-bottom: 12px;
-
     font-size: 20px;
-
 }
-
 
 .stat-number {
-
     font-size: 23px;
-
     font-weight: 900;
-
 }
-
 
 .stat-label {
-
     margin-top: 5px;
 
-    color:
-        var(--muted);
-
+    color: var(--muted);
     font-size: 10px;
-
 }
 
-
-/* =====================
-   PANELS
-===================== */
+/* PANELS */
 
 .grid {
-
     display: grid;
 
-    grid-template-columns:
-        1.6fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
 
     gap: 16px;
-
 }
 
-
 .panel {
+    background: rgba(16,19,21,.9);
 
-    background:
-        rgba(16,19,21,.9);
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 13px;
 
     overflow: hidden;
-
 }
-
 
 .panel-header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
 
-    padding:
-        16px 18px;
+    padding: 16px 18px;
 
-    border-bottom:
-        1px solid var(--border);
-
+    border-bottom: 1px solid var(--border);
 }
-
 
 .panel-title {
-
     font-size: 13px;
-
     font-weight: 800;
-
 }
-
 
 .panel-body {
-
     padding: 18px;
-
 }
-
 
 .activity {
+    padding: 13px 0;
 
-    padding:
-        13px 0;
-
-    border-bottom:
-        1px solid #1a1e21;
+    border-bottom: 1px solid #1a1e21;
 
     font-size: 11px;
-
 }
-
 
 .activity:last-child {
-
     border-bottom: 0;
-
 }
-
 
 .activity-time {
-
     margin-top: 4px;
 
-    color:
-        var(--muted);
-
+    color: var(--muted);
     font-size: 9px;
-
 }
 
-
-/* =====================
-   BUTTONS
-===================== */
+/* BUTTONS */
 
 .btn {
-
-    padding:
-        10px 14px;
+    padding: 10px 14px;
 
     border: 0;
-
     border-radius: 8px;
 
     cursor: pointer;
 
     font-size: 10px;
-
     font-weight: 800;
 
+    transition: .2s;
 }
 
+.btn:hover {
+    transform: translateY(-2px);
+}
 
 .btn-green {
-
-    background:
-        var(--green);
-
-    color:
-        #000;
-
+    background: var(--green);
+    color: #000;
 }
-
 
 .btn-dark {
+    background: #191d20;
+    color: #ddd;
 
-    background:
-        #191d20;
-
-    color:
-        #ddd;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
 }
-
 
 .btn-red {
-
-    background:
-        var(--red-dark);
-
-    color:
-        var(--red);
-
+    background: var(--red-dark);
+    color: var(--red);
 }
 
-
-/* =====================
-   TABLE
-===================== */
+/* TABLE */
 
 .table {
-
     width: 100%;
-
-    border-collapse:
-        collapse;
-
+    border-collapse: collapse;
 }
-
 
 .table th {
+    padding: 12px;
 
-    padding:
-        12px;
+    background: #0c0f11;
 
-    background:
-        #0c0f11;
-
-    color:
-        #626a70;
+    color: #626a70;
 
     font-size: 8px;
-
     text-align: left;
-
 }
-
 
 .table td {
+    padding: 13px 12px;
 
-    padding:
-        13px 12px;
-
-    border-top:
-        1px solid #1a1e21;
+    border-top: 1px solid #1a1e21;
 
     font-size: 10px;
-
 }
 
-
-/* =====================
-   BADGES
-===================== */
+/* BADGES */
 
 .badge {
-
     display: inline-block;
 
-    padding:
-        5px 8px;
+    padding: 5px 8px;
 
     border-radius: 5px;
 
     font-size: 8px;
-
     font-weight: 900;
-
 }
-
 
 .badge-green {
-
-    background:
-        var(--green-dark);
-
-    color:
-        var(--green);
-
+    background: var(--green-dark);
+    color: var(--green);
 }
-
 
 .badge-red {
-
-    background:
-        var(--red-dark);
-
-    color:
-        var(--red);
-
+    background: var(--red-dark);
+    color: var(--red);
 }
-
 
 .badge-yellow {
-
-    background:
-        #3a300b;
-
-    color:
-        var(--yellow);
-
+    background: #3a300b;
+    color: var(--yellow);
 }
 
-
-/* =====================
-   CARDS
-===================== */
+/* CARDS */
 
 .cards {
-
     display: grid;
 
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px,1fr)
-        );
+        repeat(auto-fit, minmax(220px, 1fr));
 
     gap: 14px;
-
 }
 
-
 .card {
-
     padding: 20px;
 
-    background:
-        #101416;
+    background: #101416;
 
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 13px;
 
     transition: .2s;
-
 }
-
 
 .card:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        #344039;
-
+    transform: translateY(-4px);
+    border-color: #344039;
 }
-
 
 .card-icon {
-
     font-size: 22px;
-
     margin-bottom: 12px;
-
 }
-
 
 .card h3 {
-
     font-size: 14px;
-
 }
-
 
 .card p {
+    margin: 7px 0 15px;
 
-    margin:
-        7px 0 15px;
-
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 10px;
-
-    line-height:
-        1.5;
-
+    line-height: 1.5;
 }
 
-
-/* =====================
-   SETTINGS
-===================== */
-
-.setting {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding:
-        16px 0;
-
-    border-bottom:
-        1px solid #1a1e21;
-
-}
-
-
-.setting:last-child {
-
-    border-bottom: 0;
-
-}
-
-
-.setting-title {
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-}
-
-
-.setting-description {
-
-    margin-top: 4px;
-
-    color:
-        var(--muted);
-
-    font-size: 9px;
-
-}
-
-
-/* =====================
-   TOAST
-===================== */
+/* TOAST */
 
 .toast {
-
     position: fixed;
 
     right: 25px;
@@ -1020,71 +534,45 @@ body {
 
     z-index: 5000;
 
-    padding:
-        13px 16px;
+    padding: 13px 16px;
 
-    background:
-        #15191b;
+    background: #15191b;
 
-    border:
-        1px solid var(--border);
-
-    border-left:
-        3px solid var(--green);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
 
     border-radius: 9px;
 
     font-size: 10px;
 
-    transform:
-        translateY(80px);
-
+    transform: translateY(80px);
     opacity: 0;
 
     transition: .3s;
-
 }
-
 
 .toast.show {
-
-    transform:
-        translateY(0);
-
+    transform: translateY(0);
     opacity: 1;
-
 }
 
-
-/* =====================
-   MOBILE
-===================== */
+/* MOBILE */
 
 @media(max-width:950px) {
 
     .stats {
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .grid {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
-
 }
-
 
 @media(max-width:700px) {
 
     .sidebar {
-
         width: 100%;
-
         height: 58px;
 
         top: 70px;
@@ -1097,100 +585,53 @@ body {
         padding: 5px;
 
         border-right: 0;
-
-        border-bottom:
-            1px solid var(--border);
-
+        border-bottom: 1px solid var(--border);
     }
 
     .section-label {
-
         display: none;
-
     }
 
     .nav-button {
-
         min-width: 105px;
-
         justify-content: center;
-
     }
 
     .main {
-
         margin-left: 0;
 
-        padding:
-            145px 14px 30px;
-
+        padding: 145px 14px 30px;
     }
 
     .status {
-
         display: none;
-
     }
 
     .profile-name,
     .profile-role {
-
         display: none;
-
     }
 
     .stats {
-
         gap: 8px;
-
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================
-     PROTEÇÃO
-===================== -->
+<!-- PROTEÇÃO -->
 
 <script>
-
-if (
-    sessionStorage.getItem("centralAdmin")
-    !== "true"
-) {
-
-    window.location.replace(
-        "admin-login.html"
-    );
-
+if (sessionStorage.getItem("centralAdmin") !== "true") {
+    window.location.replace("admin-login.html");
 }
-
 </script>
-
-
-<!-- LOADING -->
-
-<div
-    class="loading"
-    id="loading"
->
-
-    <div class="loader"></div>
-
-</div>
-
 
 <!-- HEADER -->
 
 <header class="header">
-
 
     <div class="logo">
 
@@ -1202,18 +643,12 @@ if (
 
     </div>
 
-
     <div class="header-right">
 
-
         <div class="status">
-
             <span class="status-dot"></span>
-
             Sistema online
-
         </div>
-
 
         <div class="profile">
 
@@ -1235,543 +670,518 @@ if (
 
         </div>
 
-
     </div>
 
 </header>
-
 
 <!-- SIDEBAR -->
 
 <aside class="sidebar">
 
-
     <div class="section-label">
         PRINCIPAL
     </div>
 
-
-    <button
-        class="nav-button active"
-        data-page="dashboard"
-    >
-
-        <span class="nav-icon">
-            📊
-        </span>
-
+    <button class="nav-button active" data-page="dashboard">
+        <span class="nav-icon">📊</span>
         Dashboard
-
     </button>
 
-
-    <button
-        class="nav-button"
-        data-page="vendas"
-    >
-
-        <span class="nav-icon">
-            💰
-        </span>
-
+    <button class="nav-button" data-page="vendas">
+        <span class="nav-icon">💰</span>
         Vendas
 
-        <span
-            class="nav-count"
-            id="pendingCount"
-        >
+        <span class="nav-count">
             0
         </span>
-
     </button>
 
-
-    <button
-        class="nav-button"
-        data-page="clientes"
-    >
-
-        <span class="nav-icon">
-            👥
-        </span>
-
+    <button class="nav-button" data-page="clientes">
+        <span class="nav-icon">👥</span>
         Clientes
-
     </button>
-
 
     <div class="section-label">
         CONTROLE
     </div>
 
-
-    <button
-        class="nav-button"
-        data-page="acessos"
-    >
-
-        <span class="nav-icon">
-            🔐
-        </span>
-
+    <button class="nav-button" data-page="acessos">
+        <span class="nav-icon">🔐</span>
         Acessos
-
     </button>
 
-
-    <button
-        class="nav-button"
-        data-page="admins"
-    >
-
-        <span class="nav-icon">
-            🛡️
-        </span>
-
+    <button class="nav-button" data-page="admins">
+        <span class="nav-icon">🛡️</span>
         Administradores
-
     </button>
 
-
-    <button
-        class="nav-button"
-        data-page="tickets"
-    >
-
-        <span class="nav-icon">
-            🎫
-        </span>
-
+    <button class="nav-button" data-page="tickets">
+        <span class="nav-icon">🎫</span>
         Tickets
-
     </button>
-
 
     <div class="section-label">
         SISTEMA
     </div>
 
-
-    <button
-        class="nav-button"
-        data-page="produtos"
-    >
-
-        <span class="nav-icon">
-            📦
-        </span>
-
+    <button class="nav-button" data-page="produtos">
+        <span class="nav-icon">📦</span>
         Produtos
-
     </button>
 
-
-    <button
-        class="nav-button"
-        data-page="config"
-    >
-
-        <span class="nav-icon">
-            ⚙️
-        </span>
-
+    <button class="nav-button" data-page="config">
+        <span class="nav-icon">⚙️</span>
         Configurações
-
     </button>
 
-
-    <button
-        class="nav-button"
-        id="logoutButton"
-    >
-
-        <span class="nav-icon">
-            🚪
-        </span>
-
+    <button class="nav-button" id="logoutButton">
+        <span class="nav-icon">🚪</span>
         Sair
-
     </button>
-
 
 </aside>
-
 
 <!-- MAIN -->
 
 <main class="main">
 
+    <!-- DASHBOARD -->
 
-<!-- DASHBOARD -->
+    <section class="page active" id="dashboard">
 
-<section
-    class="page active"
-    id="dashboard"
->
+        <div class="page-header">
 
-
-    <div class="page-header">
-
-        <div class="page-tag">
-            CENTRAL+ • ADMIN
-        </div>
-
-        <h1 class="page-title">
-            Dashboard
-        </h1>
-
-        <p class="page-description">
-            Visão geral da plataforma.
-        </p>
-
-    </div>
-
-
-    <div class="stats">
-
-
-        <div class="stat">
-
-            <div class="stat-icon">
-                💰
+            <div class="page-tag">
+                CENTRAL+ • ADMIN
             </div>
 
-            <div class="stat-number">
-                R$ 0,00
-            </div>
+            <h1 class="page-title">
+                Dashboard
+            </h1>
 
-            <div class="stat-label">
-                Receita aprovada
-            </div>
+            <p class="page-description">
+                Visão geral da plataforma.
+            </p>
 
         </div>
 
+        <div class="stats">
 
-        <div class="stat">
+            <div class="stat">
+                <div class="stat-icon">💰</div>
 
-            <div class="stat-icon">
-                🛒
+                <div class="stat-number">
+                    R$ 0,00
+                </div>
+
+                <div class="stat-label">
+                    Receita aprovada
+                </div>
             </div>
 
-            <div class="stat-number">
-                0
+            <div class="stat">
+                <div class="stat-icon">🛒</div>
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Vendas aprovadas
+                </div>
             </div>
 
-            <div class="stat-label">
-                Vendas aprovadas
+            <div class="stat">
+                <div class="stat-icon">👥</div>
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Clientes
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-icon">⏳</div>
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Pendentes
+                </div>
             </div>
 
         </div>
 
+        <div class="grid">
 
-        <div class="stat">
+            <div class="panel">
 
-            <div class="stat-icon">
-                👥
+                <div class="panel-header">
+                    <div class="panel-title">
+                        Atividade recente
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="activity">
+
+                        Nenhuma atividade registrada.
+
+                        <div class="activity-time">
+                            Sistema aguardando dados.
+                        </div>
+
+                    </div>
+
+                    <div class="activity">
+
+                        Central+ iniciado.
+
+                        <div class="activity-time">
+                            Agora
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="stat-number">
-                0
+            <div class="panel">
+
+                <div class="panel-header">
+                    <div class="panel-title">
+                        Ações rápidas
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <button
+                        class="btn btn-green"
+                        onclick="abrirPagina('vendas')"
+                    >
+                        Ver vendas
+                    </button>
+
+                    <br><br>
+
+                    <button
+                        class="btn btn-dark"
+                        onclick="abrirPagina('clientes')"
+                    >
+                        Ver clientes
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="stat-label">
+        </div>
+
+    </section>
+
+    <!-- VENDAS -->
+
+    <section class="page" id="vendas">
+
+        <div class="page-header">
+
+            <div class="page-tag">
+                CENTRAL+ • VENDAS
+            </div>
+
+            <h1 class="page-title">
+                Vendas
+            </h1>
+
+            <p class="page-description">
+                Controle dos pagamentos e pedidos.
+            </p>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div class="panel-title">
+                    Pagamentos
+                </div>
+
+            </div>
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Nenhuma venda
+                        </td>
+
+                        <td>—</td>
+
+                        <td>—</td>
+
+                        <td>
+                            <span class="badge badge-yellow">
+                                Aguardando
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- CLIENTES -->
+
+    <section class="page" id="clientes">
+
+        <div class="page-header">
+
+            <div class="page-tag">
+                CENTRAL+ • CLIENTES
+            </div>
+
+            <h1 class="page-title">
                 Clientes
-            </div>
+            </h1>
+
+            <p class="page-description">
+                Gerencie os clientes da plataforma.
+            </p>
 
         </div>
 
+        <div class="cards">
 
-        <div class="stat">
+            <div class="card">
 
-            <div class="stat-icon">
-                ⏳
-            </div>
-
-            <div class="stat-number">
-                0
-            </div>
-
-            <div class="stat-label">
-                Pendentes
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <div class="panel">
-
-            <div class="panel-header">
-
-                <div class="panel-title">
-                    Atividade recente
+                <div class="card-icon">
+                    👤
                 </div>
 
-            </div>
+                <h3>
+                    Nenhum cliente
+                </h3>
 
-
-            <div class="panel-body">
-
-
-                <div class="activity">
-
-                    Nenhuma atividade registrada.
-
-                    <div class="activity-time">
-                        Sistema aguardando dados.
-                    </div>
-
-                </div>
-
-
-                <div class="activity">
-
-                    Central+ iniciado.
-
-                    <div class="activity-time">
-                        Agora
-                    </div>
-
-                </div>
-
+                <p>
+                    Os clientes aparecerão aqui
+                    após suas compras.
+                </p>
 
             </div>
 
         </div>
 
+    </section>
 
-        <div class="panel">
+    <!-- ACESSOS -->
 
-            <div class="panel-header">
+    <section class="page" id="acessos">
 
-                <div class="panel-title">
-                    Ações rápidas
-                </div>
+        <div class="page-header">
 
+            <div class="page-tag">
+                CENTRAL+ • CONTROLE
             </div>
 
+            <h1 class="page-title">
+                Acessos
+            </h1>
 
-            <div class="panel-body">
+            <p class="page-description">
+                Libere ou rejeite o acesso dos clientes.
+            </p>
 
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🔓
+                </div>
+
+                <h3>
+                    Liberar acesso
+                </h3>
+
+                <p>
+                    Área preparada para liberar
+                    clientes após confirmação.
+                </p>
 
                 <button
                     class="btn btn-green"
-                    onclick="abrirPagina('vendas')"
+                    onclick="mostrarAviso('Nenhum cliente aguardando.')"
                 >
-                    Ver vendas
+                    Liberar
                 </button>
 
+            </div>
 
-                <br><br>
+            <div class="card">
 
+                <div class="card-icon">
+                    🔒
+                </div>
+
+                <h3>
+                    Rejeitar acesso
+                </h3>
+
+                <p>
+                    Área preparada para rejeitar
+                    solicitações pendentes.
+                </p>
 
                 <button
-                    class="btn btn-dark"
-                    onclick="abrirPagina('clientes')"
+                    class="btn btn-red"
+                    onclick="mostrarAviso('Nenhuma solicitação pendente.')"
                 >
-                    Ver clientes
+                    Rejeitar
                 </button>
 
-
             </div>
 
         </div>
 
+    </section>
 
-    </div>
+    <!-- ADMINS -->
 
+    <section class="page" id="admins">
 
-</section>
+        <div class="page-header">
 
-
-<!-- VENDAS -->
-
-<section
-    class="page"
-    id="vendas"
->
-
-
-    <div class="page-header">
-
-        <div class="page-tag">
-            CENTRAL+ • VENDAS
-        </div>
-
-        <h1 class="page-title">
-            Vendas
-        </h1>
-
-        <p class="page-description">
-            Controle dos pagamentos e pedidos.
-        </p>
-
-    </div>
-
-
-    <div class="panel">
-
-        <div class="panel-header">
-
-            <div class="panel-title">
-                Pagamentos
+            <div class="page-tag">
+                CENTRAL+ • SEGURANÇA
             </div>
 
-        </div>
+            <h1 class="page-title">
+                Administradores
+            </h1>
 
-
-        <table class="table">
-
-            <thead>
-
-                <tr>
-
-                    <th>Cliente</th>
-                    <th>Produto</th>
-                    <th>Valor</th>
-                    <th>Status</th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                <tr>
-
-                    <td>
-                        Nenhuma venda
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-                        <span class="badge badge-yellow">
-                            Aguardando
-                        </span>
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-
-</section>
-
-
-<!-- CLIENTES -->
-
-<section
-    class="page"
-    id="clientes"
->
-
-
-    <div class="page-header">
-
-        <div class="page-tag">
-            CENTRAL+ • CLIENTES
-        </div>
-
-        <h1 class="page-title">
-            Clientes
-        </h1>
-
-        <p class="page-description">
-            Gerencie os clientes da plataforma.
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                👤
-            </div>
-
-            <h3>
-                Nenhum cliente
-            </h3>
-
-            <p>
-                Os clientes aparecerão aqui
-                após suas compras.
+            <p class="page-description">
+                Gerencie quem possui acesso administrativo.
             </p>
 
         </div>
 
+        <div class="cards">
 
-    </div>
+            <div class="card">
 
+                <div class="card-icon">
+                    👑
+                </div>
 
-</section>
+                <h3>
+                    Central
+                </h3>
 
+                <p>
+                    Administrador principal do sistema.
+                </p>
 
-<!-- ACESSOS -->
+                <span class="badge badge-green">
+                    ADMIN PRINCIPAL
+                </span>
 
-<section
-    class="page"
-    id="acessos"
->
-
-
-    <div class="page-header">
-
-        <div class="page-tag">
-            CENTRAL+ • CONTROLE
-        </div>
-
-        <h1 class="page-title">
-            Acessos
-        </h1>
-
-        <p class="page-description">
-            Libere ou rejeite o acesso dos clientes.
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🔓
             </div>
 
-            <h3>
-                Liberar acesso
-            </h3>
+            <div class="card">
 
-            <p>
-                Área preparada para liberar
-                clientes após confirmação.
+                <div class="card-icon">
+                    ➕
+                </div>
+
+                <h3>
+                    Adicionar administrador
+                </h3>
+
+                <p>
+                    O sistema de gerenciamento
+                    de administradores será integrado
+                    posteriormente.
+                </p>
+
+                <button
+                    class="btn btn-green"
+                    onclick="mostrarAviso('Função preparada para integração.')"
+                >
+                    Adicionar
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TICKETS -->
+
+    <section class="page" id="tickets">
+
+        <div class="page-header">
+
+            <div class="page-tag">
+                CENTRAL+ • SUPORTE
+            </div>
+
+            <h1 class="page-title">
+                Tickets
+            </h1>
+
+            <p class="page-description">
+                Gerencie os atendimentos dos clientes.
             </p>
 
-            <button
-                class="btn btn-green"
-                onclick="mostrarAviso('Nenhum cliente aguardando.')"
-            >
-   
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🎫
+                </div>
+
+                <h3>
+                    Nenhum ticket
+                </h3>
+
+                <p>
+                    Os tickets aparecerão aqui
+                    quando forem criados.
+                </p>
+
+                <button
+                    cla
