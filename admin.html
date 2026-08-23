@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,16 +10,32 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Central+ • Administração</title>
+    <title>Central+ • Painel Administrativo</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- PROTEÇÃO DE ACESSO -->
+
+    <script>
+
+        if (
+            sessionStorage.getItem("centralAdmin")
+            !== "true"
+        ) {
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+
+    </script>
+
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 
     <style>
-
-        /* =========================
-           RESET
-        ========================= */
 
         * {
             box-sizing: border-box;
@@ -28,44 +43,68 @@
 
 
         body {
+
             margin: 0;
+
             min-height: 100vh;
+
             background: #080808;
+
             color: white;
+
             font-family: Arial, sans-serif;
+
         }
 
 
+
         /* =========================
-           MENU
+           TOPO
         ========================= */
 
         .admin-topo {
+
             height: 70px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 0 30px;
+
             background: #0d0d0d;
+
             border-bottom: 1px solid #222;
+
         }
 
 
         .logo {
+
             font-size: 24px;
+
             font-weight: bold;
+
         }
 
 
         .logo span {
+
             color: #00ff88;
+
         }
 
 
         .admin-status {
-            font-size: 13px;
+
             color: #00ff88;
+
+            font-size: 13px;
+
         }
+
 
 
         /* =========================
@@ -73,9 +112,14 @@
         ========================= */
 
         .admin-layout {
+
             display: flex;
-            min-height: calc(100vh - 70px);
+
+            min-height:
+                calc(100vh - 70px);
+
         }
+
 
 
         /* =========================
@@ -83,40 +127,75 @@
         ========================= */
 
         .sidebar {
+
             width: 230px;
+
             background: #0d0d0d;
+
             border-right: 1px solid #222;
+
             padding: 25px 15px;
+
         }
 
 
         .sidebar h3 {
-            font-size: 12px;
+
             color: #666;
-            margin: 10px 12px 15px;
-            text-transform: uppercase;
+
+            font-size: 12px;
+
+            margin:
+                10px 12px 15px;
+
+            text-transform:
+                uppercase;
+
         }
 
 
         .menu-item {
+
             width: 100%;
+
             padding: 13px 14px;
+
             margin-bottom: 7px;
+
             border: none;
+
             border-radius: 10px;
+
             background: transparent;
-            color: #bbb;
+
+            color: #aaa;
+
             text-align: left;
+
             cursor: pointer;
+
             font-size: 14px;
+
         }
 
 
-        .menu-item:hover,
-        .menu-item.ativo {
+        .menu-item:hover {
+
             background: #151515;
+
             color: #00ff88;
+
         }
+
+
+        .menu-item.ativo {
+
+            background: #151515;
+
+            color: #00ff88;
+
+        }
+
 
 
         /* =========================
@@ -124,67 +203,105 @@
         ========================= */
 
         .admin-main {
+
             flex: 1;
+
             padding: 35px;
+
             max-width: 1400px;
+
         }
 
 
         .titulo {
+
             margin-bottom: 30px;
+
         }
 
 
         .titulo h1 {
-            margin: 0 0 8px;
+
+            margin:
+                0 0 8px;
+
             font-size: 30px;
+
         }
 
 
         .titulo p {
-            color: #777;
+
             margin: 0;
+
+            color: #777;
+
         }
 
 
+
         /* =========================
-           CARDS
+           ESTATÍSTICAS
         ========================= */
 
         .estatisticas {
+
             display: grid;
+
             grid-template-columns:
-                repeat(auto-fit, minmax(200px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(200px, 1fr)
+                );
+
             gap: 18px;
+
             margin-bottom: 30px;
+
         }
 
 
         .estatistica {
+
             background: #111;
+
             border: 1px solid #222;
+
             border-radius: 16px;
+
             padding: 22px;
+
         }
 
 
         .estatistica .icone {
+
             font-size: 25px;
+
             margin-bottom: 15px;
+
         }
 
 
         .estatistica .numero {
+
             font-size: 28px;
+
             font-weight: bold;
+
         }
 
 
         .estatistica .label {
+
             margin-top: 5px;
+
             color: #777;
+
             font-size: 13px;
+
         }
+
 
 
         /* =========================
@@ -192,18 +309,28 @@
         ========================= */
 
         .secao {
+
             background: #111;
+
             border: 1px solid #222;
+
             border-radius: 16px;
+
             padding: 25px;
+
             margin-bottom: 25px;
+
         }
 
 
         .secao h2 {
+
             margin-top: 0;
+
             font-size: 20px;
+
         }
+
 
 
         /* =========================
@@ -211,34 +338,57 @@
         ========================= */
 
         .produto {
+
             display: flex;
+
             align-items: center;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
+
             gap: 20px;
+
             padding: 18px;
+
             background: #161616;
+
             border-radius: 12px;
-            border: 1px solid #252525;
+
+            border:
+                1px solid #252525;
+
         }
 
 
         .produto-info h3 {
-            margin: 0 0 6px;
+
+            margin:
+                0 0 6px;
+
         }
 
 
         .produto-info p {
+
             margin: 0;
+
             color: #777;
+
             font-size: 13px;
+
         }
 
 
         .produto-preco {
+
             color: #00ff88;
+
             font-weight: bold;
+
             font-size: 20px;
+
         }
+
 
 
         /* =========================
@@ -246,46 +396,79 @@
         ========================= */
 
         .tabela {
+
             width: 100%;
-            border-collapse: collapse;
+
+            border-collapse:
+                collapse;
+
         }
 
 
         .tabela th,
         .tabela td {
+
             padding: 14px 10px;
+
             text-align: left;
-            border-bottom: 1px solid #222;
+
+            border-bottom:
+                1px solid #222;
+
             font-size: 14px;
+
         }
 
 
         .tabela th {
+
             color: #777;
+
             font-size: 12px;
-            text-transform: uppercase;
+
+            text-transform:
+                uppercase;
+
         }
 
 
+
+        /* =========================
+           STATUS
+        ========================= */
+
         .status {
+
             display: inline-block;
+
             padding: 5px 9px;
+
             border-radius: 7px;
+
             font-size: 12px;
+
             font-weight: bold;
+
         }
 
 
         .aprovado {
+
             background: #063d28;
+
             color: #00ff88;
+
         }
 
 
         .pendente {
+
             background: #3d3106;
+
             color: #ffd84d;
+
         }
+
 
 
         /* =========================
@@ -293,69 +476,109 @@
         ========================= */
 
         .botao {
+
             padding: 10px 15px;
+
             border: none;
+
             border-radius: 8px;
+
             cursor: pointer;
+
             font-weight: bold;
+
         }
 
 
         .botao-verde {
+
             background: #00ff88;
+
             color: #000;
+
         }
 
 
         .botao-vermelho {
+
             background: #3a1111;
+
             color: #ff6b6b;
+
         }
 
 
         .botoes {
+
             display: flex;
+
             gap: 8px;
+
             flex-wrap: wrap;
+
         }
+
 
 
         /* =========================
            RESPONSIVO
         ========================= */
 
-        @media (max-width: 700px) {
+        @media (
+            max-width: 700px
+        ) {
 
             .admin-layout {
-                flex-direction: column;
+
+                flex-direction:
+                    column;
+
             }
 
 
             .sidebar {
+
                 width: 100%;
+
                 border-right: none;
-                border-bottom: 1px solid #222;
+
+                border-bottom:
+                    1px solid #222;
+
             }
 
 
             .admin-main {
+
                 padding: 20px;
+
             }
 
 
             .produto {
-                flex-direction: column;
-                align-items: flex-start;
-            }
 
+                flex-direction:
+                    column;
 
-            .tabela {
-                min-width: 650px;
+                align-items:
+                    flex-start;
+
             }
 
 
             .secao {
-                overflow-x: auto;
+
+                overflow-x:
+                    auto;
+
+            }
+
+
+            .tabela {
+
+                min-width:
+                    650px;
+
             }
 
         }
@@ -368,507 +591,633 @@
 <body>
 
 
-    <!-- =========================
-         TOPO
-    ========================= -->
 
-    <header class="admin-topo">
+<!-- =========================
+     TOPO
+========================= -->
 
-        <div class="logo">
-            Central<span>+</span>
-        </div>
+<header class="admin-topo">
 
 
-        <div class="admin-status">
-            ● Administrador
-        </div>
+    <div class="logo">
 
-    </header>
+        Central<span>+</span>
 
+    </div>
 
 
-    <div class="admin-layout">
+    <div class="admin-status">
 
+        ● Administrador
 
-        <!-- =========================
-             SIDEBAR
-        ========================= -->
+    </div>
 
-        <aside class="sidebar">
 
-            <h3>
-                Administração
-            </h3>
+</header>
 
 
-            <button
-                class="menu-item ativo"
-                onclick="mostrarSecao('inicio', this)"
-            >
-                📊 Visão geral
-            </button>
 
+<div class="admin-layout">
 
-            <button
-                class="menu-item"
-                onclick="mostrarSecao('vendas', this)"
-            >
-                💰 Vendas
-            </button>
 
 
-            <button
-                class="menu-item"
-                onclick="mostrarSecao('clientes', this)"
-            >
-                👥 Clientes
-            </button>
+<!-- =========================
+     MENU LATERAL
+========================= -->
 
+<aside class="sidebar">
 
-            <button
-                class="menu-item"
-                onclick="mostrarSecao('produtos', this)"
-            >
-                📚 Produtos
-            </button>
 
+    <h3>
+        Administração
+    </h3>
 
-            <button
-                class="menu-item"
-                onclick="voltarSite()"
-            >
-                🌐 Voltar ao site
-            </button>
 
-        </aside>
+    <button
+        class="menu-item ativo"
+        onclick="
+            mostrarSecao(
+                'inicio',
+                this
+            )
+        "
+    >
 
+        📊 Visão geral
 
+    </button>
 
-        <!-- =========================
-             CONTEÚDO
-        ========================= -->
 
-        <main class="admin-main">
 
+    <button
+        class="menu-item"
+        onclick="
+            mostrarSecao(
+                'vendas',
+                this
+            )
+        "
+    >
 
-            <!-- =========================
-                 VISÃO GERAL
-            ========================= -->
+        💰 Vendas
 
-            <section
-                id="inicio"
-                class="painel-secao"
-            >
+    </button>
 
-                <div class="titulo">
 
-                    <h1>
-                        Visão geral
-                    </h1>
 
-                    <p>
-                        Administração da Central+
-                    </p>
+    <button
+        class="menu-item"
+        onclick="
+            mostrarSecao(
+                'clientes',
+                this
+            )
+        "
+    >
 
-                </div>
+        👥 Clientes
 
+    </button>
 
 
-                <div class="estatisticas">
 
+    <button
+        class="menu-item"
+        onclick="
+            mostrarSecao(
+                'produtos',
+                this
+            )
+        "
+    >
 
-                    <div class="estatistica">
+        📚 Produtos
 
-                        <div class="icone">
-                            💰
-                        </div>
+    </button>
 
-                        <div
-                            class="numero"
-                            id="totalVendas"
-                        >
-                            R$ 0,00
-                        </div>
 
-                        <div class="label">
-                            Total em vendas
-                        </div>
 
-                    </div>
+    <button
+        class="menu-item"
+        onclick="voltarSite()"
+    >
 
+        🌐 Voltar ao site
 
+    </button>
 
-                    <div class="estatistica">
 
-                        <div class="icone">
-                            🛒
-                        </div>
 
-                        <div
-                            class="numero"
-                            id="quantidadeVendas"
-                        >
-                            0
-                        </div>
+    <button
+        class="menu-item"
+        onclick="sairAdmin()"
+    >
 
-                        <div class="label">
-                            Vendas realizadas
-                        </div>
+        🚪 Sair
 
-                    </div>
+    </button>
 
 
+</aside>
 
-                    <div class="estatistica">
 
-                        <div class="icone">
-                            👥
-                        </div>
 
-                        <div
-                            class="numero"
-                            id="quantidadeClientes"
-                        >
-                            0
-                        </div>
+<!-- =========================
+     ÁREA PRINCIPAL
+========================= -->
 
-                        <div class="label">
-                            Clientes
-                        </div>
+<main class="admin-main">
 
-                    </div>
 
 
+<!-- =========================
+     VISÃO GERAL
+========================= -->
 
-                    <div class="estatistica">
+<section
+    id="inicio"
+    class="painel-secao"
+>
 
-                        <div class="icone">
-                            ⏳
-                        </div>
 
-                        <div
-                            class="numero"
-                            id="pendentes"
-                        >
-                            0
-                        </div>
+    <div class="titulo">
 
-                        <div class="label">
-                            Pagamentos pendentes
-                        </div>
+        <h1>
+            Visão geral
+        </h1>
 
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="secao">
-
-                    <h2>
-                        Produto principal
-                    </h2>
-
-
-                    <div class="produto">
-
-                        <div class="produto-info">
-
-                            <h3>
-                                💻 Programação
-                            </h3>
-
-                            <p>
-                                HTML • CSS • JavaScript • Projetos
-                            </p>
-
-                        </div>
-
-
-                        <div class="produto-preco">
-                            R$ 10,00
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================
-                 VENDAS
-            ========================= -->
-
-            <section
-                id="vendas"
-                class="painel-secao"
-                style="display:none;"
-            >
-
-                <div class="titulo">
-
-                    <h1>
-                        Vendas
-                    </h1>
-
-                    <p>
-                        Acompanhe os pagamentos da Central+
-                    </p>
-
-                </div>
-
-
-                <div class="secao">
-
-                    <table class="tabela">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    Cliente
-                                </th>
-
-                                <th>
-                                    Produto
-                                </th>
-
-                                <th>
-                                    Valor
-                                </th>
-
-                                <th>
-                                    Status
-                                </th>
-
-                                <th>
-                                    Ação
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody id="tabelaVendas">
-
-                            <tr>
-
-                                <td colspan="5">
-                                    Nenhuma venda registrada.
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================
-                 CLIENTES
-            ========================= -->
-
-            <section
-                id="clientes"
-                class="painel-secao"
-                style="display:none;"
-            >
-
-                <div class="titulo">
-
-                    <h1>
-                        Clientes
-                    </h1>
-
-                    <p>
-                        Clientes com acesso aos produtos.
-                    </p>
-
-                </div>
-
-
-                <div class="secao">
-
-                    <table class="tabela">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    Cliente
-                                </th>
-
-                                <th>
-                                    Produto
-                                </th>
-
-                                <th>
-                                    Acesso
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody id="tabelaClientes">
-
-                            <tr>
-
-                                <td colspan="3">
-                                    Nenhum cliente registrado.
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================
-                 PRODUTOS
-            ========================= -->
-
-            <section
-                id="produtos"
-                class="painel-secao"
-                style="display:none;"
-            >
-
-                <div class="titulo">
-
-                    <h1>
-                        Produtos
-                    </h1>
-
-                    <p>
-                        Produtos disponíveis na Central+
-                    </p>
-
-                </div>
-
-
-                <div class="secao">
-
-                    <div class="produto">
-
-                        <div class="produto-info">
-
-                            <h3>
-                                💻 Programação
-                            </h3>
-
-                            <p>
-                                HTML, CSS, JavaScript e Projetos
-                            </p>
-
-                        </div>
-
-
-                        <div class="produto-preco">
-                            R$ 10,00
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-        </main>
+        <p>
+            Administração da Central+
+        </p>
 
     </div>
 
 
 
-    <script>
+    <div class="estatisticas">
 
 
-        /* =========================
-           TROCAR SEÇÃO
-        ========================= */
 
-        function mostrarSecao(
-            id,
-            botao
-        ) {
+        <div class="estatistica">
 
-            const secoes =
-                document.querySelectorAll(
-                    ".painel-secao"
-                );
+            <div class="icone">
+                💰
+            </div>
 
+            <div
+                class="numero"
+                id="totalVendas"
+            >
+                R$ 0,00
+            </div>
 
-            secoes.forEach(
-                function(secao) {
+            <div class="label">
+                Total em vendas
+            </div>
 
-                    secao.style.display =
-                        "none";
-
-                }
-            );
+        </div>
 
 
-            document.getElementById(id)
-                .style.display = "block";
+
+        <div class="estatistica">
+
+            <div class="icone">
+                🛒
+            </div>
+
+            <div
+                class="numero"
+                id="quantidadeVendas"
+            >
+                0
+            </div>
+
+            <div class="label">
+                Vendas realizadas
+            </div>
+
+        </div>
 
 
-            const botoes =
-                document.querySelectorAll(
-                    ".menu-item"
-                );
+
+        <div class="estatistica">
+
+            <div class="icone">
+                👥
+            </div>
+
+            <div
+                class="numero"
+                id="quantidadeClientes"
+            >
+                0
+            </div>
+
+            <div class="label">
+                Clientes
+            </div>
+
+        </div>
 
 
-            botoes.forEach(
-                function(item) {
 
-                    item.classList.remove(
-                        "ativo"
-                    );
+        <div class="estatistica">
 
-                }
-            );
+            <div class="icone">
+                ⏳
+            </div>
+
+            <div
+                class="numero"
+                id="pendentes"
+            >
+                0
+            </div>
+
+            <div class="label">
+                Pagamentos pendentes
+            </div>
+
+        </div>
 
 
-            botao.classList.add(
+    </div>
+
+
+
+    <div class="secao">
+
+        <h2>
+            Produto principal
+        </h2>
+
+
+        <div class="produto">
+
+
+            <div class="produto-info">
+
+                <h3>
+                    💻 Programação
+                </h3>
+
+                <p>
+                    HTML • CSS • JavaScript • Projetos
+                </p>
+
+            </div>
+
+
+            <div class="produto-preco">
+
+                R$ 10,00
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     VENDAS
+========================= -->
+
+<section
+    id="vendas"
+    class="painel-secao"
+    style="display:none;"
+>
+
+
+    <div class="titulo">
+
+        <h1>
+            Vendas
+        </h1>
+
+        <p>
+            Acompanhe os pagamentos da Central+
+        </p>
+
+    </div>
+
+
+
+    <div class="secao">
+
+
+        <table class="tabela">
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Cliente
+                    </th>
+
+                    <th>
+                        Produto
+                    </th>
+
+                    <th>
+                        Valor
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Ação
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody id="tabelaVendas">
+
+                <tr>
+
+                    <td colspan="5">
+
+                        Nenhuma venda registrada.
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     CLIENTES
+========================= -->
+
+<section
+    id="clientes"
+    class="painel-secao"
+    style="display:none;"
+>
+
+
+    <div class="titulo">
+
+        <h1>
+            Clientes
+        </h1>
+
+        <p>
+            Clientes com acesso aos produtos.
+        </p>
+
+    </div>
+
+
+
+    <div class="secao">
+
+
+        <table class="tabela">
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Cliente
+                    </th>
+
+                    <th>
+                        Produto
+                    </th>
+
+                    <th>
+                        Acesso
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody id="tabelaClientes">
+
+                <tr>
+
+                    <td colspan="3">
+
+                        Nenhum cliente registrado.
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     PRODUTOS
+========================= -->
+
+<section
+    id="produtos"
+    class="painel-secao"
+    style="display:none;"
+>
+
+
+    <div class="titulo">
+
+        <h1>
+            Produtos
+        </h1>
+
+        <p>
+            Produtos disponíveis na Central+
+        </p>
+
+    </div>
+
+
+
+    <div class="secao">
+
+
+        <div class="produto">
+
+
+            <div class="produto-info">
+
+                <h3>
+                    💻 Programação
+                </h3>
+
+                <p>
+                    HTML, CSS, JavaScript e Projetos
+                </p>
+
+            </div>
+
+
+            <div class="produto-preco">
+
+                R$ 10,00
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+</main>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   TROCAR SEÇÃO
+========================= */
+
+function mostrarSecao(
+    id,
+    botao
+) {
+
+
+    const secoes =
+        document.querySelectorAll(
+            ".painel-secao"
+        );
+
+
+    secoes.forEach(
+        function(secao) {
+
+            secao.style.display =
+                "none";
+
+        }
+    );
+
+
+    const escolhida =
+        document.getElementById(id);
+
+
+    if (escolhida) {
+
+        escolhida.style.display =
+            "block";
+
+    }
+
+
+    const botoes =
+        document.querySelectorAll(
+            ".menu-item"
+        );
+
+
+    botoes.forEach(
+        function(item) {
+
+            item.classList.remove(
                 "ativo"
             );
 
         }
+    );
+
+
+    if (botao) {
+
+        botao.classList.add(
+            "ativo"
+        );
+
+    }
+
+}
 
 
 
-        /* =========================
-           VOLTAR
-        ========================= */
+/* =========================
+   VOLTAR AO SITE
+========================= */
 
-        function voltarSite() {
+function voltarSite() {
 
-            window.location.href =
-                "index.html";
+    window.location.href =
+        "index.html";
 
-        }
+}
 
 
-    </script>
+
+/* =========================
+   SAIR DO PAINEL
+========================= */
+
+function sairAdmin() {
+
+
+    sessionStorage.removeItem(
+        "centralAdmin"
+    );
+
+
+    window.location.href =
+        "admin-login.html";
+
+}
+
+
+</script>
 
 
 </body>
