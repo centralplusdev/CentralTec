@@ -2,8 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Central+ • Painel Administrativo</title>
 
@@ -19,6 +24,7 @@
 
 :root{
     --bg:#060708;
+    --sidebar:#0b0d0f;
     --card:#101315;
     --border:#202529;
     --text:#f5f7f8;
@@ -47,12 +53,78 @@ body{
         Arial,
         Helvetica,
         sans-serif;
-
-    visibility:hidden;
 }
 
-body.auth-ok{
-    visibility:visible;
+/* =========================
+   LOADING
+========================= */
+
+#loadingScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    background:#060708;
+
+}
+
+.loading-logo{
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:var(--green);
+
+    color:#000;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    animation:pulse 1.2s infinite;
+
+}
+
+.loading-text{
+
+    color:#858d94;
+
+    font-size:11px;
+
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(.9);
+        opacity:.65;
+    }
+
 }
 
 
@@ -61,6 +133,7 @@ body.auth-ok{
 ========================= */
 
 .header{
+
     position:fixed;
 
     top:0;
@@ -74,6 +147,7 @@ body.auth-ok{
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 
     padding:0 25px;
@@ -84,9 +158,11 @@ body.auth-ok{
 
     border-bottom:
         1px solid var(--border);
+
 }
 
 .logo{
+
     display:flex;
 
     align-items:center;
@@ -96,9 +172,11 @@ body.auth-ok{
     font-size:20px;
 
     font-weight:900;
+
 }
 
 .logo-icon{
+
     width:38px;
     height:38px;
 
@@ -116,6 +194,7 @@ body.auth-ok{
     font-size:11px;
 
     font-weight:900;
+
 }
 
 .logo span{
@@ -123,14 +202,17 @@ body.auth-ok{
 }
 
 .header-right{
+
     display:flex;
 
     align-items:center;
 
     gap:15px;
+
 }
 
 .status{
+
     display:flex;
 
     align-items:center;
@@ -140,9 +222,11 @@ body.auth-ok{
     color:var(--muted);
 
     font-size:10px;
+
 }
 
 .status-dot{
+
     width:7px;
     height:7px;
 
@@ -152,9 +236,11 @@ body.auth-ok{
 
     box-shadow:
         0 0 10px var(--green);
+
 }
 
 .profile{
+
     display:flex;
 
     align-items:center;
@@ -167,9 +253,11 @@ body.auth-ok{
         1px solid var(--border);
 
     border-radius:9px;
+
 }
 
 .profile-icon{
+
     width:30px;
     height:30px;
 
@@ -181,20 +269,25 @@ body.auth-ok{
     border-radius:8px;
 
     background:#1b2024;
+
 }
 
 .profile-name{
+
     font-size:11px;
 
     font-weight:800;
+
 }
 
 .profile-role{
+
     margin-top:2px;
 
     color:var(--green);
 
     font-size:8px;
+
 }
 
 
@@ -203,6 +296,7 @@ body.auth-ok{
 ========================= */
 
 .sidebar{
+
     position:fixed;
 
     top:70px;
@@ -219,9 +313,11 @@ body.auth-ok{
         1px solid var(--border);
 
     overflow-y:auto;
+
 }
 
 .section-label{
+
     margin:
         14px 10px 8px;
 
@@ -232,9 +328,11 @@ body.auth-ok{
     font-weight:900;
 
     letter-spacing:1px;
+
 }
 
 .nav-button{
+
     width:100%;
 
     display:flex;
@@ -262,15 +360,19 @@ body.auth-ok{
     font-size:12px;
 
     transition:.2s;
+
 }
 
 .nav-button:hover{
+
     background:#14181b;
 
     color:white;
+
 }
 
 .nav-button.active{
+
     background:
         linear-gradient(
             90deg,
@@ -279,15 +381,19 @@ body.auth-ok{
         );
 
     color:var(--green);
+
 }
 
 .nav-icon{
+
     width:22px;
 
     text-align:center;
+
 }
 
 .nav-count{
+
     margin-left:auto;
 
     padding:3px 6px;
@@ -299,6 +405,7 @@ body.auth-ok{
     color:var(--red);
 
     font-size:8px;
+
 }
 
 
@@ -307,6 +414,7 @@ body.auth-ok{
 ========================= */
 
 .main{
+
     margin-left:240px;
 
     padding:
@@ -315,6 +423,7 @@ body.auth-ok{
         40px;
 
     min-height:100vh;
+
 }
 
 .page{
@@ -322,28 +431,34 @@ body.auth-ok{
 }
 
 .page.active{
+
     display:block;
 
     animation:
         pageIn
         .25s
         ease;
+
 }
 
 @keyframes pageIn{
 
     from{
+
         opacity:0;
 
         transform:
             translateY(8px);
+
     }
 
     to{
+
         opacity:1;
 
         transform:
             translateY(0);
+
     }
 
 }
@@ -354,10 +469,13 @@ body.auth-ok{
 ========================= */
 
 .page-header{
+
     margin-bottom:25px;
+
 }
 
 .page-tag{
+
     margin-bottom:7px;
 
     color:var(--green);
@@ -367,20 +485,25 @@ body.auth-ok{
     font-weight:900;
 
     letter-spacing:1px;
+
 }
 
 .page-title{
+
     font-size:28px;
 
     font-weight:900;
+
 }
 
 .page-description{
+
     margin-top:7px;
 
     color:var(--muted);
 
     font-size:12px;
+
 }
 
 
@@ -389,6 +512,7 @@ body.auth-ok{
 ========================= */
 
 .stats{
+
     display:grid;
 
     grid-template-columns:
@@ -397,9 +521,11 @@ body.auth-ok{
     gap:13px;
 
     margin-bottom:18px;
+
 }
 
 .stat{
+
     padding:18px;
 
     background:
@@ -415,33 +541,42 @@ body.auth-ok{
     border-radius:13px;
 
     transition:.2s;
+
 }
 
 .stat:hover{
+
     transform:
         translateY(-4px);
 
     border-color:#344039;
+
 }
 
 .stat-icon{
+
     margin-bottom:12px;
 
     font-size:20px;
+
 }
 
 .stat-number{
+
     font-size:23px;
 
     font-weight:900;
+
 }
 
 .stat-label{
+
     margin-top:5px;
 
     color:var(--muted);
 
     font-size:10px;
+
 }
 
 
@@ -450,15 +585,18 @@ body.auth-ok{
 ========================= */
 
 .grid{
+
     display:grid;
 
     grid-template-columns:
         1.6fr 1fr;
 
     gap:16px;
+
 }
 
 .panel{
+
     background:
         rgba(16,19,21,.92);
 
@@ -468,9 +606,11 @@ body.auth-ok{
     border-radius:13px;
 
     overflow:hidden;
+
 }
 
 .panel-header{
+
     display:flex;
 
     justify-content:space-between;
@@ -482,37 +622,48 @@ body.auth-ok{
 
     border-bottom:
         1px solid var(--border);
+
 }
 
 .panel-title{
+
     font-size:13px;
 
     font-weight:800;
+
 }
 
 .panel-body{
+
     padding:18px;
+
 }
 
 .activity{
+
     padding:13px 0;
 
     border-bottom:
         1px solid #1a1e21;
 
     font-size:11px;
+
 }
 
 .activity:last-child{
+
     border-bottom:0;
+
 }
 
 .activity-time{
+
     margin-top:4px;
 
     color:var(--muted);
 
     font-size:9px;
+
 }
 
 
@@ -521,6 +672,7 @@ body.auth-ok{
 ========================= */
 
 .btn{
+
     padding:10px 14px;
 
     border:0;
@@ -534,32 +686,41 @@ body.auth-ok{
     font-weight:800;
 
     transition:.2s;
+
 }
 
 .btn:hover{
+
     transform:
         translateY(-2px);
+
 }
 
 .btn-green{
+
     background:var(--green);
 
     color:#000;
+
 }
 
 .btn-dark{
+
     background:#191d20;
 
     color:#ddd;
 
     border:
         1px solid var(--border);
+
 }
 
 .btn-red{
+
     background:var(--red-dark);
 
     color:var(--red);
+
 }
 
 
@@ -568,12 +729,15 @@ body.auth-ok{
 ========================= */
 
 .table{
+
     width:100%;
 
     border-collapse:collapse;
+
 }
 
 .table th{
+
     padding:12px;
 
     background:#0c0f11;
@@ -583,9 +747,11 @@ body.auth-ok{
     font-size:8px;
 
     text-align:left;
+
 }
 
 .table td{
+
     padding:
         13px 12px;
 
@@ -593,6 +759,7 @@ body.auth-ok{
         1px solid #1a1e21;
 
     font-size:10px;
+
 }
 
 
@@ -601,6 +768,7 @@ body.auth-ok{
 ========================= */
 
 .badge{
+
     display:inline-block;
 
     padding:5px 8px;
@@ -610,24 +778,31 @@ body.auth-ok{
     font-size:8px;
 
     font-weight:900;
+
 }
 
 .badge-green{
+
     background:var(--green-dark);
 
     color:var(--green);
+
 }
 
 .badge-red{
+
     background:var(--red-dark);
 
     color:var(--red);
+
 }
 
 .badge-yellow{
+
     background:#3a300b;
 
     color:var(--yellow);
+
 }
 
 
@@ -636,6 +811,7 @@ body.auth-ok{
 ========================= */
 
 .cards{
+
     display:grid;
 
     grid-template-columns:
@@ -645,9 +821,11 @@ body.auth-ok{
         );
 
     gap:14px;
+
 }
 
 .card{
+
     padding:20px;
 
     background:#101416;
@@ -658,26 +836,34 @@ body.auth-ok{
     border-radius:13px;
 
     transition:.2s;
+
 }
 
 .card:hover{
+
     transform:
         translateY(-4px);
 
     border-color:#344039;
+
 }
 
 .card-icon{
+
     font-size:22px;
 
     margin-bottom:12px;
+
 }
 
 .card h3{
+
     font-size:14px;
+
 }
 
 .card p{
+
     margin:
         7px 0 15px;
 
@@ -686,53 +872,7 @@ body.auth-ok{
     font-size:10px;
 
     line-height:1.5;
-}
 
-
-/* =========================
-   FORM
-========================= */
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-label{
-    display:block;
-
-    margin-bottom:7px;
-
-    color:var(--muted);
-
-    font-size:9px;
-
-    font-weight:800;
-}
-
-.form-input,
-.form-select{
-    width:100%;
-
-    padding:
-        11px 12px;
-
-    background:#0c0f11;
-
-    color:white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:8px;
-
-    outline:none;
-
-    font-size:10px;
-}
-
-.form-input:focus,
-.form-select:focus{
-    border-color:var(--green);
 }
 
 
@@ -741,6 +881,7 @@ body.auth-ok{
 ========================= */
 
 .setting{
+
     display:flex;
 
     align-items:center;
@@ -753,24 +894,31 @@ body.auth-ok{
 
     border-bottom:
         1px solid #1a1e21;
+
 }
 
 .setting:last-child{
+
     border-bottom:0;
+
 }
 
 .setting-title{
+
     font-size:11px;
 
     font-weight:800;
+
 }
 
 .setting-description{
+
     margin-top:4px;
 
     color:var(--muted);
 
     font-size:9px;
+
 }
 
 
@@ -779,6 +927,7 @@ body.auth-ok{
 ========================= */
 
 .toast{
+
     position:fixed;
 
     right:25px;
@@ -808,13 +957,16 @@ body.auth-ok{
     opacity:0;
 
     transition:.3s;
+
 }
 
 .toast.show{
+
     transform:
         translateY(0);
 
     opacity:1;
+
 }
 
 
@@ -825,12 +977,16 @@ body.auth-ok{
 @media(max-width:950px){
 
     .stats{
+
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
     .grid{
+
         grid-template-columns:1fr;
+
     }
 
 }
@@ -838,6 +994,7 @@ body.auth-ok{
 @media(max-width:700px){
 
     .sidebar{
+
         width:100%;
 
         height:58px;
@@ -856,46 +1013,63 @@ body.auth-ok{
 
         border-bottom:
             1px solid var(--border);
+
     }
 
     .section-label{
+
         display:none;
+
     }
 
     .nav-button{
+
         min-width:105px;
 
         justify-content:center;
+
     }
 
     .main{
+
         margin-left:0;
 
         padding:
             145px
             14px
             30px;
+
     }
 
     .status{
+
         display:none;
+
     }
 
     .profile-name,
     .profile-role{
+
         display:none;
+
     }
 
     .stats{
+
         gap:8px;
+
     }
 
     .stat{
+
         padding:14px;
+
     }
 
     .stat-number{
+
         font-size:18px;
+
     }
 
 }
@@ -906,6 +1080,23 @@ body.auth-ok{
 
 
 <body>
+
+
+<!-- =========================
+     LOADING
+========================= -->
+
+<div id="loadingScreen">
+
+    <div class="loading-logo">
+        C+
+    </div>
+
+    <div class="loading-text">
+        Verificando acesso...
+    </div>
+
+</div>
 
 
 <!-- =========================
@@ -955,7 +1146,7 @@ body.auth-ok{
                     class="profile-role"
                     id="adminRole"
                 >
-                    VERIFICANDO...
+                    ADMINISTRADOR
                 </div>
 
             </div>
@@ -972,6 +1163,7 @@ body.auth-ok{
 ========================= -->
 
 <aside class="sidebar">
+
 
     <div class="section-label">
         PRINCIPAL
@@ -1120,6 +1312,7 @@ body.auth-ok{
 
     </button>
 
+
 </aside>
 
 
@@ -1165,7 +1358,10 @@ body.auth-ok{
                 💰
             </div>
 
-            <div class="stat-number">
+            <div
+                class="stat-number"
+                id="receitaTotal"
+            >
                 R$ 0,00
             </div>
 
@@ -1182,7 +1378,10 @@ body.auth-ok{
                 🛒
             </div>
 
-            <div class="stat-number">
+            <div
+                class="stat-number"
+                id="vendasTotal"
+            >
                 0
             </div>
 
@@ -1219,7 +1418,10 @@ body.auth-ok{
                 ⏳
             </div>
 
-            <div class="stat-number">
+            <div
+                class="stat-number"
+                id="pendentesTotal"
+            >
                 0
             </div>
 
@@ -1249,7 +1451,6 @@ body.auth-ok{
 
             <div class="panel-body">
 
-
                 <div class="activity">
 
                     Central+ iniciado.
@@ -1267,6 +1468,20 @@ body.auth-ok{
 
                     <div class="activity-time">
                         Autenticação ativa.
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="activity"
+                    id="atividadeClientes"
+                >
+
+                    Verificando clientes...
+
+                    <div class="activity-time">
+                        Aguarde.
                     </div>
 
                 </div>
@@ -1290,10 +1505,9 @@ body.auth-ok{
 
             <div class="panel-body">
 
-
                 <button
                     class="btn btn-green"
-                    onclick="abrirPagina('vendas')"
+                    data-open-page="vendas"
                 >
                     Ver vendas
                 </button>
@@ -1304,7 +1518,7 @@ body.auth-ok{
 
                 <button
                     class="btn btn-dark"
-                    onclick="abrirPagina('clientes')"
+                    data-open-page="clientes"
                 >
                     Ver clientes
                 </button>
@@ -1356,7 +1570,7 @@ body.auth-ok{
 
             <button
                 class="btn btn-dark"
-                onclick="mostrarAviso('Lista atualizada')"
+                id="atualizarVendas"
             >
                 Atualizar
             </button>
@@ -1391,28 +1605,12 @@ body.auth-ok{
             </thead>
 
 
-            <tbody>
+            <tbody id="vendasContainer">
 
                 <tr>
 
-                    <td>
-                        Nenhuma venda
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-
-                        <span class="badge badge-yellow">
-                            Aguardando
-                        </span>
-
+                    <td colspan="4">
+                        Nenhuma venda cadastrada.
                     </td>
 
                 </tr>
@@ -1484,6 +1682,7 @@ body.auth-ok{
 
 <section
     class="page"
+   
     id="acessos"
 >
 
@@ -1506,7 +1705,6 @@ body.auth-ok{
 
     <div class="cards">
 
-
         <div class="card">
 
             <div class="card-icon">
@@ -1524,9 +1722,9 @@ body.auth-ok{
 
             <button
                 class="btn btn-green"
-                onclick="mostrarAviso('Sistema de acessos preparado.')"
-                            >
-                Liberar acesso
+                id="liberarAcesso"
+            >
+                Ver solicitações
             </button>
 
         </div>
@@ -1549,9 +1747,9 @@ body.auth-ok{
 
             <button
                 class="btn btn-red"
-                id="rejeitarAcessoBtn"
+                id="rejeitarAcesso"
             >
-                Rejeitar solicitações
+                Ver solicitações
             </button>
 
         </div>
@@ -1587,25 +1785,24 @@ body.auth-ok{
     </div>
 
 
-    <div class="cards">
+    <div
+        class="cards"
+        id="adminsContainer"
+    >
 
         <div class="card">
 
             <div class="card-icon">
-                👑
+                ⏳
             </div>
 
-            <h3 id="adminCardName">
-                Verificando...
+            <h3>
+                Carregando...
             </h3>
 
-            <p id="adminCardEmail">
-                Carregando informações da conta.
+            <p>
+                Verificando administradores.
             </p>
-
-            <span class="badge badge-green">
-                ADMINISTRADOR
-            </span>
 
         </div>
 
@@ -1634,43 +1831,52 @@ body.auth-ok{
         </h1>
 
         <p class="page-description">
-            Gerencie os atendimentos dos clientes.
+            Central de atendimento aos clientes.
         </p>
 
     </div>
 
 
-    <div class="panel">
+    <div class="cards">
 
-        <div class="panel-header">
+        <div class="card">
 
-            <div class="panel-title">
-                Tickets recentes
+            <div class="card-icon">
+                🎫
             </div>
 
-            <button
-                class="btn btn-dark"
-                id="atualizarTicketsBtn"
-            >
-                Atualizar
-            </button>
+            <h3>
+                Tickets abertos
+            </h3>
+
+            <p>
+                Nenhum ticket aberto no momento.
+            </p>
+
+            <span class="badge badge-green">
+                0 ABERTOS
+            </span>
 
         </div>
 
-        <div
-            class="panel-body"
-            id="ticketsContainer"
-        >
 
-            <div class="activity">
+        <div class="card">
 
-                Nenhum ticket encontrado.
-
-                <div class="activity-time">
-                    Aguardando novos atendimentos.
-                </div>
-
+            <div class="card-icon">
+                ⏳
             </div>
+
+            <h3>
+                Em atendimento
+            </h3>
+
+            <p>
+                Nenhum atendimento pendente.
+            </p>
+
+            <span class="badge badge-yellow">
+                0 PENDENTES
+            </span>
 
         </div>
 
@@ -1691,7 +1897,7 @@ body.auth-ok{
     <div class="page-header">
 
         <div class="page-tag">
-            CENTRAL+ • LOJA
+            CENTRAL+ • PRODUTOS
         </div>
 
         <h1 class="page-title">
@@ -1714,20 +1920,16 @@ body.auth-ok{
             </div>
 
             <h3>
-                Produtos
+                Nenhum produto
             </h3>
 
             <p>
-                Área preparada para cadastrar,
-                editar e remover produtos.
+                Os produtos cadastrados aparecerão aqui.
             </p>
 
-            <button
-                class="btn btn-green"
-                id="novoProdutoBtn"
-            >
-                Novo produto
-            </button>
+            <span class="badge badge-yellow">
+                AGUARDANDO
+            </span>
 
         </div>
 
@@ -1764,6 +1966,15 @@ body.auth-ok{
 
     <div class="panel">
 
+        <div class="panel-header">
+
+            <div class="panel-title">
+                Sistema
+            </div>
+
+        </div>
+
+
         <div class="panel-body">
 
             <div class="setting">
@@ -1771,11 +1982,32 @@ body.auth-ok{
                 <div>
 
                     <div class="setting-title">
-                        Sistema de autenticação
+                        Banco de dados
                     </div>
 
                     <div class="setting-description">
-                        Login protegido pelo Supabase.
+                        Conexão com o Supabase.
+                    </div>
+
+                </div>
+
+                <span class="badge badge-green">
+                    CONECTADO
+                </span>
+
+            </div>
+
+
+            <div class="setting">
+
+                <div>
+
+                    <div class="setting-title">
+                        Autenticação
+                    </div>
+
+                    <div class="setting-description">
+                        Sistema de autenticação do painel.
                     </div>
 
                 </div>
@@ -1792,45 +2024,18 @@ body.auth-ok{
                 <div>
 
                     <div class="setting-title">
-                        Banco de dados
-                    </div>
-
-                    <div class="setting-description">
-                        Conexão com o banco da Central+.
-                    </div>
-
-                </div>
-
-                <span
-                    class="badge badge-yellow"
-                    id="databaseStatus"
-                >
-                    VERIFICANDO
-                </span>
-
-            </div>
-
-
-            <div class="setting">
-
-                <div>
-
-                    <div class="setting-title">
                         Sessão administrativa
                     </div>
 
                     <div class="setting-description">
-                        Sessão atual protegida.
+                        Sua sessão atual está protegida pelo Supabase.
                     </div>
 
                 </div>
 
-                <button
-                    class="btn btn-red"
-                    id="logoutConfigButton"
-                >
-                    Encerrar sessão
-                </button>
+                <span class="badge badge-green">
+                    SEGURA
+                </span>
 
             </div>
 
@@ -1851,14 +2056,8 @@ body.auth-ok{
 <div
     class="toast"
     id="toast"
->
-    Operação realizada.
-</div>
+></div>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
@@ -1867,7 +2066,8 @@ const SUPABASE_URL =
 
 const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
-    
+
+
 const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
@@ -1876,75 +2076,7 @@ const supabaseClient =
 
 
 /* =========================
-   NAVEGAÇÃO
-========================= */
-
-function abrirPagina(nome){
-
-    document
-        .querySelectorAll(".page")
-        .forEach(function(page){
-
-            page.classList.remove("active");
-
-        });
-
-
-    document
-        .querySelectorAll(".nav-button")
-        .forEach(function(button){
-
-            button.classList.remove("active");
-
-        });
-
-
-    const pagina =
-        document.getElementById(nome);
-
-    if(pagina){
-
-        pagina.classList.add("active");
-
-    }
-
-
-    const botao =
-        document.querySelector(
-            '.nav-button[data-page="' +
-            nome +
-            '"]'
-        );
-
-    if(botao){
-
-        botao.classList.add("active");
-
-    }
-
-}
-
-
-document
-    .querySelectorAll(".nav-button[data-page]")
-    .forEach(function(button){
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                abrirPagina(
-                    button.dataset.page
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================
-   AVISOS
+   TOAST
 ========================= */
 
 function mostrarAviso(mensagem){
@@ -1952,10 +2084,11 @@ function mostrarAviso(mensagem){
     const toast =
         document.getElementById("toast");
 
+    if(!toast) return;
+
     toast.textContent = mensagem;
 
     toast.classList.add("show");
-
 
     setTimeout(function(){
 
@@ -1967,49 +2100,67 @@ function mostrarAviso(mensagem){
 
 
 /* =========================
-   PROTEÇÃO DA SESSÃO
+   NAVEGAÇÃO
 ========================= */
 
-async function verificarSessao(){
+function abrirPagina(nome){
 
-    try{
+    const paginas =
+        document.querySelectorAll(".page");
 
-        const resultado =
-            await supabaseClient.auth.getSession();
-
-        const session =
-            resultado.data.session;
+    const botoes =
+        document.querySelectorAll(".nav-button[data-page]");
 
 
-        if(!session){
+    paginas.forEach(function(pagina){
 
-            sessionStorage.removeItem(
-                "centralAdmin"
-            );
+        pagina.classList.remove("active");
 
-            window.location.replace(
-                "admin-login.html"
-            );
-
-            return null;
-
-        }
+    });
 
 
-        return session;
+    botoes.forEach(function(botao){
 
-    }catch(error){
+        botao.classList.remove("active");
 
-        console.error(
-            "Erro ao verificar sessão:",
-            error
+    });
+
+
+    const pagina =
+        document.getElementById(nome);
+
+    const botao =
+        document.querySelector(
+            '.nav-button[data-page="' +
+            nome +
+            '"]'
         );
 
-        mostrarAviso(
-            "Erro ao verificar autenticação."
-        );
 
-        return null;
+    if(pagina){
+
+        pagina.classList.add("active");
+
+    }
+
+
+    if(botao){
+
+        botao.classList.add("active");
+
+    }
+
+
+    if(nome === "clientes"){
+
+        carregarClientes();
+
+    }
+
+
+    if(nome === "admins"){
+
+        carregarAdministradores();
 
     }
 
@@ -2017,78 +2168,47 @@ async function verificarSessao(){
 
 
 /* =========================
-   DADOS DO ADMIN
+   BOTÕES DO MENU
 ========================= */
 
-async function carregarAdmin(){
+document.querySelectorAll(
+    ".nav-button[data-page]"
+).forEach(function(botao){
 
-    const session =
-        await verificarSessao();
+    botao.addEventListener(
+        "click",
+        function(){
 
-    if(!session) return;
+            abrirPagina(
+                botao.dataset.page
+            );
 
+        }
+    );
 
-    const usuario =
-        session.user;
-
-
-    const email =
-        usuario.email ||
-        "Administrador";
-
-
-    const nome =
-        usuario.user_metadata?.name ||
-        usuario.user_metadata?.nome ||
-        email.split("@")[0];
+});
 
 
-    const adminName =
-        document.getElementById("adminName");
+/* =========================
+   AÇÕES RÁPIDAS
+========================= */
 
-    const adminRole =
-        document.getElementById("adminRole");
+document.querySelectorAll(
+    "[data-open-page]"
+).forEach(function(botao){
 
-    const adminCardName =
-        document.getElementById(
-            "adminCardName"
-        );
+    botao.addEventListener(
+        "click",
+        function(){
 
-    const adminCardEmail =
-        document.getElementById(
-            "adminCardEmail"
-        );
+            abrirPagina(
+                botao.dataset.openPage
+            );
 
+        }
+    );
 
-    if(adminName){
-
-        adminName.textContent = nome;
-
-    }
-
-
-    if(adminRole){
-
-        adminRole.textContent =
-            "ADMINISTRADOR";
-
-    }
-
-
-    if(adminCardName){
-
-        adminCardName.textContent = nome;
-
-    }
-
-
-    if(adminCardEmail){
-
-        adminCardEmail.textContent = email;
-
-    }
-
-}
+});
 
 
 /* =========================
@@ -2096,160 +2216,6 @@ async function carregarAdmin(){
 ========================= */
 
 async function carregarClientes(){
-
-    const container =
-        document.getElementById("clientesContainer");
-
-    const total =
-        document.getElementById("clientesTotal");
-
-    if(!container) return;
-
-    container.innerHTML = `
-        <div class="card">
-            <div class="card-icon">⏳</div>
-
-            <h3>Carregando...</h3>
-
-            <p>
-                Buscando clientes no banco de dados.
-            </p>
-        </div>
-    `;
-
-    try{
-
-        const {
-            data: clientes,
-            error
-        } = await supabase
-            .from("clientes")
-            .select("id,nome,email,criado_em")
-            .order("criado_em", {
-                ascending:false
-            });
-
-        if(error){
-            throw error;
-        }
-
-        const lista =
-            clientes || [];
-
-        if(total){
-            total.textContent =
-                lista.length;
-        }
-
-        if(lista.length === 0){
-
-            container.innerHTML = `
-                <div class="card">
-
-                    <div class="card-icon">
-                        👥
-                    </div>
-
-                    <h3>
-                        Nenhum cliente
-                    </h3>
-
-                    <p>
-                        Ainda não existem
-                        clientes cadastrados.
-                    </p>
-
-                </div>
-            `;
-
-            return;
-        }
-
-        container.innerHTML =
-            lista.map(cliente => {
-
-                const nome =
-                    cliente.nome ||
-                    "Sem nome";
-
-                const email =
-                    cliente.email ||
-                    "Sem email";
-
-                const data =
-                    cliente.criado_em
-                    ? new Date(
-                        cliente.criado_em +
-                        "T00:00:00"
-                    ).toLocaleDateString(
-                        "pt-BR"
-                    )
-                    : "—";
-
-                return `
-                    <div class="card">
-
-                        <div class="card-icon">
-                            👤
-                        </div>
-
-                        <h3>
-                            ${escaparHTML(nome)}
-                        </h3>
-
-                        <p>
-                            ${escaparHTML(email)}
-                        </p>
-
-                        <span class="badge badge-green">
-                            CADASTRADO
-                        </span>
-
-                        <p style="margin-top:10px;">
-                            Cadastro: ${data}
-                        </p>
-
-                    </div>
-                `;
-
-            }).join("");
-
-    }catch(error){
-
-        console.error(
-            "Erro ao carregar clientes:",
-            error
-        );
-
-        container.innerHTML = `
-            <div class="card">
-
-                <div class="card-icon">
-                    ❌
-                </div>
-
-                <h3>
-                    Erro ao carregar
-                </h3>
-
-                <p>
-                    ${escaparHTML(
-                        error.message ||
-                        "Erro desconhecido."
-                    )}
-                </p>
-
-                <button
-                    class="btn btn-dark"
-                    onclick="carregarClientes()"
-                >
-                    Tentar novamente
-                </button>
-
-            </div>
-        `;
-    }
-}
 
     const container =
         document.getElementById(
@@ -2260,7 +2226,6 @@ async function carregarClientes(){
         document.getElementById(
             "clientesTotal"
         );
-
 
     if(!container) return;
 
@@ -2278,7 +2243,7 @@ async function carregarClientes(){
             </h3>
 
             <p>
-                Consultando banco de dados.
+                Consultando o banco de dados.
             </p>
 
         </div>
@@ -2288,17 +2253,18 @@ async function carregarClientes(){
 
     try{
 
-        /*
-         * IMPORTANTE:
-         * Troque "clientes" pelo nome
-         * exato da sua tabela no Supabase
-         * caso ela tenha outro nome.
-         */
-
         const resultado =
             await supabaseClient
                 .from("clientes")
-                .select("*");
+                .select(
+                    "id,nome,email,criado_em"
+                )
+                .order(
+                    "criado_em",
+                    {
+                        ascending:false
+                    }
+                );
 
 
         if(resultado.error){
@@ -2335,8 +2301,7 @@ async function carregarClientes(){
                     </h3>
 
                     <p>
-                        Ainda não existem
-                        clientes cadastrados.
+                        Ainda não existem clientes cadastrados.
                     </p>
 
                 </div>
@@ -2353,8 +2318,6 @@ async function carregarClientes(){
 
                 const nome =
                     cliente.nome ||
-                    cliente.name ||
-                    cliente.email ||
                     "Cliente";
 
 
@@ -2419,7 +2382,7 @@ async function carregarClientes(){
 
                 <button
                     class="btn btn-dark"
-                    id="tentarClientesBtn"
+                    id="tentarClientes"
                 >
                     Tentar novamente
                 </button>
@@ -2431,8 +2394,9 @@ async function carregarClientes(){
 
         const tentar =
             document.getElementById(
-                "tentarClientesBtn"
+                "tentarClientes"
             );
+
 
         if(tentar){
 
@@ -2449,6 +2413,138 @@ async function carregarClientes(){
 
 
 /* =========================
+   ADMINISTRADORES
+========================= */
+
+async function carregarAdministradores(){
+
+    const container =
+        document.getElementById(
+            "adminsContainer"
+        );
+
+    if(!container) return;
+
+
+    try{
+
+        const resultado =
+            await supabaseClient
+                .from("administradores")
+                .select("*");
+
+
+        if(resultado.error){
+
+            throw resultado.error;
+
+        }
+
+
+        const admins =
+            resultado.data || [];
+
+
+        if(admins.length === 0){
+
+            container.innerHTML = `
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Nenhum administrador
+                    </h3>
+
+                    <p>
+                        Nenhum administrador encontrado.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        container.innerHTML =
+            admins.map(function(admin){
+
+                const email =
+                    admin.email ||
+                    admin.email_admin ||
+                    "Email não informado";
+
+
+                return `
+
+                    <div class="card">
+
+                        <div class="card-icon">
+                            🛡️
+                        </div>
+
+                        <h3>
+                            Administrador
+                        </h3>
+
+                        <p>
+                            ${escaparHTML(email)}
+                        </p>
+
+                        <span class="badge badge-green">
+                            AUTORIZADO
+                        </span>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+
+    }catch(error){
+
+        console.error(
+            "Erro ao carregar administradores:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ❌
+                </div>
+
+                <h3>
+                    Não foi possível carregar
+                </h3>
+
+                <p>
+                    ${escaparHTML(
+                        error.message ||
+                        "Erro desconhecido."
+                    )}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
    HTML SEGURO
 ========================= */
 
@@ -2456,25 +2552,13 @@ function escaparHTML(valor){
 
     return String(valor)
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+        .replace(/&/g,"&amp;")
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+        .replace(/</g,"&lt;")
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+        .replace(/>/g,"&gt;")
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+        .replace(/"/g,"&quot;")
 
         .replace(
             /'/g,
@@ -2488,178 +2572,166 @@ function escaparHTML(valor){
    LOGOUT
 ========================= */
 
-async function sair(){
-
-    try{
-
-        await supabaseClient.auth.signOut();
-
-    }catch(error){
-
-        console.error(
-            "Erro ao sair:",
-            error
-        );
-
-    }
-
-
-    sessionStorage.removeItem(
-        "centralAdmin"
-    );
-
-
-    window.location.replace(
-        "admin-login.html"
-    );
-
-}
-
-
 document
     .getElementById("logoutButton")
-    ?.addEventListener(
+    .addEventListener(
         "click",
-        sair
-    );
+        async function(){
 
-
-document
-    .getElementById("logoutConfigButton")
-    ?.addEventListener(
-        "click",
-        sair
-    );
-
-
-/* =========================
-   BOTÕES
-========================= */
-
-document
-    .getElementById(
-        "rejeitarAcessoBtn"
-    )
-    ?.addEventListener(
-        "click",
-        function(){
-
-            mostrarAviso(
-                "Nenhuma solicitação para rejeitar."
-            );
-
-        }
-    );
-
-
-document
-    .getElementById(
-        "atualizarTicketsBtn"
-    )
-    ?.addEventListener(
-        "click",
-        function(){
-
-            mostrarAviso(
-                "Tickets atualizados."
-            );
-
-        }
-    );
-
-
-document
-    .getElementById(
-        "novoProdutoBtn"
-    )
-    ?.addEventListener(
-        "click",
-        function(){
-
-            mostrarAviso(
-                "Sistema de produtos preparado."
-            );
-
-        }
-    );
-
-
-/* =========================
-   INICIALIZAÇÃO
-========================= */
-
-async function iniciar(){
-
-    const session =
-        await verificarSessao();
-
-
-    if(!session){
-
-        return;
-
-    }
-
-
-    sessionStorage.setItem(
-        "centralAdmin",
-        "true"
-    );
-
-
-    await carregarAdmin();
-
-    await carregarClientes();
-
-
-    const databaseStatus =
-        document.getElementById(
-            "databaseStatus"
-        );
-
-
-    if(databaseStatus){
-
-        databaseStatus.textContent =
-            "CONECTADO";
-
-        databaseStatus.className =
-            "badge badge-green";
-
-    }
-
-
-    document.body.classList.add(
-        "auth-ok"
-    );
-
-}
-
-
-iniciar();
-
-
-/* =========================
-   ALTERAÇÕES DE AUTENTICAÇÃO
-========================= */
-
-supabaseClient.auth.onAuthStateChange(
-    function(event, session){
-
-        if(
-            event === "SIGNED_OUT" ||
-            !session
-        ){
-
-            sessionStorage.removeItem(
-                "centralAdmin"
-            );
+            await supabaseClient.auth.signOut();
 
             window.location.replace(
                 "admin-login.html"
             );
 
         }
+    );
+
+
+/* =========================
+   ATUALIZAR VENDAS
+========================= */
+
+document
+    .getElementById("atualizarVendas")
+    .addEventListener(
+        "click",
+        function(){
+
+            mostrarAviso(
+                "Lista de vendas atualizada."
+            );
+
+        }
+    );
+
+
+/* =========================
+   ACESSOS
+========================= */
+
+document
+    .getElementById("liberarAcesso")
+    .addEventListener(
+        "click",
+        function(){
+
+            mostrarAviso(
+                "Nenhuma solicitação aguardando."
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("rejeitarAcesso")
+    .addEventListener(
+        "click",
+        function(){
+
+            mostrarAviso(
+                "Nenhuma solicitação aguardando."
+            );
+
+        }
+    );
+
+
+/* =========================
+   VERIFICAÇÃO DE SESSÃO
+========================= */
+
+async function verificarSessao(){
+
+    try{
+
+        const resultado =
+            await supabaseClient.auth.getUser();
+
+
+        const usuario =
+            resultado.data.user;
+
+
+        if(!usuario){
+
+            window.location.replace(
+                "admin-login.html"
+            );
+
+            return;
+
+        }
+
+
+        const nome =
+            document.getElementById(
+                "adminName"
+            );
+
+        const role =
+            document.getElementById(
+                "adminRole"
+            );
+
+
+        if(nome){
+
+            nome.textContent =
+                usuario.email ||
+                "Administrador";
+
+        }
+
+
+        if(role){
+
+            role.textContent =
+                "ADMINISTRADOR";
+
+        }
+
+
+        document
+            .getElementById(
+                "loadingScreen"
+            )
+            .style.display =
+                "none";
+
+
+        await carregarClientes();
+
+        await carregarAdministradores();
+
+
+    }catch(error){
+
+        console.error(
+            "Erro na sessão:",
+            error
+        );
+
+
+        window.location.replace(
+            "admin-login.html"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        verificarSessao();
 
     }
 );
@@ -2669,3 +2741,4 @@ supabaseClient.auth.onAuthStateChange(
 </body>
 
 </html>
+
