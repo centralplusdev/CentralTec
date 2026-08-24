@@ -14,23 +14,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
-
-
-/* =========================
-   BODY
-========================= */
 
 body{
 
@@ -56,12 +46,11 @@ body{
     color:white;
 
     overflow:hidden;
-
 }
 
 
 /* =========================
-   ANIMAÇÃO INICIAL
+   ANIMAÇÃO
 ========================= */
 
 .intro{
@@ -81,7 +70,6 @@ body{
 
     animation:
         desaparecer 1s ease 2.8s forwards;
-
 }
 
 
@@ -100,37 +88,26 @@ body{
     animation:
         aparecerLogo 1.2s ease forwards,
         pulsar 1.5s ease 1.1s infinite;
-
 }
 
 
 .intro-logo span{
-
     color:#00e887;
-
 }
 
 
 @keyframes aparecerLogo{
 
     0%{
-
         opacity:0;
-
         transform:scale(.7);
-
         filter:blur(10px);
-
     }
 
     100%{
-
         opacity:1;
-
         transform:scale(1);
-
         filter:blur(0);
-
     }
 
 }
@@ -139,15 +116,11 @@ body{
 @keyframes pulsar{
 
     0%,100%{
-
         transform:scale(1);
-
     }
 
     50%{
-
         transform:scale(1.05);
-
     }
 
 }
@@ -156,18 +129,15 @@ body{
 @keyframes desaparecer{
 
     to{
-
         opacity:0;
-
         visibility:hidden;
-
     }
 
 }
 
 
 /* =========================
-   LOGIN BOX
+   LOGIN
 ========================= */
 
 .login-box{
@@ -193,18 +163,14 @@ body{
 
     animation:
         entrarLogin 1s ease 3s forwards;
-
 }
 
 
 @keyframes entrarLogin{
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
@@ -219,7 +185,6 @@ body{
     text-align:center;
 
     margin-bottom:28px;
-
 }
 
 
@@ -232,6 +197,7 @@ body{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     margin:0 auto 14px;
@@ -245,21 +211,16 @@ body{
     font-weight:900;
 
     font-size:18px;
-
 }
 
 
 .logo h1{
-
     font-size:27px;
-
 }
 
 
 .logo span{
-
     color:#00e887;
-
 }
 
 
@@ -270,12 +231,11 @@ body{
     color:#858d94;
 
     font-size:11px;
-
 }
 
 
 /* =========================
-   TAG
+   TEXTO
 ========================= */
 
 .tag{
@@ -291,7 +251,6 @@ body{
     letter-spacing:2px;
 
     margin-bottom:10px;
-
 }
 
 
@@ -300,7 +259,6 @@ h2{
     text-align:center;
 
     font-size:28px;
-
 }
 
 
@@ -313,7 +271,6 @@ h2{
     color:#858d94;
 
     font-size:12px;
-
 }
 
 
@@ -322,9 +279,7 @@ h2{
 ========================= */
 
 .campo{
-
     margin-bottom:16px;
-
 }
 
 
@@ -339,7 +294,6 @@ h2{
     font-size:11px;
 
     font-weight:bold;
-
 }
 
 
@@ -360,7 +314,6 @@ h2{
     outline:none;
 
     font-size:13px;
-
 }
 
 
@@ -370,7 +323,6 @@ h2{
 
     box-shadow:
         0 0 0 3px rgba(0,232,135,.12);
-
 }
 
 
@@ -399,7 +351,6 @@ h2{
     cursor:pointer;
 
     transition:.2s;
-
 }
 
 
@@ -408,7 +359,6 @@ h2{
     transform:translateY(-2px);
 
     filter:brightness(1.08);
-
 }
 
 
@@ -419,7 +369,6 @@ h2{
     cursor:not-allowed;
 
     transform:none;
-
 }
 
 
@@ -438,14 +387,11 @@ h2{
     font-size:11px;
 
     color:#ff5964;
-
 }
 
 
 .sucesso{
-
     color:#00e887;
-
 }
 
 
@@ -462,26 +408,17 @@ h2{
     color:#515960;
 
     font-size:9px;
-
 }
 
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:500px){
 
     .intro-logo{
-
         font-size:46px;
-
     }
 
     .login-box{
-
         padding:28px 22px;
-
     }
 
 }
@@ -494,9 +431,7 @@ h2{
 <body>
 
 
-<!-- =========================
-     ANIMAÇÃO
-========================= -->
+<!-- ANIMAÇÃO -->
 
 <div class="intro">
 
@@ -509,9 +444,7 @@ h2{
 </div>
 
 
-<!-- =========================
-     LOGIN ADMIN
-========================= -->
+<!-- LOGIN ADMIN -->
 
 <div class="login-box">
 
@@ -657,7 +590,7 @@ const botao =
 
 
 /* =====================================
-   LOGIN ADMINISTRATIVO
+   LOGIN
 ===================================== */
 
 formulario.addEventListener(
@@ -666,16 +599,13 @@ formulario.addEventListener(
 
         event.preventDefault();
 
-
         mensagem.className =
             "mensagem";
 
         mensagem.textContent =
             "Verificando acesso...";
 
-
-        botao.disabled =
-            true;
+        botao.disabled = true;
 
 
         const email =
@@ -693,13 +623,17 @@ formulario.addEventListener(
 
         try{
 
+            /* =========================
+               1. AUTENTICAR
+            ========================= */
+
             const { data, error } =
                 await supabaseClient.auth
                     .signInWithPassword({
 
-                        email:email,
+                        email: email,
 
-                        password:senha
+                        password: senha
 
                     });
 
@@ -708,109 +642,157 @@ formulario.addEventListener(
 
                 console.error(error);
 
-
                 mensagem.textContent =
                     "E-mail ou senha incorretos.";
 
-                botao.disabled =
-                    false;
+                botao.disabled = false;
 
                 return;
-
             }
 
 
-            if(data.session){
-
-                /*
-                   Mantém a marcação que o
-                   admin.html já utiliza.
-                */
-
-                sessionStorage.setItem(
-                    "centralAdmin",
-                    "true"
-                );
-
-
-                mensagem.className =
-                    "mensagem sucesso";
+            if(!data.user){
 
                 mensagem.textContent =
-                    "Acesso autorizado!";
+                    "Não foi possível identificar o usuário.";
 
+                botao.disabled = false;
 
-                setTimeout(
-                    function(){
-
-                        window.location.href =
-                            "admin.html";
-
-                    },
-                    600
-                );
-
+                return;
             }
 
 
-        }catch(error){
+            /* =========================
+               2. PEGAR USUÁRIO
+            ========================= */
 
-            console.error(error);
-
-
-            mensagem.textContent =
-                "Erro ao conectar ao Supabase.";
-
-            botao.disabled =
-                false;
-
-        }
-
-    }
-);
+            const usuarioId =
+                data.user.id;
 
 
-/* =====================================
-   VERIFICAR SESSÃO
-===================================== */
+            /* =========================
+               3. VERIFICAR ADMIN
+            ========================= */
 
-async function verificarSessao(){
+            const { data: admin, error: adminError } =
+                await supabaseClient
+                    .from("admins")
+                    .select(
+                        "id, nome, cargo, nivel, ativo"
+                    )
+                    .eq("id", usuarioId)
+                    .maybeSingle();
 
-    try{
 
-        const { data } =
-            await supabaseClient.auth
-                .getSession();
+            if(adminError){
+
+                console.error(adminError);
+
+                await supabaseClient.auth.signOut();
+
+                mensagem.textContent =
+                    "Erro ao verificar suas permissões.";
+
+                botao.disabled = false;
+
+                return;
+            }
 
 
-        if(data.session){
+            /* =========================
+               4. NÃO É ADMIN
+            ========================= */
 
-            /*
-               Se já estiver autenticado,
-               podemos mandar direto para
-               o painel.
-            */
+            if(!admin){
+
+                await supabaseClient.auth.signOut();
+
+                mensagem.textContent =
+                    "Acesso negado. Esta conta não possui permissão administrativa.";
+
+                botao.disabled = false;
+
+                return;
+            }
+
+
+            /* =========================
+               5. ADMIN DESATIVADO
+            ========================= */
+
+            if(admin.ativo !== true){
+
+                await supabaseClient.auth.signOut();
+
+                mensagem.textContent =
+                    "Acesso bloqueado. Sua conta administrativa está desativada.";
+
+                botao.disabled = false;
+
+                return;
+            }
+
+
+            /* =========================
+               6. ACESSO AUTORIZADO
+            ========================= */
 
             sessionStorage.setItem(
                 "centralAdmin",
                 "true"
             );
 
+
+            sessionStorage.setItem(
+                "adminNome",
+                admin.nome
+            );
+
+
+            sessionStorage.setItem(
+                "adminCargo",
+                admin.cargo
+            );
+
+
+            sessionStorage.setItem(
+                "adminNivel",
+                String(admin.nivel)
+            );
+
+
+            mensagem.className =
+                "mensagem sucesso";
+
+
+            mensagem.textContent =
+                "Acesso autorizado!";
+
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "admin.html";
+
+                },
+                600
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            mensagem.textContent =
+                "Erro inesperado ao processar o login.";
+
+            botao.disabled = false;
+
         }
 
-    }catch(error){
-
-        console.error(
-            "Erro ao verificar sessão:",
-            error
-        );
-
     }
-
-}
-
-
-verificarSessao();
+);
 
 </script>
 
