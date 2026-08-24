@@ -2098,6 +2098,160 @@ async function carregarAdmin(){
 async function carregarClientes(){
 
     const container =
+        document.getElementById("clientesContainer");
+
+    const total =
+        document.getElementById("clientesTotal");
+
+    if(!container) return;
+
+    container.innerHTML = `
+        <div class="card">
+            <div class="card-icon">⏳</div>
+
+            <h3>Carregando...</h3>
+
+            <p>
+                Buscando clientes no banco de dados.
+            </p>
+        </div>
+    `;
+
+    try{
+
+        const {
+            data: clientes,
+            error
+        } = await supabase
+            .from("clientes")
+            .select("id,nome,email,criado_em")
+            .order("criado_em", {
+                ascending:false
+            });
+
+        if(error){
+            throw error;
+        }
+
+        const lista =
+            clientes || [];
+
+        if(total){
+            total.textContent =
+                lista.length;
+        }
+
+        if(lista.length === 0){
+
+            container.innerHTML = `
+                <div class="card">
+
+                    <div class="card-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Nenhum cliente
+                    </h3>
+
+                    <p>
+                        Ainda não existem
+                        clientes cadastrados.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        container.innerHTML =
+            lista.map(cliente => {
+
+                const nome =
+                    cliente.nome ||
+                    "Sem nome";
+
+                const email =
+                    cliente.email ||
+                    "Sem email";
+
+                const data =
+                    cliente.criado_em
+                    ? new Date(
+                        cliente.criado_em +
+                        "T00:00:00"
+                    ).toLocaleDateString(
+                        "pt-BR"
+                    )
+                    : "—";
+
+                return `
+                    <div class="card">
+
+                        <div class="card-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            ${escaparHTML(nome)}
+                        </h3>
+
+                        <p>
+                            ${escaparHTML(email)}
+                        </p>
+
+                        <span class="badge badge-green">
+                            CADASTRADO
+                        </span>
+
+                        <p style="margin-top:10px;">
+                            Cadastro: ${data}
+                        </p>
+
+                    </div>
+                `;
+
+            }).join("");
+
+    }catch(error){
+
+        console.error(
+            "Erro ao carregar clientes:",
+            error
+        );
+
+        container.innerHTML = `
+            <div class="card">
+
+                <div class="card-icon">
+                    ❌
+                </div>
+
+                <h3>
+                    Erro ao carregar
+                </h3>
+
+                <p>
+                    ${escaparHTML(
+                        error.message ||
+                        "Erro desconhecido."
+                    )}
+                </p>
+
+                <button
+                    class="btn btn-dark"
+                    onclick="carregarClientes()"
+                >
+                    Tentar novamente
+                </button>
+
+            </div>
+        `;
+    }
+}
+
+    const container =
         document.getElementById(
             "clientesContainer"
         );
