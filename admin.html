@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,7 +19,6 @@
 
 :root{
     --bg:#060708;
-    --sidebar:#0b0d0f;
     --card:#101315;
     --border:#202529;
     --text:#f5f7f8;
@@ -44,10 +42,12 @@ body{
         var(--bg);
 
     color:var(--text);
-    font-family:Arial,Helvetica,sans-serif;
-}
 
-body{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     visibility:hidden;
 }
 
@@ -72,6 +72,7 @@ body.auth-ok{
     z-index:1000;
 
     display:flex;
+
     align-items:center;
     justify-content:space-between;
 
@@ -81,16 +82,19 @@ body.auth-ok{
 
     backdrop-filter:blur(18px);
 
-    border-bottom:1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 }
 
 .logo{
     display:flex;
+
     align-items:center;
 
     gap:11px;
 
     font-size:20px;
+
     font-weight:900;
 }
 
@@ -99,15 +103,18 @@ body.auth-ok{
     height:38px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     border-radius:10px;
 
     background:var(--green);
+
     color:#000;
 
     font-size:11px;
+
     font-weight:900;
 }
 
@@ -117,13 +124,17 @@ body.auth-ok{
 
 .header-right{
     display:flex;
+
     align-items:center;
+
     gap:15px;
 }
 
 .status{
     display:flex;
+
     align-items:center;
+
     gap:7px;
 
     color:var(--muted);
@@ -139,18 +150,21 @@ body.auth-ok{
 
     background:var(--green);
 
-    box-shadow:0 0 10px var(--green);
+    box-shadow:
+        0 0 10px var(--green);
 }
 
 .profile{
     display:flex;
+
     align-items:center;
 
     gap:9px;
 
     padding:6px 10px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:9px;
 }
@@ -160,6 +174,7 @@ body.auth-ok{
     height:30px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -170,6 +185,7 @@ body.auth-ok{
 
 .profile-name{
     font-size:11px;
+
     font-weight:800;
 }
 
@@ -199,17 +215,20 @@ body.auth-ok{
 
     background:rgba(10,12,14,.97);
 
-    border-right:1px solid var(--border);
+    border-right:
+        1px solid var(--border);
 
     overflow-y:auto;
 }
 
 .section-label{
-    margin:14px 10px 8px;
+    margin:
+        14px 10px 8px;
 
     color:#515960;
 
     font-size:9px;
+
     font-weight:900;
 
     letter-spacing:1px;
@@ -219,6 +238,7 @@ body.auth-ok{
     width:100%;
 
     display:flex;
+
     align-items:center;
 
     gap:11px;
@@ -228,6 +248,7 @@ body.auth-ok{
     margin-bottom:3px;
 
     border:0;
+
     border-radius:9px;
 
     background:transparent;
@@ -245,6 +266,7 @@ body.auth-ok{
 
 .nav-button:hover{
     background:#14181b;
+
     color:white;
 }
 
@@ -287,7 +309,10 @@ body.auth-ok{
 .main{
     margin-left:240px;
 
-    padding:100px 30px 40px;
+    padding:
+        100px
+        30px
+        40px;
 
     min-height:100vh;
 }
@@ -299,19 +324,26 @@ body.auth-ok{
 .page.active{
     display:block;
 
-    animation:pageIn .25s ease;
+    animation:
+        pageIn
+        .25s
+        ease;
 }
 
 @keyframes pageIn{
 
     from{
         opacity:0;
-        transform:translateY(8px);
+
+        transform:
+            translateY(8px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
     }
 
 }
@@ -331,6 +363,7 @@ body.auth-ok{
     color:var(--green);
 
     font-size:9px;
+
     font-weight:900;
 
     letter-spacing:1px;
@@ -338,6 +371,7 @@ body.auth-ok{
 
 .page-title{
     font-size:28px;
+
     font-weight:900;
 }
 
@@ -375,7 +409,8 @@ body.auth-ok{
             #0d1012
         );
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:13px;
 
@@ -383,7 +418,8 @@ body.auth-ok{
 }
 
 .stat:hover{
-    transform:translateY(-4px);
+    transform:
+        translateY(-4px);
 
     border-color:#344039;
 }
@@ -396,6 +432,7 @@ body.auth-ok{
 
 .stat-number{
     font-size:23px;
+
     font-weight:900;
 }
 
@@ -422,9 +459,11 @@ body.auth-ok{
 }
 
 .panel{
-    background:rgba(16,19,21,.92);
+    background:
+        rgba(16,19,21,.92);
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:13px;
 
@@ -435,15 +474,19 @@ body.auth-ok{
     display:flex;
 
     justify-content:space-between;
+
     align-items:center;
 
-    padding:16px 18px;
+    padding:
+        16px 18px;
 
-    border-bottom:1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 }
 
 .panel-title{
     font-size:13px;
+
     font-weight:800;
 }
 
@@ -454,7 +497,8 @@ body.auth-ok{
 .activity{
     padding:13px 0;
 
-    border-bottom:1px solid #1a1e21;
+    border-bottom:
+        1px solid #1a1e21;
 
     font-size:11px;
 }
@@ -486,13 +530,15 @@ body.auth-ok{
     cursor:pointer;
 
     font-size:10px;
+
     font-weight:800;
 
     transition:.2s;
 }
 
 .btn:hover{
-    transform:translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 .btn-green{
@@ -506,7 +552,8 @@ body.auth-ok{
 
     color:#ddd;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 }
 
 .btn-red{
@@ -539,9 +586,11 @@ body.auth-ok{
 }
 
 .table td{
-    padding:13px 12px;
+    padding:
+        13px 12px;
 
-    border-top:1px solid #1a1e21;
+    border-top:
+        1px solid #1a1e21;
 
     font-size:10px;
 }
@@ -559,6 +608,7 @@ body.auth-ok{
     border-radius:5px;
 
     font-size:8px;
+
     font-weight:900;
 }
 
@@ -602,7 +652,8 @@ body.auth-ok{
 
     background:#101416;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:13px;
 
@@ -610,7 +661,8 @@ body.auth-ok{
 }
 
 .card:hover{
-    transform:translateY(-4px);
+    transform:
+        translateY(-4px);
 
     border-color:#344039;
 }
@@ -626,7 +678,8 @@ body.auth-ok{
 }
 
 .card p{
-    margin:7px 0 15px;
+    margin:
+        7px 0 15px;
 
     color:var(--muted);
 
@@ -660,13 +713,15 @@ body.auth-ok{
 .form-select{
     width:100%;
 
-    padding:11px 12px;
+    padding:
+        11px 12px;
 
     background:#0c0f11;
 
     color:white;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:8px;
 
@@ -689,13 +744,15 @@ body.auth-ok{
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 
     gap:20px;
 
     padding:16px 0;
 
-    border-bottom:1px solid #1a1e21;
+    border-bottom:
+        1px solid #1a1e21;
 }
 
 .setting:last-child{
@@ -704,6 +761,7 @@ body.auth-ok{
 
 .setting-title{
     font-size:11px;
+
     font-weight:800;
 }
 
@@ -724,23 +782,28 @@ body.auth-ok{
     position:fixed;
 
     right:25px;
+
     bottom:25px;
 
     z-index:5000;
 
-    padding:13px 16px;
+    padding:
+        13px 16px;
 
     background:#15191b;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    border-left:3px solid var(--green);
+    border-left:
+        3px solid var(--green);
 
     border-radius:9px;
 
     font-size:10px;
 
-    transform:translateY(80px);
+    transform:
+        translateY(80px);
 
     opacity:0;
 
@@ -748,7 +811,8 @@ body.auth-ok{
 }
 
 .toast.show{
-    transform:translateY(0);
+    transform:
+        translateY(0);
 
     opacity:1;
 }
@@ -779,6 +843,7 @@ body.auth-ok{
         height:58px;
 
         top:70px;
+
         bottom:auto;
 
         display:flex;
@@ -789,7 +854,8 @@ body.auth-ok{
 
         border-right:0;
 
-        border-bottom:1px solid var(--border);
+        border-bottom:
+            1px solid var(--border);
     }
 
     .section-label{
@@ -805,7 +871,10 @@ body.auth-ok{
     .main{
         margin-left:0;
 
-        padding:145px 14px 30px;
+        padding:
+            145px
+            14px
+            30px;
     }
 
     .status{
@@ -837,32 +906,6 @@ body.auth-ok{
 
 
 <body>
-
-
-<!-- =========================
-     PROTEÇÃO
-========================= -->
-
-<script>
-
-(function(){
-
-    if(
-        sessionStorage.getItem("centralAdmin")
-        !== "true"
-    ){
-
-        window.location.replace("admin-login.html");
-
-        return;
-
-    }
-
-    document.body.classList.add("auth-ok");
-
-})();
-
-</script>
 
 
 <!-- =========================
@@ -901,12 +944,18 @@ body.auth-ok{
 
             <div>
 
-                <div class="profile-name">
+                <div
+                    class="profile-name"
+                    id="adminName"
+                >
                     Central
                 </div>
 
-                <div class="profile-role">
-                    ADMINISTRADOR
+                <div
+                    class="profile-role"
+                    id="adminRole"
+                >
+                    VERIFICANDO...
                 </div>
 
             </div>
@@ -929,25 +978,52 @@ body.auth-ok{
     </div>
 
 
-    <button class="nav-button active" data-page="dashboard">
-        <span class="nav-icon">📊</span>
+    <button
+        class="nav-button active"
+        data-page="dashboard"
+    >
+
+        <span class="nav-icon">
+            📊
+        </span>
+
         Dashboard
+
     </button>
 
 
-    <button class="nav-button" data-page="vendas">
-        <span class="nav-icon">💰</span>
+    <button
+        class="nav-button"
+        data-page="vendas"
+    >
+
+        <span class="nav-icon">
+            💰
+        </span>
+
         Vendas
 
-        <span class="nav-count" id="vendasCount">
+        <span
+            class="nav-count"
+            id="vendasCount"
+        >
             0
         </span>
+
     </button>
 
 
-    <button class="nav-button" data-page="clientes">
-        <span class="nav-icon">👥</span>
+    <button
+        class="nav-button"
+        data-page="clientes"
+    >
+
+        <span class="nav-icon">
+            👥
+        </span>
+
         Clientes
+
     </button>
 
 
@@ -956,21 +1032,45 @@ body.auth-ok{
     </div>
 
 
-    <button class="nav-button" data-page="acessos">
-        <span class="nav-icon">🔐</span>
+    <button
+        class="nav-button"
+        data-page="acessos"
+    >
+
+        <span class="nav-icon">
+            🔐
+        </span>
+
         Acessos
+
     </button>
 
 
-    <button class="nav-button" data-page="admins">
-        <span class="nav-icon">🛡️</span>
+    <button
+        class="nav-button"
+        data-page="admins"
+    >
+
+        <span class="nav-icon">
+            🛡️
+        </span>
+
         Administradores
+
     </button>
 
 
-    <button class="nav-button" data-page="tickets">
-        <span class="nav-icon">🎫</span>
+    <button
+        class="nav-button"
+        data-page="tickets"
+    >
+
+        <span class="nav-icon">
+            🎫
+        </span>
+
         Tickets
+
     </button>
 
 
@@ -979,21 +1079,45 @@ body.auth-ok{
     </div>
 
 
-    <button class="nav-button" data-page="produtos">
-        <span class="nav-icon">📦</span>
+    <button
+        class="nav-button"
+        data-page="produtos"
+    >
+
+        <span class="nav-icon">
+            📦
+        </span>
+
         Produtos
+
     </button>
 
 
-    <button class="nav-button" data-page="config">
-        <span class="nav-icon">⚙️</span>
+    <button
+        class="nav-button"
+        data-page="config"
+    >
+
+        <span class="nav-icon">
+            ⚙️
+        </span>
+
         Configurações
+
     </button>
 
 
-    <button class="nav-button" id="logoutButton">
-        <span class="nav-icon">🚪</span>
+    <button
+        class="nav-button"
+        id="logoutButton"
+    >
+
+        <span class="nav-icon">
+            🚪
+        </span>
+
         Sair
+
     </button>
 
 </aside>
@@ -1006,9 +1130,14 @@ body.auth-ok{
 <main class="main">
 
 
-<!-- DASHBOARD -->
+<!-- =========================
+     DASHBOARD
+========================= -->
 
-<section class="page active" id="dashboard">
+<section
+    class="page active"
+    id="dashboard"
+>
 
     <div class="page-header">
 
@@ -1028,6 +1157,7 @@ body.auth-ok{
 
 
     <div class="stats">
+
 
         <div class="stat">
 
@@ -1099,10 +1229,12 @@ body.auth-ok{
 
         </div>
 
+
     </div>
 
 
     <div class="grid">
+
 
         <div class="panel">
 
@@ -1117,6 +1249,7 @@ body.auth-ok{
 
             <div class="panel-body">
 
+
                 <div class="activity">
 
                     Central+ iniciado.
@@ -1130,13 +1263,14 @@ body.auth-ok{
 
                 <div class="activity">
 
-                    Dados conectados ao Supabase.
+                    Sistema conectado ao Supabase.
 
                     <div class="activity-time">
-                        Sistema aguardando dados.
+                        Autenticação ativa.
                     </div>
 
                 </div>
+
 
             </div>
 
@@ -1156,6 +1290,7 @@ body.auth-ok{
 
             <div class="panel-body">
 
+
                 <button
                     class="btn btn-green"
                     onclick="abrirPagina('vendas')"
@@ -1174,9 +1309,11 @@ body.auth-ok{
                     Ver clientes
                 </button>
 
+
             </div>
 
         </div>
+
 
     </div>
 
@@ -1187,7 +1324,10 @@ body.auth-ok{
      VENDAS
 ========================= -->
 
-<section class="page" id="vendas">
+<section
+    class="page"
+    id="vendas"
+>
 
     <div class="page-header">
 
@@ -1290,7 +1430,10 @@ body.auth-ok{
      CLIENTES
 ========================= -->
 
-<section class="page" id="clientes">
+<section
+    class="page"
+    id="clientes"
+>
 
     <div class="page-header">
 
@@ -1303,7 +1446,7 @@ body.auth-ok{
         </h1>
 
         <p class="page-description">
-            Gerencie os clientes da plataforma.
+            Usuários cadastrados na Central+.
         </p>
 
     </div>
@@ -1317,7 +1460,7 @@ body.auth-ok{
         <div class="card">
 
             <div class="card-icon">
-                👤
+                ⏳
             </div>
 
             <h3>
@@ -1325,7 +1468,7 @@ body.auth-ok{
             </h3>
 
             <p>
-                Buscando clientes no banco de dados.
+                Buscando dados do banco.
             </p>
 
         </div>
@@ -1339,7 +1482,10 @@ body.auth-ok{
      ACESSOS
 ========================= -->
 
-<section class="page" id="acessos">
+<section
+    class="page"
+    id="acessos"
+>
 
     <div class="page-header">
 
@@ -1352,13 +1498,14 @@ body.auth-ok{
         </h1>
 
         <p class="page-description">
-            Libere ou rejeite o acesso dos clientes.
+            Controle de acesso dos clientes.
         </p>
 
     </div>
 
 
     <div class="cards">
+
 
         <div class="card">
 
@@ -1377,9 +1524,9 @@ body.auth-ok{
 
             <button
                 class="btn btn-green"
-                onclick="mostrarAviso('Nenhum cliente aguardando')"
-            >
-                Ver solicitações
+                onclick="mostrarAviso('Sistema de acessos preparado.')"
+                            >
+                Liberar acesso
             </button>
 
         </div>
@@ -1402,9 +1549,9 @@ body.auth-ok{
 
             <button
                 class="btn btn-red"
-                onclick="mostrarAviso('Nenhuma solicitação para rejeitar')"
+                id="rejeitarAcessoBtn"
             >
-                Ver solicitações
+                Rejeitar solicitações
             </button>
 
         </div>
@@ -1415,13 +1562,32 @@ body.auth-ok{
 
 
 <!-- =========================
-     ADMINS
+     ADMINISTRADORES
 ========================= -->
 
-<section class="page" id="admins">
+<section
+    class="page"
+    id="admins"
+>
 
-    <div
-            class="cards">
+    <div class="page-header">
+
+        <div class="page-tag">
+            CENTRAL+ • SEGURANÇA
+        </div>
+
+        <h1 class="page-title">
+            Administradores
+        </h1>
+
+        <p class="page-description">
+            Administradores autorizados da Central+.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
 
         <div class="card">
 
@@ -1429,16 +1595,16 @@ body.auth-ok{
                 👑
             </div>
 
-            <h3>
-                Central
+            <h3 id="adminCardName">
+                Verificando...
             </h3>
 
-            <p>
-                Administrador principal da Central+.
+            <p id="adminCardEmail">
+                Carregando informações da conta.
             </p>
 
             <span class="badge badge-green">
-                ATIVO
+                ADMINISTRADOR
             </span>
 
         </div>
@@ -1452,7 +1618,10 @@ body.auth-ok{
      TICKETS
 ========================= -->
 
-<section class="page" id="tickets">
+<section
+    class="page"
+    id="tickets"
+>
 
     <div class="page-header">
 
@@ -1465,7 +1634,7 @@ body.auth-ok{
         </h1>
 
         <p class="page-description">
-            Gerencie os tickets e solicitações dos clientes.
+            Gerencie os atendimentos dos clientes.
         </p>
 
     </div>
@@ -1481,85 +1650,29 @@ body.auth-ok{
 
             <button
                 class="btn btn-dark"
-                onclick="mostrarAviso('Lista de tickets atualizada')"
+                id="atualizarTicketsBtn"
             >
                 Atualizar
             </button>
 
         </div>
 
+        <div
+            class="panel-body"
+            id="ticketsContainer"
+        >
 
-        <table class="table">
+            <div class="activity">
 
-            <thead>
+                Nenhum ticket encontrado.
 
-                <tr>
+                <div class="activity-time">
+                    Aguardando novos atendimentos.
+                </div>
 
-                    <th>
-                        ID
-                    </th>
+            </div>
 
-                    <th>
-                        Cliente
-                    </th>
-
-                    <th>
-                        Assunto
-                    </th>
-
-                    <th>
-                        Status
-                    </th>
-
-                    <th>
-                        Ação
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                <tr>
-
-                    <td>
-                        #0001
-                    </td>
-
-                    <td>
-                        Nenhum cliente
-                    </td>
-
-                    <td>
-                        —
-                    </td>
-
-                    <td>
-
-                        <span class="badge badge-yellow">
-                            AGUARDANDO
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        <button
-                            class="btn btn-dark"
-                            onclick="mostrarAviso('Nenhum ticket disponível')"
-                        >
-                            Abrir
-                        </button>
-
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
+        </div>
 
     </div>
 
@@ -1570,12 +1683,15 @@ body.auth-ok{
      PRODUTOS
 ========================= -->
 
-<section class="page" id="produtos">
+<section
+    class="page"
+    id="produtos"
+>
 
     <div class="page-header">
 
         <div class="page-tag">
-            CENTRAL+ • PRODUTOS
+            CENTRAL+ • LOJA
         </div>
 
         <h1 class="page-title">
@@ -1591,7 +1707,6 @@ body.auth-ok{
 
     <div class="cards">
 
-
         <div class="card">
 
             <div class="card-icon">
@@ -1599,46 +1714,22 @@ body.auth-ok{
             </div>
 
             <h3>
-                Adicionar produto
+                Produtos
             </h3>
 
             <p>
-                Cadastre um novo produto na Central+.
+                Área preparada para cadastrar,
+                editar e remover produtos.
             </p>
 
             <button
                 class="btn btn-green"
-                onclick="mostrarAviso('Função de adicionar produto')"
+                id="novoProdutoBtn"
             >
-                Adicionar
+                Novo produto
             </button>
 
         </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🛒
-            </div>
-
-            <h3>
-                Produtos cadastrados
-            </h3>
-
-            <p>
-                Veja e gerencie todos os produtos.
-            </p>
-
-            <button
-                class="btn btn-dark"
-                onclick="mostrarAviso('Nenhum produto cadastrado')"
-            >
-                Ver produtos
-            </button>
-
-        </div>
-
 
     </div>
 
@@ -1649,7 +1740,10 @@ body.auth-ok{
      CONFIGURAÇÕES
 ========================= -->
 
-<section class="page" id="config">
+<section
+    class="page"
+    id="config"
+>
 
     <div class="page-header">
 
@@ -1662,7 +1756,7 @@ body.auth-ok{
         </h1>
 
         <p class="page-description">
-            Configure o funcionamento da Central+.
+            Configurações do painel administrativo.
         </p>
 
     </div>
@@ -1670,39 +1764,25 @@ body.auth-ok{
 
     <div class="panel">
 
-        <div class="panel-header">
-
-            <div class="panel-title">
-                Configurações gerais
-            </div>
-
-        </div>
-
-
         <div class="panel-body">
-
 
             <div class="setting">
 
                 <div>
 
                     <div class="setting-title">
-                        Sistema online
+                        Sistema de autenticação
                     </div>
 
                     <div class="setting-description">
-                        Define se o sistema está disponível.
+                        Login protegido pelo Supabase.
                     </div>
 
                 </div>
 
-
-                <button
-                    class="btn btn-green"
-                    onclick="mostrarAviso('Sistema está online')"
-                >
-                    ONLINE
-                </button>
+                <span class="badge badge-green">
+                    ATIVO
+                </span>
 
             </div>
 
@@ -1716,17 +1796,16 @@ body.auth-ok{
                     </div>
 
                     <div class="setting-description">
-                        Status da conexão com o Supabase.
+                        Conexão com o banco da Central+.
                     </div>
 
                 </div>
 
-
                 <span
-                    class="badge badge-green"
-                    id="supabaseStatus"
+                    class="badge badge-yellow"
+                    id="databaseStatus"
                 >
-                    CONECTANDO
+                    VERIFICANDO
                 </span>
 
             </div>
@@ -1741,18 +1820,19 @@ body.auth-ok{
                     </div>
 
                     <div class="setting-description">
-                        Proteção da área administrativa.
+                        Sessão atual protegida.
                     </div>
 
                 </div>
 
-
-                <span class="badge badge-green">
-                    PROTEGIDA
-                </span>
+                <button
+                    class="btn btn-red"
+                    id="logoutConfigButton"
+                >
+                    Encerrar sessão
+                </button>
 
             </div>
-
 
         </div>
 
@@ -1772,7 +1852,7 @@ body.auth-ok{
     class="toast"
     id="toast"
 >
-    Mensagem
+    Operação realizada.
 </div>
 
 
@@ -1782,110 +1862,17 @@ body.auth-ok{
 
 <script>
 
-/* =========================
-   SUPABASE
-========================= */
-
-/*
-   COLOQUE AQUI AS SUAS INFORMAÇÕES
-   DO PROJETO SUPABASE.
-
-   Exemplo:
-
-   const SUPABASE_URL =
-   "https://seuprojeto.supabase.co";
-
-   const SUPABASE_KEY =
-   "sua-chave-anon";
-*/
-
 const SUPABASE_URL =
     "https://meaxcosoblauhokxputd.supabase.co";
 
-const SUPABASE_KEY =
+const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
-
-
-let supabaseClient = null;
-
-
-/* =========================
-   INICIAR SUPABASE
-========================= */
-
-function iniciarSupabase(){
-
-    const status =
-        document.getElementById("supabaseStatus");
-
-
-    if(
-        SUPABASE_URL ===
-        "COLOQUE_SUA_URL_AQUI"
-        ||
-        SUPABASE_KEY ===
-        "COLOQUE_SUA_CHAVE_AQUI"
-    ){
-
-        if(status){
-
-            status.textContent =
-                "NÃO CONFIGURADO";
-
-            status.className =
-                "badge badge-yellow";
-
-        }
-
-        return;
-
-    }
-
-
-    try{
-
-        supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
-            );
-
-
-        if(status){
-
-            status.textContent =
-                "CONECTADO";
-
-            status.className =
-                "badge badge-green";
-
-        }
-
-
-        carregarClientes();
-
-
-    }catch(error){
-
-        console.error(
-            "Erro Supabase:",
-            error
-        );
-
-
-        if(status){
-
-            status.textContent =
-                "ERRO";
-
-            status.className =
-                "badge badge-red";
-
-        }
-
-    }
-
-}
+    
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
 
 
 /* =========================
@@ -1894,29 +1881,32 @@ function iniciarSupabase(){
 
 function abrirPagina(nome){
 
-    const paginas =
-        document.querySelectorAll(".page");
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page){
 
-    const botoes =
-        document.querySelectorAll(".nav-button");
+            page.classList.remove("active");
 
-
-    paginas.forEach(function(pagina){
-
-        pagina.classList.remove("active");
-
-    });
+        });
 
 
-    botoes.forEach(function(botao){
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(function(button){
 
-        botao.classList.remove("active");
+            button.classList.remove("active");
 
-    });
+        });
 
 
     const pagina =
         document.getElementById(nome);
+
+    if(pagina){
+
+        pagina.classList.add("active");
+
+    }
 
 
     const botao =
@@ -1926,50 +1916,25 @@ function abrirPagina(nome){
             '"]'
         );
 
-
-    if(pagina){
-
-        pagina.classList.add("active");
-
-    }
-
-
     if(botao){
 
         botao.classList.add("active");
 
     }
 
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-
-    if(nome === "clientes"){
-
-        carregarClientes();
-
-    }
-
 }
 
 
-/* =========================
-   BOTÕES DA SIDEBAR
-========================= */
-
 document
     .querySelectorAll(".nav-button[data-page]")
-    .forEach(function(botao){
+    .forEach(function(button){
 
-        botao.addEventListener(
+        button.addEventListener(
             "click",
             function(){
 
                 abrirPagina(
-                    botao.dataset.page
+                    button.dataset.page
                 );
 
             }
@@ -1979,65 +1944,155 @@ document
 
 
 /* =========================
-   LOGOUT
+   AVISOS
 ========================= */
-
-document
-    .getElementById("logoutButton")
-    .addEventListener(
-        "click",
-        function(){
-
-            sessionStorage.removeItem(
-                "centralAdmin"
-            );
-
-
-            window.location.replace(
-                "admin-login.html"
-            );
-
-        }
-    );
-
-
-/* =========================
-   TOAST
-========================= */
-
-let toastTimeout;
-
 
 function mostrarAviso(mensagem){
 
     const toast =
         document.getElementById("toast");
 
-
-    toast.textContent =
-        mensagem;
-
+    toast.textContent = mensagem;
 
     toast.classList.add("show");
 
 
-    clearTimeout(toastTimeout);
+    setTimeout(function(){
 
+        toast.classList.remove("show");
 
-    toastTimeout =
-        setTimeout(function(){
-
-            toast.classList.remove(
-                "show"
-            );
-
-        },3000);
+    },3000);
 
 }
 
 
 /* =========================
-   CARREGAR CLIENTES
+   PROTEÇÃO DA SESSÃO
+========================= */
+
+async function verificarSessao(){
+
+    try{
+
+        const resultado =
+            await supabaseClient.auth.getSession();
+
+        const session =
+            resultado.data.session;
+
+
+        if(!session){
+
+            sessionStorage.removeItem(
+                "centralAdmin"
+            );
+
+            window.location.replace(
+                "admin-login.html"
+            );
+
+            return null;
+
+        }
+
+
+        return session;
+
+    }catch(error){
+
+        console.error(
+            "Erro ao verificar sessão:",
+            error
+        );
+
+        mostrarAviso(
+            "Erro ao verificar autenticação."
+        );
+
+        return null;
+
+    }
+
+}
+
+
+/* =========================
+   DADOS DO ADMIN
+========================= */
+
+async function carregarAdmin(){
+
+    const session =
+        await verificarSessao();
+
+    if(!session) return;
+
+
+    const usuario =
+        session.user;
+
+
+    const email =
+        usuario.email ||
+        "Administrador";
+
+
+    const nome =
+        usuario.user_metadata?.name ||
+        usuario.user_metadata?.nome ||
+        email.split("@")[0];
+
+
+    const adminName =
+        document.getElementById("adminName");
+
+    const adminRole =
+        document.getElementById("adminRole");
+
+    const adminCardName =
+        document.getElementById(
+            "adminCardName"
+        );
+
+    const adminCardEmail =
+        document.getElementById(
+            "adminCardEmail"
+        );
+
+
+    if(adminName){
+
+        adminName.textContent = nome;
+
+    }
+
+
+    if(adminRole){
+
+        adminRole.textContent =
+            "ADMINISTRADOR";
+
+    }
+
+
+    if(adminCardName){
+
+        adminCardName.textContent = nome;
+
+    }
+
+
+    if(adminCardEmail){
+
+        adminCardEmail.textContent = email;
+
+    }
+
+}
+
+
+/* =========================
+   CLIENTES
 ========================= */
 
 async function carregarClientes(){
@@ -2047,61 +2102,44 @@ async function carregarClientes(){
             "clientesContainer"
         );
 
-
     const total =
         document.getElementById(
             "clientesTotal"
         );
 
 
-    if(!container){
-
-        return;
-
-    }
+    if(!container) return;
 
 
-    if(!supabaseClient){
+    container.innerHTML = `
 
-        container.innerHTML = `
+        <div class="card">
 
-            <div class="card">
-
-                <div class="card-icon">
-                    ⚠️
-                </div>
-
-                <h3>
-                    Banco não configurado
-                </h3>
-
-                <p>
-                    Configure a URL e a chave
-                    do Supabase no código.
-                </p>
-
+            <div class="card-icon">
+                ⏳
             </div>
 
-        `;
+            <h3>
+                Carregando...
+            </h3>
 
+            <p>
+                Consultando banco de dados.
+            </p>
 
-        if(total){
+        </div>
 
-            total.textContent = "0";
-
-        }
-
-        return;
-
-    }
+    `;
 
 
     try{
 
         /*
-           ALTERE "clientes" caso sua tabela
-           tenha outro nome.
-        */
+         * IMPORTANTE:
+         * Troque "clientes" pelo nome
+         * exato da sua tabela no Supabase
+         * caso ela tenha outro nome.
+         */
 
         const resultado =
             await supabaseClient
@@ -2219,13 +2257,15 @@ async function carregarClientes(){
                 </h3>
 
                 <p>
-                    Não foi possível buscar
-                    os clientes no banco de dados.
+                    ${escaparHTML(
+                        error.message ||
+                        "Erro desconhecido."
+                    )}
                 </p>
 
                 <button
                     class="btn btn-dark"
-                    onclick="carregarClientes()"
+                    id="tentarClientesBtn"
                 >
                     Tentar novamente
                 </button>
@@ -2234,36 +2274,238 @@ async function carregarClientes(){
 
         `;
 
+
+        const tentar =
+            document.getElementById(
+                "tentarClientesBtn"
+            );
+
+        if(tentar){
+
+            tentar.addEventListener(
+                "click",
+                carregarClientes
+            );
+
+        }
+
     }
 
 }
 
 
 /* =========================
-   PROTEÇÃO HTML
+   HTML SEGURO
 ========================= */
 
 function escaparHTML(valor){
 
     return String(valor)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function sair(){
+
+    try{
+
+        await supabaseClient.auth.signOut();
+
+    }catch(error){
+
+        console.error(
+            "Erro ao sair:",
+            error
+        );
+
+    }
+
+
+    sessionStorage.removeItem(
+        "centralAdmin"
+    );
+
+
+    window.location.replace(
+        "admin-login.html"
+    );
+
+}
+
+
+document
+    .getElementById("logoutButton")
+    ?.addEventListener(
+        "click",
+        sair
+    );
+
+
+document
+    .getElementById("logoutConfigButton")
+    ?.addEventListener(
+        "click",
+        sair
+    );
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+document
+    .getElementById(
+        "rejeitarAcessoBtn"
+    )
+    ?.addEventListener(
+        "click",
+        function(){
+
+            mostrarAviso(
+                "Nenhuma solicitação para rejeitar."
+            );
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "atualizarTicketsBtn"
+    )
+    ?.addEventListener(
+        "click",
+        function(){
+
+            mostrarAviso(
+                "Tickets atualizados."
+            );
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "novoProdutoBtn"
+    )
+    ?.addEventListener(
+        "click",
+        function(){
+
+            mostrarAviso(
+                "Sistema de produtos preparado."
+            );
+
+        }
+    );
 
 
 /* =========================
    INICIALIZAÇÃO
 ========================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+async function iniciar(){
 
-        iniciarSupabase();
+    const session =
+        await verificarSessao();
+
+
+    if(!session){
+
+        return;
+
+    }
+
+
+    sessionStorage.setItem(
+        "centralAdmin",
+        "true"
+    );
+
+
+    await carregarAdmin();
+
+    await carregarClientes();
+
+
+    const databaseStatus =
+        document.getElementById(
+            "databaseStatus"
+        );
+
+
+    if(databaseStatus){
+
+        databaseStatus.textContent =
+            "CONECTADO";
+
+        databaseStatus.className =
+            "badge badge-green";
+
+    }
+
+
+    document.body.classList.add(
+        "auth-ok"
+    );
+
+}
+
+
+iniciar();
+
+
+/* =========================
+   ALTERAÇÕES DE AUTENTICAÇÃO
+========================= */
+
+supabaseClient.auth.onAuthStateChange(
+    function(event, session){
+
+        if(
+            event === "SIGNED_OUT" ||
+            !session
+        ){
+
+            sessionStorage.removeItem(
+                "centralAdmin"
+            );
+
+            window.location.replace(
+                "admin-login.html"
+            );
+
+        }
 
     }
 );
