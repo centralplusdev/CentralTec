@@ -4,11 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Central+ • Painel Administrativo</title>
 
@@ -38,7 +34,6 @@
 
 body{
     min-height:100vh;
-
     background:
         radial-gradient(
             circle at 20% 0%,
@@ -46,71 +41,39 @@ body{
             transparent 30%
         ),
         var(--bg);
-
     color:var(--text);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   LOADING
-========================= */
-
 #loadingScreen{
-
     position:fixed;
-
     inset:0;
-
     z-index:99999;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     flex-direction:column;
-
     gap:14px;
-
     background:#060708;
-
 }
 
 .loading-logo{
-
     width:55px;
     height:55px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     border-radius:14px;
-
     background:var(--green);
-
     color:#000;
-
     font-size:16px;
-
     font-weight:900;
-
     animation:pulse 1.2s infinite;
-
 }
 
 .loading-text{
-
     color:#858d94;
-
     font-size:11px;
-
 }
 
 @keyframes pulse{
@@ -127,74 +90,41 @@ body{
 
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
 .header{
-
     position:fixed;
-
     top:0;
     left:0;
     right:0;
-
     height:70px;
-
     z-index:1000;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     padding:0 25px;
-
     background:rgba(8,10,11,.94);
-
     backdrop-filter:blur(18px);
-
-    border-bottom:
-        1px solid var(--border);
-
+    border-bottom:1px solid var(--border);
 }
 
 .logo{
-
     display:flex;
-
     align-items:center;
-
     gap:11px;
-
     font-size:20px;
-
     font-weight:900;
-
 }
 
 .logo-icon{
-
     width:38px;
     height:38px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     border-radius:10px;
-
     background:var(--green);
-
     color:#000;
-
     font-size:11px;
-
     font-weight:900;
-
 }
 
 .logo span{
@@ -202,228 +132,126 @@ body{
 }
 
 .header-right{
-
     display:flex;
-
     align-items:center;
-
     gap:15px;
-
 }
 
 .status{
-
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
     color:var(--muted);
-
     font-size:10px;
-
 }
 
 .status-dot{
-
     width:7px;
     height:7px;
-
     border-radius:50%;
-
     background:var(--green);
-
-    box-shadow:
-        0 0 10px var(--green);
-
+    box-shadow:0 0 10px var(--green);
 }
 
 .profile{
-
     display:flex;
-
     align-items:center;
-
     gap:9px;
-
     padding:6px 10px;
-
-    border:
-        1px solid var(--border);
-
+    border:1px solid var(--border);
     border-radius:9px;
-
 }
 
 .profile-icon{
-
     width:30px;
     height:30px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     border-radius:8px;
-
     background:#1b2024;
-
 }
 
 .profile-name{
-
     font-size:11px;
-
     font-weight:800;
-
 }
 
 .profile-role{
-
     margin-top:2px;
-
     color:var(--green);
-
     font-size:8px;
-
 }
 
-
-/* =========================
-   SIDEBAR
-========================= */
-
 .sidebar{
-
     position:fixed;
-
     top:70px;
     bottom:0;
     left:0;
-
     width:240px;
-
     padding:20px 13px;
-
     background:rgba(10,12,14,.97);
-
-    border-right:
-        1px solid var(--border);
-
+    border-right:1px solid var(--border);
     overflow-y:auto;
-
 }
 
 .section-label{
-
-    margin:
-        14px 10px 8px;
-
+    margin:14px 10px 8px;
     color:#515960;
-
     font-size:9px;
-
     font-weight:900;
-
     letter-spacing:1px;
-
 }
 
 .nav-button{
-
     width:100%;
-
     display:flex;
-
     align-items:center;
-
     gap:11px;
-
     padding:11px 12px;
-
     margin-bottom:3px;
-
     border:0;
-
     border-radius:9px;
-
     background:transparent;
-
     color:#899198;
-
     cursor:pointer;
-
     text-align:left;
-
     font-size:12px;
-
     transition:.2s;
-
 }
 
 .nav-button:hover{
-
     background:#14181b;
-
     color:white;
-
 }
 
 .nav-button.active{
-
-    background:
-        linear-gradient(
-            90deg,
-            #103526,
-            #0d241b
-        );
-
+    background:linear-gradient(
+        90deg,
+        #103526,
+        #0d241b
+    );
     color:var(--green);
-
 }
 
 .nav-icon{
-
     width:22px;
-
     text-align:center;
-
 }
 
 .nav-count{
-
     margin-left:auto;
-
     padding:3px 6px;
-
     border-radius:5px;
-
     background:var(--red-dark);
-
     color:var(--red);
-
     font-size:8px;
-
 }
 
-
-/* =========================
-   MAIN
-========================= */
-
 .main{
-
     margin-left:240px;
-
-    padding:
-        100px
-        30px
-        40px;
-
+    padding:100px 30px 40px;
     min-height:100vh;
-
 }
 
 .page{
@@ -431,562 +259,273 @@ body{
 }
 
 .page.active{
-
     display:block;
-
-    animation:
-        pageIn
-        .25s
-        ease;
-
+    animation:pageIn .25s ease;
 }
 
 @keyframes pageIn{
 
     from{
-
         opacity:0;
-
-        transform:
-            translateY(8px);
-
+        transform:translateY(8px);
     }
 
     to{
-
         opacity:1;
-
-        transform:
-            translateY(0);
-
+        transform:translateY(0);
     }
 
 }
 
-
-/* =========================
-   PAGE HEADER
-========================= */
-
 .page-header{
-
     margin-bottom:25px;
-
 }
 
 .page-tag{
-
     margin-bottom:7px;
-
     color:var(--green);
-
     font-size:9px;
-
     font-weight:900;
-
     letter-spacing:1px;
-
 }
 
 .page-title{
-
     font-size:28px;
-
     font-weight:900;
-
 }
 
 .page-description{
-
     margin-top:7px;
-
     color:var(--muted);
-
     font-size:12px;
-
 }
 
-
-/* =========================
-   STATS
-========================= */
-
 .stats{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:13px;
-
     margin-bottom:18px;
-
 }
 
 .stat{
-
     padding:18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111517,
-            #0d1012
-        );
-
-    border:
-        1px solid var(--border);
-
+    background:linear-gradient(
+        145deg,
+        #111517,
+        #0d1012
+    );
+    border:1px solid var(--border);
     border-radius:13px;
-
     transition:.2s;
-
 }
 
 .stat:hover{
-
-    transform:
-        translateY(-4px);
-
+    transform:translateY(-4px);
     border-color:#344039;
-
 }
 
 .stat-icon{
-
     margin-bottom:12px;
-
     font-size:20px;
-
 }
 
 .stat-number{
-
     font-size:23px;
-
     font-weight:900;
-
 }
 
 .stat-label{
-
     margin-top:5px;
-
     color:var(--muted);
-
     font-size:10px;
-
 }
 
-
-/* =========================
-   GRID
-========================= */
-
 .grid{
-
     display:grid;
-
-    grid-template-columns:
-        1.6fr 1fr;
-
+    grid-template-columns:1.6fr 1fr;
     gap:16px;
-
 }
 
 .panel{
-
-    background:
-        rgba(16,19,21,.92);
-
-    border:
-        1px solid var(--border);
-
+    background:rgba(16,19,21,.92);
+    border:1px solid var(--border);
     border-radius:13px;
-
     overflow:hidden;
-
 }
 
 .panel-header{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    padding:
-        16px 18px;
-
-    border-bottom:
-        1px solid var(--border);
-
+    padding:16px 18px;
+    border-bottom:1px solid var(--border);
 }
 
 .panel-title{
-
     font-size:13px;
-
     font-weight:800;
-
 }
 
 .panel-body{
-
     padding:18px;
-
 }
 
 .activity{
-
     padding:13px 0;
-
-    border-bottom:
-        1px solid #1a1e21;
-
+    border-bottom:1px solid #1a1e21;
     font-size:11px;
-
 }
 
 .activity:last-child{
-
     border-bottom:0;
-
 }
 
 .activity-time{
-
     margin-top:4px;
-
     color:var(--muted);
-
     font-size:9px;
-
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
 .btn{
-
     padding:10px 14px;
-
     border:0;
-
     border-radius:8px;
-
     cursor:pointer;
-
     font-size:10px;
-
     font-weight:800;
-
     transition:.2s;
-
 }
 
 .btn:hover{
-
-    transform:
-        translateY(-2px);
-
+    transform:translateY(-2px);
 }
 
 .btn-green{
-
     background:var(--green);
-
     color:#000;
-
 }
 
 .btn-dark{
-
     background:#191d20;
-
     color:#ddd;
-
-    border:
-        1px solid var(--border);
-
+    border:1px solid var(--border);
 }
 
 .btn-red{
-
     background:var(--red-dark);
-
     color:var(--red);
-
 }
 
-
-/* =========================
-   TABLE
-========================= */
-
 .table{
-
     width:100%;
-
     border-collapse:collapse;
-
 }
 
 .table th{
-
     padding:12px;
-
     background:#0c0f11;
-
     color:#626a70;
-
     font-size:8px;
-
     text-align:left;
-
 }
 
 .table td{
-
-    padding:
-        13px 12px;
-
-    border-top:
-        1px solid #1a1e21;
-
+    padding:13px 12px;
+    border-top:1px solid #1a1e21;
     font-size:10px;
-
 }
 
-
-/* =========================
-   BADGES
-========================= */
-
 .badge{
-
     display:inline-block;
-
     padding:5px 8px;
-
     border-radius:5px;
-
     font-size:8px;
-
     font-weight:900;
-
 }
 
 .badge-green{
-
     background:var(--green-dark);
-
     color:var(--green);
-
 }
 
 .badge-red{
-
     background:var(--red-dark);
-
     color:var(--red);
-
 }
 
 .badge-yellow{
-
     background:#3a300b;
-
     color:var(--yellow);
-
 }
 
-
-/* =========================
-   CARDS
-========================= */
-
 .cards{
-
     display:grid;
-
     grid-template-columns:
         repeat(
             auto-fit,
             minmax(220px,1fr)
         );
-
     gap:14px;
-
 }
 
 .card{
-
     padding:20px;
-
     background:#101416;
-
-    border:
-        1px solid var(--border);
-
+    border:1px solid var(--border);
     border-radius:13px;
-
     transition:.2s;
-
 }
 
 .card:hover{
-
-    transform:
-        translateY(-4px);
-
+    transform:translateY(-4px);
     border-color:#344039;
-
 }
 
 .card-icon{
-
     font-size:22px;
-
     margin-bottom:12px;
-
 }
 
 .card h3{
-
     font-size:14px;
-
 }
 
 .card p{
-
-    margin:
-        7px 0 15px;
-
+    margin:7px 0 15px;
     color:var(--muted);
-
     font-size:10px;
-
     line-height:1.5;
-
 }
-
-
-/* =========================
-   SETTING
-========================= */
-
-.setting{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    padding:16px 0;
-
-    border-bottom:
-        1px solid #1a1e21;
-
-}
-
-.setting:last-child{
-
-    border-bottom:0;
-
-}
-
-.setting-title{
-
-    font-size:11px;
-
-    font-weight:800;
-
-}
-
-.setting-description{
-
-    margin-top:4px;
-
-    color:var(--muted);
-
-    font-size:9px;
-
-}
-
-
-/* =========================
-   TOAST
-========================= */
 
 .toast{
-
     position:fixed;
-
     right:25px;
-
     bottom:25px;
-
     z-index:5000;
-
-    padding:
-        13px 16px;
-
+    padding:13px 16px;
     background:#15191b;
-
-    border:
-        1px solid var(--border);
-
-    border-left:
-        3px solid var(--green);
-
+    border:1px solid var(--border);
+    border-left:3px solid var(--green);
     border-radius:9px;
-
     font-size:10px;
-
-    transform:
-        translateY(80px);
-
+    transform:translateY(80px);
     opacity:0;
-
     transition:.3s;
-
 }
 
 .toast.show{
-
-    transform:
-        translateY(0);
-
+    transform:translateY(0);
     opacity:1;
-
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:950px){
 
     .stats{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
 
     .grid{
-
         grid-template-columns:1fr;
-
     }
 
 }
@@ -994,82 +533,50 @@ body{
 @media(max-width:700px){
 
     .sidebar{
-
         width:100%;
-
         height:58px;
-
         top:70px;
-
         bottom:auto;
-
         display:flex;
-
         overflow-x:auto;
-
         padding:5px;
-
         border-right:0;
-
-        border-bottom:
-            1px solid var(--border);
-
+        border-bottom:1px solid var(--border);
     }
 
     .section-label{
-
         display:none;
-
     }
 
     .nav-button{
-
         min-width:105px;
-
         justify-content:center;
-
     }
 
     .main{
-
         margin-left:0;
-
-        padding:
-            145px
-            14px
-            30px;
-
+        padding:145px 14px 30px;
     }
 
     .status{
-
         display:none;
-
     }
 
     .profile-name,
     .profile-role{
-
         display:none;
-
     }
 
     .stats{
-
         gap:8px;
-
     }
 
     .stat{
-
         padding:14px;
-
     }
 
     .stat-number{
-
         font-size:18px;
-
     }
 
 }
@@ -1078,14 +585,7 @@ body{
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     LOADING
-========================= -->
-
 <div id="loadingScreen">
 
     <div class="loading-logo">
@@ -1097,11 +597,6 @@ body{
     </div>
 
 </div>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header class="header">
 
@@ -1115,7 +610,6 @@ body{
 
     </div>
 
-
     <div class="header-right">
 
         <div class="status">
@@ -1125,7 +619,6 @@ body{
             Sistema online
 
         </div>
-
 
         <div class="profile">
 
@@ -1139,7 +632,7 @@ body{
                     class="profile-name"
                     id="adminName"
                 >
-                    Central
+                    Carregando...
                 </div>
 
                 <div
@@ -1157,42 +650,25 @@ body{
 
 </header>
 
-
-<!-- =========================
-     SIDEBAR
-========================= -->
-
 <aside class="sidebar">
-
 
     <div class="section-label">
         PRINCIPAL
     </div>
 
-
     <button
         class="nav-button active"
         data-page="dashboard"
     >
-
-        <span class="nav-icon">
-            📊
-        </span>
-
+        <span class="nav-icon">📊</span>
         Dashboard
-
     </button>
-
 
     <button
         class="nav-button"
         data-page="vendas"
     >
-
-        <span class="nav-icon">
-            💰
-        </span>
-
+        <span class="nav-icon">💰</span>
         Vendas
 
         <span
@@ -1201,131 +677,75 @@ body{
         >
             0
         </span>
-
     </button>
-
 
     <button
         class="nav-button"
         data-page="clientes"
     >
-
-        <span class="nav-icon">
-            👥
-        </span>
-
+        <span class="nav-icon">👥</span>
         Clientes
-
     </button>
-
 
     <div class="section-label">
         CONTROLE
     </div>
 
-
     <button
         class="nav-button"
         data-page="acessos"
     >
-
-        <span class="nav-icon">
-            🔐
-        </span>
-
+        <span class="nav-icon">🔐</span>
         Acessos
-
     </button>
-
 
     <button
         class="nav-button"
         data-page="admins"
     >
-
-        <span class="nav-icon">
-            🛡️
-        </span>
-
+        <span class="nav-icon">🛡️</span>
         Administradores
-
     </button>
-
 
     <button
         class="nav-button"
         data-page="tickets"
     >
-
-        <span class="nav-icon">
-            🎫
-        </span>
-
+        <span class="nav-icon">🎫</span>
         Tickets
-
     </button>
-
 
     <div class="section-label">
         SISTEMA
     </div>
 
-
     <button
         class="nav-button"
         data-page="produtos"
     >
-
-        <span class="nav-icon">
-            📦
-        </span>
-
+        <span class="nav-icon">📦</span>
         Produtos
-
     </button>
-
 
     <button
         class="nav-button"
         data-page="config"
     >
-
-        <span class="nav-icon">
-            ⚙️
-        </span>
-
+        <span class="nav-icon">⚙️</span>
         Configurações
-
     </button>
-
 
     <button
         class="nav-button"
         id="logoutButton"
     >
-
-        <span class="nav-icon">
-            🚪
-        </span>
-
+        <span class="nav-icon">🚪</span>
         Sair
-
     </button>
-
 
 </aside>
 
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="main">
-
-
-<!-- =========================
-     DASHBOARD
-========================= -->
 
 <section
     class="page active"
@@ -1348,9 +768,7 @@ body{
 
     </div>
 
-
     <div class="stats">
-
 
         <div class="stat">
 
@@ -1371,7 +789,6 @@ body{
 
         </div>
 
-
         <div class="stat">
 
             <div class="stat-icon">
@@ -1390,7 +807,6 @@ body{
             </div>
 
         </div>
-
 
         <div class="stat">
 
@@ -1411,32 +827,28 @@ body{
 
         </div>
 
-
         <div class="stat">
 
             <div class="stat-icon">
-                ⏳
+                🛡️
             </div>
 
             <div
                 class="stat-number"
-                id="pendentesTotal"
+                id="adminsTotal"
             >
                 0
             </div>
 
             <div class="stat-label">
-                Pendentes
+                Administradores
             </div>
 
         </div>
 
-
     </div>
 
-
     <div class="grid">
-
 
         <div class="panel">
 
@@ -1447,7 +859,6 @@ body{
                 </div>
 
             </div>
-
 
             <div class="panel-body">
 
@@ -1461,7 +872,6 @@ body{
 
                 </div>
 
-
                 <div class="activity">
 
                     Sistema conectado ao Supabase.
@@ -1471,7 +881,6 @@ body{
                     </div>
 
                 </div>
-
 
                 <div
                     class="activity"
@@ -1486,11 +895,9 @@ body{
 
                 </div>
 
-
             </div>
 
         </div>
-
 
         <div class="panel">
 
@@ -1502,41 +909,31 @@ body{
 
             </div>
 
-
             <div class="panel-body">
 
                 <button
                     class="btn btn-green"
-                    data-open-page="vendas"
-                >
-                    Ver vendas
-                </button>
-
-
-                <br><br>
-
-
-                <button
-                    class="btn btn-dark"
                     data-open-page="clientes"
                 >
                     Ver clientes
                 </button>
 
+                <br><br>
+
+                <button
+                    class="btn btn-dark"
+                    data-open-page="admins"
+                >
+                    Administradores
+                </button>
 
             </div>
 
         </div>
 
-
     </div>
 
 </section>
-
-
-<!-- =========================
-     VENDAS
-========================= -->
 
 <section
     class="page"
@@ -1559,7 +956,6 @@ body{
 
     </div>
 
-
     <div class="panel">
 
         <div class="panel-header">
@@ -1568,15 +964,7 @@ body{
                 Pagamentos
             </div>
 
-            <button
-                class="btn btn-dark"
-                id="atualizarVendas"
-            >
-                Atualizar
-            </button>
-
         </div>
-
 
         <table class="table">
 
@@ -1584,28 +972,16 @@ body{
 
                 <tr>
 
-                    <th>
-                        Cliente
-                    </th>
-
-                    <th>
-                        Produto
-                    </th>
-
-                    <th>
-                        Valor
-                    </th>
-
-                    <th>
-                        Status
-                    </th>
+                    <th>Cliente</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Status</th>
 
                 </tr>
 
             </thead>
 
-
-            <tbody id="vendasContainer">
+            <tbody>
 
                 <tr>
 
@@ -1622,11 +998,6 @@ body{
     </div>
 
 </section>
-
-
-<!-- =========================
-     CLIENTES
-========================= -->
 
 <section
     class="page"
@@ -1648,7 +1019,6 @@ body{
         </p>
 
     </div>
-
 
     <div
         class="cards"
@@ -1675,14 +1045,8 @@ body{
 
 </section>
 
-
-<!-- =========================
-     ACESSOS
-========================= -->
-
 <section
     class="page"
-   
     id="acessos"
 >
 
@@ -1697,71 +1061,36 @@ body{
         </h1>
 
         <p class="page-description">
-            Controle de acesso dos clientes.
+            Controle de solicitações de acesso.
         </p>
 
     </div>
 
+    <div class="panel">
 
-    <div class="cards">
+        <div class="panel-body">
 
-        <div class="card">
+            <div class="card">
 
-            <div class="card-icon">
-                🔓
+                <div class="card-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Nenhuma solicitação
+                </h3>
+
+                <p>
+                    Não existem solicitações de acesso pendentes no momento.
+                </p>
+
             </div>
-
-            <h3>
-                Liberar acesso
-            </h3>
-
-            <p>
-                Libere o acesso após confirmar
-                o pagamento do cliente.
-            </p>
-
-            <button
-                class="btn btn-green"
-                id="liberarAcesso"
-            >
-                Ver solicitações
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🚫
-            </div>
-
-            <h3>
-                Rejeitar acesso
-            </h3>
-
-            <p>
-                Recuse solicitações de acesso
-                que não foram aprovadas.
-            </p>
-
-            <button
-                class="btn btn-red"
-                id="rejeitarAcesso"
-            >
-                Ver solicitações
-            </button>
 
         </div>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     ADMINISTRADORES
-========================= -->
 
 <section
     class="page"
@@ -1771,7 +1100,7 @@ body{
     <div class="page-header">
 
         <div class="page-tag">
-            CENTRAL+ • SEGURANÇA
+            CENTRAL+ • CONTROLE
         </div>
 
         <h1 class="page-title">
@@ -1784,36 +1113,63 @@ body{
 
     </div>
 
+    <div class="panel">
 
-    <div
-        class="cards"
-        id="adminsContainer"
-    >
+        <div class="panel-header">
 
-        <div class="card">
-
-            <div class="card-icon">
-                ⏳
+            <div class="panel-title">
+                Administradores cadastrados
             </div>
 
-            <h3>
-                Carregando...
-            </h3>
+            <button
+                class="btn btn-dark"
+                id="atualizarAdmins"
+            >
+                Atualizar
+            </button>
 
-            <p>
-                Verificando administradores.
-            </p>
+        </div>
+
+        <div
+            class="panel-body"
+            style="padding:0;"
+        >
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Cargo</th>
+                        <th>Nível</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="adminsContainer">
+
+                    <tr>
+
+                        <td colspan="5">
+                            Carregando administradores...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
 
         </div>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     TICKETS
-========================= -->
 
 <section
     class="page"
@@ -1831,63 +1187,36 @@ body{
         </h1>
 
         <p class="page-description">
-            Central de atendimento aos clientes.
+            Gerenciamento dos tickets de suporte.
         </p>
 
     </div>
 
+    <div class="panel">
 
-    <div class="cards">
+        <div class="panel-body">
 
-        <div class="card">
+            <div class="card">
 
-            <div class="card-icon">
-                🎫
+                <div class="card-icon">
+                    🎫
+                </div>
+
+                <h3>
+                    Nenhum ticket
+                </h3>
+
+                <p>
+                    Nenhum ticket disponível no momento.
+                </p>
+
             </div>
-
-            <h3>
-                Tickets abertos
-            </h3>
-
-            <p>
-                Nenhum ticket aberto no momento.
-            </p>
-
-            <span class="badge badge-green">
-                0 ABERTOS
-            </span>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                ⏳
-            </div>
-
-            <h3>
-                Em atendimento
-            </h3>
-
-            <p>
-                Nenhum atendimento pendente.
-            </p>
-
-            <span class="badge badge-yellow">
-                0 PENDENTES
-            </span>
 
         </div>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     PRODUTOS
-========================= -->
 
 <section
     class="page"
@@ -1897,7 +1226,7 @@ body{
     <div class="page-header">
 
         <div class="page-tag">
-            CENTRAL+ • PRODUTOS
+            CENTRAL+ • SISTEMA
         </div>
 
         <h1 class="page-title">
@@ -1905,11 +1234,10 @@ body{
         </h1>
 
         <p class="page-description">
-            Gerencie os produtos disponíveis na plataforma.
+            Gerenciamento dos produtos da Central+.
         </p>
 
     </div>
-
 
     <div class="cards">
 
@@ -1920,27 +1248,18 @@ body{
             </div>
 
             <h3>
-                Nenhum produto
+                Produtos
             </h3>
 
             <p>
-                Os produtos cadastrados aparecerão aqui.
+                O gerenciamento de produtos será configurado nesta área.
             </p>
-
-            <span class="badge badge-yellow">
-                AGUARDANDO
-            </span>
 
         </div>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     CONFIGURAÇÕES
-========================= -->
 
 <section
     class="page"
@@ -1958,22 +1277,12 @@ body{
         </h1>
 
         <p class="page-description">
-            Configurações do painel administrativo.
+            Configurações administrativas da plataforma.
         </p>
 
     </div>
 
-
     <div class="panel">
-
-        <div class="panel-header">
-
-            <div class="panel-title">
-                Sistema
-            </div>
-
-        </div>
-
 
         <div class="panel-body">
 
@@ -1982,21 +1291,20 @@ body{
                 <div>
 
                     <div class="setting-title">
-                        Banco de dados
+                        Sistema
                     </div>
 
                     <div class="setting-description">
-                        Conexão com o Supabase.
+                        Central+ está conectado ao Supabase.
                     </div>
 
                 </div>
 
                 <span class="badge badge-green">
-                    CONECTADO
+                    ONLINE
                 </span>
 
             </div>
-
 
             <div class="setting">
 
@@ -2007,34 +1315,13 @@ body{
                     </div>
 
                     <div class="setting-description">
-                        Sistema de autenticação do painel.
+                        Sessão administrativa ativa.
                     </div>
 
                 </div>
 
                 <span class="badge badge-green">
-                    ATIVO
-                </span>
-
-            </div>
-
-
-            <div class="setting">
-
-                <div>
-
-                    <div class="setting-title">
-                        Sessão administrativa
-                    </div>
-
-                    <div class="setting-description">
-                        Sua sessão atual está protegida pelo Supabase.
-                    </div>
-
-                </div>
-
-                <span class="badge badge-green">
-                    SEGURA
+                    ATIVA
                 </span>
 
             </div>
@@ -2045,29 +1332,20 @@ body{
 
 </section>
 
-
 </main>
-
-
-<!-- =========================
-     TOAST
-========================= -->
 
 <div
     class="toast"
     id="toast"
-></div>
-
-
+>
+    Operação realizada.
+</div>
 <script>
 
-const SUPABASE_URL =
-    "https://meaxcosoblauhokxputd.supabase.co";
+const SUPABASE_URL = "https://meaxcosoblauhoekxputd.supabase.co";
 
-const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
-
-
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
+    
 const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
@@ -2075,145 +1353,91 @@ const supabaseClient =
     );
 
 
-/* =========================
-   TOAST
-========================= */
-
-function mostrarAviso(mensagem){
+function mostrarToast(mensagem){
 
     const toast =
         document.getElementById("toast");
-
-    if(!toast) return;
 
     toast.textContent = mensagem;
 
     toast.classList.add("show");
 
-    setTimeout(function(){
+    setTimeout(() => {
 
         toast.classList.remove("show");
 
-    },3000);
+    }, 3000);
 
 }
 
 
-/* =========================
-   NAVEGAÇÃO
-========================= */
+document
+.querySelectorAll(".nav-button[data-page]")
+.forEach(button => {
 
-function abrirPagina(nome){
+    button.addEventListener("click", () => {
 
-    const paginas =
-        document.querySelectorAll(".page");
+        const page =
+            button.dataset.page;
 
-    const botoes =
-        document.querySelectorAll(".nav-button[data-page]");
-
-
-    paginas.forEach(function(pagina){
-
-        pagina.classList.remove("active");
-
-    });
-
-
-    botoes.forEach(function(botao){
-
-        botao.classList.remove("active");
-
-    });
-
-
-    const pagina =
-        document.getElementById(nome);
-
-    const botao =
-        document.querySelector(
-            '.nav-button[data-page="' +
-            nome +
-            '"]'
+        document
+        .querySelectorAll(".nav-button")
+        .forEach(btn =>
+            btn.classList.remove("active")
         );
 
+        button.classList.add("active");
 
-    if(pagina){
+        document
+        .querySelectorAll(".page")
+        .forEach(section =>
+            section.classList.remove("active")
+        );
 
-        pagina.classList.add("active");
+        document
+        .getElementById(page)
+        ?.classList.add("active");
 
-    }
-
-
-    if(botao){
-
-        botao.classList.add("active");
-
-    }
-
-
-    if(nome === "clientes"){
-
-        carregarClientes();
-
-    }
-
-
-    if(nome === "admins"){
-
-        carregarAdministradores();
-
-    }
-
-}
-
-
-/* =========================
-   BOTÕES DO MENU
-========================= */
-
-document.querySelectorAll(
-    ".nav-button[data-page]"
-).forEach(function(botao){
-
-    botao.addEventListener(
-        "click",
-        function(){
-
-            abrirPagina(
-                botao.dataset.page
-            );
-
-        }
-    );
+    });
 
 });
 
 
-/* =========================
-   AÇÕES RÁPIDAS
-========================= */
+document
+.querySelectorAll("[data-open-page]")
+.forEach(button => {
 
-document.querySelectorAll(
-    "[data-open-page]"
-).forEach(function(botao){
+    button.addEventListener("click", () => {
 
-    botao.addEventListener(
-        "click",
-        function(){
+        const page =
+            button.dataset.openPage;
 
-            abrirPagina(
-                botao.dataset.openPage
+        document
+        .querySelectorAll(".nav-button")
+        .forEach(btn => {
+
+            btn.classList.toggle(
+                "active",
+                btn.dataset.page === page
             );
 
-        }
-    );
+        });
+
+        document
+        .querySelectorAll(".page")
+        .forEach(section => {
+
+            section.classList.toggle(
+                "active",
+                section.id === page
+            );
+
+        });
+
+    });
 
 });
 
-
-/* =========================
-   CLIENTES
-========================= */
 
 async function carregarClientes(){
 
@@ -2222,71 +1446,24 @@ async function carregarClientes(){
             "clientesContainer"
         );
 
-    const total =
-        document.getElementById(
-            "clientesTotal"
-        );
-
-    if(!container) return;
-
-
-    container.innerHTML = `
-
-        <div class="card">
-
-            <div class="card-icon">
-                ⏳
-            </div>
-
-            <h3>
-                Carregando...
-            </h3>
-
-            <p>
-                Consultando o banco de dados.
-            </p>
-
-        </div>
-
-    `;
-
-
     try{
 
-        const resultado =
+        const { data, error } =
             await supabaseClient
-                .from("clientes")
-                .select(
-                    "id,nome,email,criado_em"
-                )
-                .order(
-                    "criado_em",
-                    {
-                        ascending:false
-                    }
-                );
+            .from("clientes")
+            .select("*")
+            .order("criado_em", {
+                ascending:false
+            });
 
+        if(error) throw error;
 
-        if(resultado.error){
+        document.getElementById(
+            "clientesTotal"
+        ).textContent =
+            data.length;
 
-            throw resultado.error;
-
-        }
-
-
-        const clientes =
-            resultado.data || [];
-
-
-        if(total){
-
-            total.textContent =
-                clientes.length;
-
-        }
-
-
-        if(clientes.length === 0){
+        if(!data.length){
 
             container.innerHTML = `
 
@@ -2309,49 +1486,44 @@ async function carregarClientes(){
             `;
 
             return;
-
         }
 
-
         container.innerHTML =
-            clientes.map(function(cliente){
+            data.map(cliente => `
 
-                const nome =
-                    cliente.nome ||
-                    "Cliente";
+                <div class="card">
 
-
-                const email =
-                    cliente.email ||
-                    "Sem email";
-
-
-                return `
-
-                    <div class="card">
-
-                        <div class="card-icon">
-                            👤
-                        </div>
-
-                        <h3>
-                            ${escaparHTML(nome)}
-                        </h3>
-
-                        <p>
-                            ${escaparHTML(email)}
-                        </p>
-
-                        <span class="badge badge-green">
-                            CADASTRADO
-                        </span>
-
+                    <div class="card-icon">
+                        👤
                     </div>
 
-                `;
+                    <h3>
+                        ${cliente.nome || "Sem nome"}
+                    </h3>
 
-            }).join("");
+                    <p>
+                        ${cliente.email || "Sem email"}
+                    </p>
 
+                    <span class="badge badge-green">
+                        CLIENTE
+                    </span>
+
+                </div>
+
+            `).join("");
+
+        document.getElementById(
+            "atividadeClientes"
+        ).innerHTML = `
+
+            ${data.length} cliente(s) encontrado(s).
+
+            <div class="activity-time">
+                Banco de dados atualizado.
+            </div>
+
+        `;
 
     }catch(error){
 
@@ -2359,7 +1531,6 @@ async function carregarClientes(){
             "Erro ao carregar clientes:",
             error
         );
-
 
         container.innerHTML = `
 
@@ -2374,47 +1545,17 @@ async function carregarClientes(){
                 </h3>
 
                 <p>
-                    ${escaparHTML(
-                        error.message ||
-                        "Erro desconhecido."
-                    )}
+                    Não foi possível buscar os clientes.
                 </p>
-
-                <button
-                    class="btn btn-dark"
-                    id="tentarClientes"
-                >
-                    Tentar novamente
-                </button>
 
             </div>
 
         `;
 
-
-        const tentar =
-            document.getElementById(
-                "tentarClientes"
-            );
-
-
-        if(tentar){
-
-            tentar.addEventListener(
-                "click",
-                carregarClientes
-            );
-
-        }
-
     }
 
 }
 
-
-/* =========================
-   ADMINISTRADORES
-========================= */
 
 async function carregarAdministradores(){
 
@@ -2423,90 +1564,84 @@ async function carregarAdministradores(){
             "adminsContainer"
         );
 
-    if(!container) return;
+    container.innerHTML = `
 
+        <tr>
+
+            <td colspan="5">
+                Carregando administradores...
+            </td>
+
+        </tr>
+
+    `;
 
     try{
 
-        const resultado =
+        const { data, error } =
             await supabaseClient
-                .from("administradores")
-                .select("*");
+            .from("administradores")
+            .select("*")
+            .order("nome", {
+                ascending:true
+            });
 
+        if(error) throw error;
 
-        if(resultado.error){
+        document.getElementById(
+            "adminsTotal"
+        ).textContent =
+            data.length;
 
-            throw resultado.error;
-
-        }
-
-
-        const admins =
-            resultado.data || [];
-
-
-        if(admins.length === 0){
+        if(!data.length){
 
             container.innerHTML = `
 
-                <div class="card">
+                <tr>
 
-                    <div class="card-icon">
-                        🛡️
-                    </div>
+                    <td colspan="5">
+                        Nenhum administrador cadastrado.
+                    </td>
 
-                    <h3>
-                        Nenhum administrador
-                    </h3>
-
-                    <p>
-                        Nenhum administrador encontrado.
-                    </p>
-
-                </div>
+                </tr>
 
             `;
 
             return;
-
         }
 
-
         container.innerHTML =
-            admins.map(function(admin){
+            data.map(admin => `
 
-                const email =
-                    admin.email ||
-                    admin.email_admin ||
-                    "Email não informado";
+                <tr>
 
+                    <td>
+                        ${admin.nome || "Sem nome"}
+                    </td>
 
-                return `
+                    <td>
+                        ${admin.email || "Sem email"}
+                    </td>
 
-                    <div class="card">
-
-                        <div class="card-icon">
-                            🛡️
-                        </div>
-
-                        <h3>
-                            Administrador
-                        </h3>
-
-                        <p>
-                            ${escaparHTML(email)}
-                        </p>
-
+                    <td>
                         <span class="badge badge-green">
-                            AUTORIZADO
+                            ${admin.cargo || "ADMIN"}
                         </span>
+                    </td>
 
-                    </div>
+                    <td>
+                        ${admin.nivel || "1"}
+                    </td>
 
-                `;
+                    <td>
+                        <span class="badge badge-green">
+                            ATIVO
+                        </span>
+                    </td>
 
-            }).join("");
+                </tr>
 
+            `).join("");
 
     }catch(error){
 
@@ -2515,27 +1650,15 @@ async function carregarAdministradores(){
             error
         );
 
-
         container.innerHTML = `
 
-            <div class="card">
+            <tr>
 
-                <div class="card-icon">
-                    ❌
-                </div>
+                <td colspan="5">
+                    Erro ao carregar administradores.
+                </td>
 
-                <h3>
-                    Não foi possível carregar
-                </h3>
-
-                <p>
-                    ${escaparHTML(
-                        error.message ||
-                        "Erro desconhecido."
-                    )}
-                </p>
-
-            </div>
+            </tr>
 
         `;
 
@@ -2544,178 +1667,45 @@ async function carregarAdministradores(){
 }
 
 
-/* =========================
-   HTML SEGURO
-========================= */
-
-function escaparHTML(valor){
-
-    return String(valor)
-
-        .replace(/&/g,"&amp;")
-
-        .replace(/</g,"&lt;")
-
-        .replace(/>/g,"&gt;")
-
-        .replace(/"/g,"&quot;")
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =========================
-   LOGOUT
-========================= */
-
 document
-    .getElementById("logoutButton")
-    .addEventListener(
-        "click",
-        async function(){
+.getElementById("atualizarAdmins")
+.addEventListener("click", () => {
 
-            await supabaseClient.auth.signOut();
+    carregarAdministradores();
 
-            window.location.replace(
-                "admin-login.html"
-            );
-
-        }
+    mostrarToast(
+        "Administradores atualizados."
     );
 
-
-/* =========================
-   ATUALIZAR VENDAS
-========================= */
-
-document
-    .getElementById("atualizarVendas")
-    .addEventListener(
-        "click",
-        function(){
-
-            mostrarAviso(
-                "Lista de vendas atualizada."
-            );
-
-        }
-    );
+});
 
 
-/* =========================
-   ACESSOS
-========================= */
-
-document
-    .getElementById("liberarAcesso")
-    .addEventListener(
-        "click",
-        function(){
-
-            mostrarAviso(
-                "Nenhuma solicitação aguardando."
-            );
-
-        }
-    );
-
-
-document
-    .getElementById("rejeitarAcesso")
-    .addEventListener(
-        "click",
-        function(){
-
-            mostrarAviso(
-                "Nenhuma solicitação aguardando."
-            );
-
-        }
-    );
-
-
-/* =========================
-   VERIFICAÇÃO DE SESSÃO
-========================= */
-
-async function verificarSessao(){
+async function carregarVendas(){
 
     try{
 
-        const resultado =
-            await supabaseClient.auth.getUser();
+        const { data, error } =
+            await supabaseClient
+            .from("vendas")
+            .select("*");
 
+        if(error) throw error;
 
-        const usuario =
-            resultado.data.user;
+        const total =
+            data ? data.length : 0;
 
+        document.getElementById(
+            "vendasTotal"
+        ).textContent = total;
 
-        if(!usuario){
-
-            window.location.replace(
-                "admin-login.html"
-            );
-
-            return;
-
-        }
-
-
-        const nome =
-            document.getElementById(
-                "adminName"
-            );
-
-        const role =
-            document.getElementById(
-                "adminRole"
-            );
-
-
-        if(nome){
-
-            nome.textContent =
-                usuario.email ||
-                "Administrador";
-
-        }
-
-
-        if(role){
-
-            role.textContent =
-                "ADMINISTRADOR";
-
-        }
-
-
-        document
-            .getElementById(
-                "loadingScreen"
-            )
-            .style.display =
-                "none";
-
-
-        await carregarClientes();
-
-        await carregarAdministradores();
-
+        document.getElementById(
+            "vendasCount"
+        ).textContent = total;
 
     }catch(error){
 
-        console.error(
-            "Erro na sessão:",
-            error
-        );
-
-
-        window.location.replace(
-            "admin-login.html"
+        console.log(
+            "Tabela vendas ainda não disponível."
         );
 
     }
@@ -2723,22 +1713,40 @@ async function verificarSessao(){
 }
 
 
-/* =========================
-   INICIAR
-========================= */
+document
+.getElementById("logoutButton")
+.addEventListener("click", async () => {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+    await supabaseClient.auth.signOut();
 
-        verificarSessao();
+    sessionStorage.removeItem(
+        "centralAdmin"
+    );
 
-    }
-);
+    window.location.href =
+        "login.html";
+
+});
+
+
+async function iniciarPainel(){
+
+    await carregarClientes();
+
+    await carregarAdministradores();
+
+    await carregarVendas();
+
+    document
+    .getElementById("loadingScreen")
+    .style.display = "none";
+
+}
+
+iniciarPainel();
 
 </script>
 
 </body>
 
 </html>
-
