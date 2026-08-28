@@ -42,7 +42,7 @@ body{
         ),
         var(--bg);
     color:var(--text);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 #loadingScreen{
@@ -68,26 +68,11 @@ body{
     color:#000;
     font-size:16px;
     font-weight:900;
-    animation:pulse 1.2s infinite;
 }
 
 .loading-text{
-    color:#858d94;
+    color:var(--muted);
     font-size:11px;
-}
-
-@keyframes pulse{
-
-    0%,100%{
-        transform:scale(1);
-        opacity:1;
-    }
-
-    50%{
-        transform:scale(.9);
-        opacity:.65;
-    }
-
 }
 
 .header{
@@ -150,7 +135,6 @@ body{
     height:7px;
     border-radius:50%;
     background:var(--green);
-    box-shadow:0 0 10px var(--green);
 }
 
 .profile{
@@ -217,7 +201,6 @@ body{
     cursor:pointer;
     text-align:left;
     font-size:12px;
-    transition:.2s;
 }
 
 .nav-button:hover{
@@ -260,21 +243,6 @@ body{
 
 .page.active{
     display:block;
-    animation:pageIn .25s ease;
-}
-
-@keyframes pageIn{
-
-    from{
-        opacity:0;
-        transform:translateY(8px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
 }
 
 .page-header{
@@ -309,19 +277,9 @@ body{
 
 .stat{
     padding:18px;
-    background:linear-gradient(
-        145deg,
-        #111517,
-        #0d1012
-    );
+    background:#111517;
     border:1px solid var(--border);
     border-radius:13px;
-    transition:.2s;
-}
-
-.stat:hover{
-    transform:translateY(-4px);
-    border-color:#344039;
 }
 
 .stat-icon{
@@ -393,11 +351,6 @@ body{
     cursor:pointer;
     font-size:10px;
     font-weight:800;
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
 }
 
 .btn-green{
@@ -460,11 +413,10 @@ body{
 
 .cards{
     display:grid;
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px,1fr)
-        );
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
     gap:14px;
 }
 
@@ -473,12 +425,6 @@ body{
     background:#101416;
     border:1px solid var(--border);
     border-radius:13px;
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-    border-color:#344039;
 }
 
 .card-icon{
@@ -495,6 +441,17 @@ body{
     color:var(--muted);
     font-size:10px;
     line-height:1.5;
+}
+
+.error-box{
+    margin-top:10px;
+    padding:12px;
+    border:1px solid var(--red);
+    background:var(--red-dark);
+    color:#ff9ba2;
+    border-radius:8px;
+    font-size:10px;
+    word-break:break-word;
 }
 
 .toast{
@@ -567,18 +524,6 @@ body{
         display:none;
     }
 
-    .stats{
-        gap:8px;
-    }
-
-    .stat{
-        padding:14px;
-    }
-
-    .stat-number{
-        font-size:18px;
-    }
-
 }
 
 </style>
@@ -586,6 +531,7 @@ body{
 </head>
 
 <body>
+
 <div id="loadingScreen">
 
     <div class="loading-logo">
@@ -746,7 +692,6 @@ body{
 </aside>
 
 <main class="main">
-
 <section
     class="page active"
     id="dashboard"
@@ -772,9 +717,7 @@ body{
 
         <div class="stat">
 
-            <div class="stat-icon">
-                💰
-            </div>
+            <div class="stat-icon">💰</div>
 
             <div
                 class="stat-number"
@@ -791,9 +734,7 @@ body{
 
         <div class="stat">
 
-            <div class="stat-icon">
-                🛒
-            </div>
+            <div class="stat-icon">🛒</div>
 
             <div
                 class="stat-number"
@@ -810,9 +751,7 @@ body{
 
         <div class="stat">
 
-            <div class="stat-icon">
-                👥
-            </div>
+            <div class="stat-icon">👥</div>
 
             <div
                 class="stat-number"
@@ -829,9 +768,7 @@ body{
 
         <div class="stat">
 
-            <div class="stat-icon">
-                🛡️
-            </div>
+            <div class="stat-icon">🛡️</div>
 
             <div
                 class="stat-number"
@@ -935,6 +872,7 @@ body{
 
 </section>
 
+
 <section
     class="page"
     id="vendas"
@@ -971,17 +909,15 @@ body{
             <thead>
 
                 <tr>
-
                     <th>Cliente</th>
                     <th>Produto</th>
                     <th>Valor</th>
                     <th>Status</th>
-
                 </tr>
 
             </thead>
 
-            <tbody>
+            <tbody id="vendasContainer">
 
                 <tr>
 
@@ -998,6 +934,7 @@ body{
     </div>
 
 </section>
+
 
 <section
     class="page"
@@ -1045,6 +982,7 @@ body{
 
 </section>
 
+
 <section
     class="page"
     id="acessos"
@@ -1091,6 +1029,7 @@ body{
     </div>
 
 </section>
+
 
 <section
     class="page"
@@ -1140,13 +1079,10 @@ body{
                 <thead>
 
                     <tr>
-
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Cargo</th>
-                        <th>Nível</th>
                         <th>Status</th>
-
                     </tr>
 
                 </thead>
@@ -1155,7 +1091,7 @@ body{
 
                     <tr>
 
-                        <td colspan="5">
+                        <td colspan="4">
                             Carregando administradores...
                         </td>
 
@@ -1170,6 +1106,7 @@ body{
     </div>
 
 </section>
+
 
 <section
     class="page"
@@ -1218,6 +1155,7 @@ body{
 
 </section>
 
+
 <section
     class="page"
     id="produtos"
@@ -1261,6 +1199,7 @@ body{
 
 </section>
 
+
 <section
     class="page"
     id="config"
@@ -1286,42 +1225,22 @@ body{
 
         <div class="panel-body">
 
-            <div class="setting">
+            <div class="card">
 
-                <div>
-
-                    <div class="setting-title">
-                        Sistema
-                    </div>
-
-                    <div class="setting-description">
-                        Central+ está conectado ao Supabase.
-                    </div>
-
+                <div class="card-icon">
+                    ⚙️
                 </div>
+
+                <h3>
+                    Sistema
+                </h3>
+
+                <p>
+                    Central+ conectado ao Supabase.
+                </p>
 
                 <span class="badge badge-green">
                     ONLINE
-                </span>
-
-            </div>
-
-            <div class="setting">
-
-                <div>
-
-                    <div class="setting-title">
-                        Autenticação
-                    </div>
-
-                    <div class="setting-description">
-                        Sessão administrativa ativa.
-                    </div>
-
-                </div>
-
-                <span class="badge badge-green">
-                    ATIVA
                 </span>
 
             </div>
@@ -1339,19 +1258,29 @@ body{
     id="toast"
 >
     Operação realizada.
-</div>
-<script>
+            </div>
+    <script>
 
-const SUPABASE_URL = "https://meaxcosoblauhoekxputd.supabase.co";
+/* =========================
+   SUPABASE
+========================= */
 
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
-    
+const SUPABASE_URL =
+    "https://meaxcosoblauhokxputd.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lYXhjb3NvYmxhdWhva3hwdXRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0OTAyNjYsImV4cCI6MjEwMzA2NjI2Nn0.qdrJWtHsQfxM4aK-SgmIhSdGWGrPVWvPqb_-RyZDnWk";
+
 const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_ANON_KEY
     );
 
+
+/* =========================
+   TOAST
+========================= */
 
 function mostrarToast(mensagem){
 
@@ -1366,48 +1295,65 @@ function mostrarToast(mensagem){
 
         toast.classList.remove("show");
 
-    }, 3000);
+    },3000);
 
 }
 
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
 
 document
 .querySelectorAll(".nav-button[data-page]")
 .forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click",() => {
 
         const page =
             button.dataset.page;
 
         document
         .querySelectorAll(".nav-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
 
         button.classList.add("active");
 
         document
         .querySelectorAll(".page")
-        .forEach(section =>
-            section.classList.remove("active")
-        );
+        .forEach(section => {
 
-        document
-        .getElementById(page)
-        ?.classList.add("active");
+            section.classList.remove("active");
+
+        });
+
+        const destino =
+            document.getElementById(page);
+
+        if(destino){
+
+            destino.classList.add("active");
+
+        }
 
     });
 
 });
 
 
+/* =========================
+   AÇÕES RÁPIDAS
+========================= */
+
 document
 .querySelectorAll("[data-open-page]")
 .forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click",() => {
 
         const page =
             button.dataset.openPage;
@@ -1439,6 +1385,10 @@ document
 });
 
 
+/* =========================
+   CARREGAR CLIENTES
+========================= */
+
 async function carregarClientes(){
 
     const container =
@@ -1448,22 +1398,35 @@ async function carregarClientes(){
 
     try{
 
-        const { data, error } =
+        const resultado =
             await supabaseClient
             .from("clientes")
             .select("*")
-            .order("criado_em", {
-                ascending:false
-            });
+            .order(
+                "criado_em",
+                {
+                    ascending:false
+                }
+            );
 
-        if(error) throw error;
+        const data =
+            resultado.data;
+
+        const error =
+            resultado.error;
+
+        if(error){
+
+            throw error;
+
+        }
 
         document.getElementById(
             "clientesTotal"
         ).textContent =
             data.length;
 
-        if(!data.length){
+        if(data.length === 0){
 
             container.innerHTML = `
 
@@ -1485,33 +1448,34 @@ async function carregarClientes(){
 
             `;
 
-            return;
-        }
+        }else{
 
-        container.innerHTML =
-            data.map(cliente => `
+            container.innerHTML =
+                data.map(cliente => `
 
-                <div class="card">
+                    <div class="card">
 
-                    <div class="card-icon">
-                        👤
+                        <div class="card-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            ${cliente.nome || "Sem nome"}
+                        </h3>
+
+                        <p>
+                            ${cliente.email || "Sem email"}
+                        </p>
+
+                        <span class="badge badge-green">
+                            CLIENTE
+                        </span>
+
                     </div>
 
-                    <h3>
-                        ${cliente.nome || "Sem nome"}
-                    </h3>
+                `).join("");
 
-                    <p>
-                        ${cliente.email || "Sem email"}
-                    </p>
-
-                    <span class="badge badge-green">
-                        CLIENTE
-                    </span>
-
-                </div>
-
-            `).join("");
+        }
 
         document.getElementById(
             "atividadeClientes"
@@ -1528,7 +1492,7 @@ async function carregarClientes(){
     }catch(error){
 
         console.error(
-            "Erro ao carregar clientes:",
+            "Erro clientes:",
             error
         );
 
@@ -1541,12 +1505,16 @@ async function carregarClientes(){
                 </div>
 
                 <h3>
-                    Erro ao carregar
+                    Erro ao carregar clientes
                 </h3>
 
                 <p>
-                    Não foi possível buscar os clientes.
+                    O Supabase recusou ou não conseguiu realizar a consulta.
                 </p>
+
+                <div class="error-box">
+                    ${error.message || error}
+                </div>
 
             </div>
 
@@ -1556,6 +1524,10 @@ async function carregarClientes(){
 
 }
 
+
+/* =========================
+   CARREGAR ADMINISTRADORES
+========================= */
 
 async function carregarAdministradores(){
 
@@ -1568,7 +1540,7 @@ async function carregarAdministradores(){
 
         <tr>
 
-            <td colspan="5">
+            <td colspan="4">
                 Carregando administradores...
             </td>
 
@@ -1578,28 +1550,41 @@ async function carregarAdministradores(){
 
     try{
 
-        const { data, error } =
+        const resultado =
             await supabaseClient
             .from("administradores")
             .select("*")
-            .order("nome", {
-                ascending:true
-            });
+            .order(
+                "nome",
+                {
+                    ascending:true
+                }
+            );
 
-        if(error) throw error;
+        const data =
+            resultado.data;
+
+        const error =
+            resultado.error;
+
+        if(error){
+
+            throw error;
+
+        }
 
         document.getElementById(
             "adminsTotal"
         ).textContent =
             data.length;
 
-        if(!data.length){
+        if(data.length === 0){
 
             container.innerHTML = `
 
                 <tr>
 
-                    <td colspan="5">
+                    <td colspan="4">
                         Nenhum administrador cadastrado.
                     </td>
 
@@ -1608,6 +1593,7 @@ async function carregarAdministradores(){
             `;
 
             return;
+
         }
 
         container.innerHTML =
@@ -1624,19 +1610,19 @@ async function carregarAdministradores(){
                     </td>
 
                     <td>
+
                         <span class="badge badge-green">
                             ${admin.cargo || "ADMIN"}
                         </span>
+
                     </td>
 
                     <td>
-                        ${admin.nivel || "1"}
-                    </td>
 
-                    <td>
                         <span class="badge badge-green">
                             ATIVO
                         </span>
+
                     </td>
 
                 </tr>
@@ -1646,7 +1632,7 @@ async function carregarAdministradores(){
     }catch(error){
 
         console.error(
-            "Erro ao carregar administradores:",
+            "Erro administradores:",
             error
         );
 
@@ -1654,8 +1640,16 @@ async function carregarAdministradores(){
 
             <tr>
 
-                <td colspan="5">
-                    Erro ao carregar administradores.
+                <td colspan="4">
+
+                    <strong>
+                        Erro ao carregar administradores.
+                    </strong>
+
+                    <div class="error-box">
+                        ${error.message || error}
+                    </div>
+
                 </td>
 
             </tr>
@@ -1667,11 +1661,139 @@ async function carregarAdministradores(){
 }
 
 
+/* =========================
+   CARREGAR VENDAS
+========================= */
+
+async function carregarVendas(){
+
+    try{
+
+        const resultado =
+            await supabaseClient
+            .from("vendas")
+            .select("*");
+
+        const data =
+            resultado.data;
+
+        const error =
+            resultado.error;
+
+        if(error){
+
+            throw error;
+
+        }
+
+        const total =
+            data ? data.length : 0;
+
+        document.getElementById(
+            "vendasTotal"
+        ).textContent =
+            total;
+
+        document.getElementById(
+            "vendasCount"
+        ).textContent =
+            total;
+
+        const container =
+            document.getElementById(
+                "vendasContainer"
+            );
+
+        if(!data || data.length === 0){
+
+            container.innerHTML = `
+
+                <tr>
+
+                    <td colspan="4">
+                        Nenhuma venda cadastrada.
+                    </td>
+
+                </tr>
+
+            `;
+
+            return;
+
+        }
+
+        container.innerHTML =
+            data.map(venda => `
+
+                <tr>
+
+                    <td>
+                        ${venda.cliente || "Não informado"}
+                    </td>
+
+                    <td>
+                        ${venda.produto || "Não informado"}
+                    </td>
+
+                    <td>
+                        ${venda.valor || "R$ 0,00"}
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-green">
+                            ${venda.status || "APROVADA"}
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            `).join("");
+
+    }catch(error){
+
+        console.error(
+            "Erro vendas:",
+            error
+        );
+
+        document.getElementById(
+            "vendasContainer"
+        ).innerHTML = `
+
+            <tr>
+
+                <td colspan="4">
+
+                    <strong>
+                        Erro ao carregar vendas.
+                    </strong>
+
+                    <div class="error-box">
+                        ${error.message || error}
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   BOTÃO ATUALIZAR ADMINS
+========================= */
+
 document
 .getElementById("atualizarAdmins")
-.addEventListener("click", () => {
+.addEventListener("click",async () => {
 
-    carregarAdministradores();
+    await carregarAdministradores();
 
     mostrarToast(
         "Administradores atualizados."
@@ -1680,42 +1802,13 @@ document
 });
 
 
-async function carregarVendas(){
-
-    try{
-
-        const { data, error } =
-            await supabaseClient
-            .from("vendas")
-            .select("*");
-
-        if(error) throw error;
-
-        const total =
-            data ? data.length : 0;
-
-        document.getElementById(
-            "vendasTotal"
-        ).textContent = total;
-
-        document.getElementById(
-            "vendasCount"
-        ).textContent = total;
-
-    }catch(error){
-
-        console.log(
-            "Tabela vendas ainda não disponível."
-        );
-
-    }
-
-}
-
+/* =========================
+   LOGOUT
+========================= */
 
 document
 .getElementById("logoutButton")
-.addEventListener("click", async () => {
+.addEventListener("click",async () => {
 
     await supabaseClient.auth.signOut();
 
@@ -1729,17 +1822,30 @@ document
 });
 
 
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
 async function iniciarPainel(){
 
-    await carregarClientes();
+    try{
 
-    await carregarAdministradores();
+        await carregarClientes();
 
-    await carregarVendas();
+        await carregarAdministradores();
 
-    document
-    .getElementById("loadingScreen")
-    .style.display = "none";
+        await carregarVendas();
+
+    }finally{
+
+        document
+        .getElementById(
+            "loadingScreen"
+        )
+        .style.display =
+            "none";
+
+    }
 
 }
 
